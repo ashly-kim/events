@@ -2179,24 +2179,22 @@ function ScholarshipScreen({
     }).reduce((sum, e) => sum + e.amount, 0);
     return /*#__PURE__*/React.createElement("div", {
       style: {
-        background: 'linear-gradient(135deg, #FFFFFF 0%, #FFFFFF 52%, #FFF1F8 100%)',
+        background: 'linear-gradient(135deg, #FFFFFF 0%, #FFFFFF 52%, #FFF8EA 100%)',
         borderRadius: RADIUS.lg,
         padding: `${SPACING.xl}px ${SPACING.lg}px ${SPACING.lg}px`,
         position: 'relative',
         overflow: 'hidden'
       }
-    }, /*#__PURE__*/React.createElement("img", {
-      src: "point-jar.svg",
-      alt: "",
+    }, /*#__PURE__*/React.createElement("div", {
       style: {
         position: 'absolute',
-        right: 6,
-        top: 8,
-        width: 132,
-        height: 122,
+        right: 14,
+        top: 16,
         pointerEvents: 'none'
       }
-    }), /*#__PURE__*/React.createElement("div", {
+    }, /*#__PURE__*/React.createElement(CoinStack, {
+      size: 112
+    })), /*#__PURE__*/React.createElement("div", {
       style: {
         position: 'relative',
         minHeight: 112,
@@ -6279,6 +6277,126 @@ function AcademyEventBannerSection({
       }
     }, i + 1, " / ", total)));
   }));
+}
+
+// ════════════════════════════════════════════
+// CoinStack - 동전이 위에서 하나씩 떨어져 쌓이는 2D 일러스트 (포인트 카드)
+// ════════════════════════════════════════════
+function FlatCoin({
+  w = 78
+}) {
+  const h = w * 0.5,
+    rx = w / 2,
+    ry = w * 0.17,
+    t = w * 0.15;
+  const notches = [0.16, 0.33, 0.5, 0.67, 0.84];
+  return /*#__PURE__*/React.createElement("svg", {
+    width: w,
+    height: h,
+    viewBox: `0 0 ${w} ${h}`,
+    style: {
+      display: 'block',
+      overflow: 'visible'
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: `M0 ${ry} V${ry + t} A${rx} ${ry} 0 0 0 ${w} ${ry + t} V${ry} Z`,
+    fill: "#FFB547"
+  }), notches.map(f => {
+    const x = w * f,
+      dy = ry * Math.sqrt(1 - Math.pow((x - rx) / rx, 2));
+    return /*#__PURE__*/React.createElement("rect", {
+      key: f,
+      x: x - 2,
+      y: ry + dy + t * 0.18,
+      width: "4",
+      height: t * 0.55,
+      rx: "1.2",
+      fill: "#EE9440"
+    });
+  }), /*#__PURE__*/React.createElement("ellipse", {
+    cx: rx,
+    cy: ry,
+    rx: rx,
+    ry: ry,
+    fill: "#FFD866"
+  }), /*#__PURE__*/React.createElement("ellipse", {
+    cx: rx,
+    cy: ry,
+    rx: rx * 0.74,
+    ry: ry * 0.62,
+    fill: "#FFC44F"
+  }));
+}
+function CoinStack({
+  size = 120
+}) {
+  // 3개가 차례로 떨어져 "착착착" 쌓인 뒤 잠시 머물렀다 다시 반복
+  const coins = [{
+    left: 0.22,
+    top: 0.66
+  }, {
+    left: 0.02,
+    top: 0.42
+  }, {
+    left: 0.26,
+    top: 0.18
+  }];
+  const cycle = 4.2;
+  const frames = coins.map((_, i) => {
+    const s = i * 9,
+      land = s + 11;
+    return `@keyframes coinDrop${i}{0%,${s}%{transform:translateY(-${size}px);opacity:0}${s + 2}%{opacity:1}${land}%{transform:translateY(0) scale(1.06,.86)}${land + 3}%{transform:translateY(-4px) scale(.98,1.04)}${land + 6}%,86%{transform:translateY(0) scale(1);opacity:1}94%,100%{transform:translateY(0);opacity:0}}`;
+  }).join('');
+  const plus = (l, t, s, c, d) => /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: l,
+      top: t,
+      width: s,
+      height: s,
+      animation: `coinTwinkle 1.6s ease-in-out ${d}s infinite`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: '38%',
+      top: 0,
+      width: '24%',
+      height: '100%',
+      background: c,
+      borderRadius: 2
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      top: '38%',
+      left: 0,
+      height: '24%',
+      width: '100%',
+      background: c,
+      borderRadius: 2
+    }
+  }));
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'relative',
+      width: size,
+      height: size
+    }
+  }, /*#__PURE__*/React.createElement("style", null, frames + '@keyframes coinTwinkle{0%,100%{transform:scale(.8);opacity:.5}50%{transform:scale(1.1);opacity:1}}'), plus(size * 0.02, size * 0.12, size * 0.1, '#FFD47A', 0), plus(size * 0.86, size * 0.36, size * 0.11, '#FFC970', 0.5), plus(size * 0.04, size * 0.80, size * 0.08, '#FFE49A', 1), coins.map((c, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      position: 'absolute',
+      left: size * c.left,
+      top: size * c.top,
+      zIndex: i,
+      transformOrigin: 'center bottom',
+      animation: `coinDrop${i} ${cycle}s cubic-bezier(.5,0,.75,0) infinite`,
+      filter: 'drop-shadow(0 3px 0 rgba(238,148,64,.28))'
+    }
+  }, /*#__PURE__*/React.createElement(FlatCoin, {
+    w: size * 0.66
+  }))));
 }
 // ════════════════════════════════════════════
 // AcademyNoticeBoardSection - 공지사항
