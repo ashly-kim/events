@@ -614,7 +614,7 @@ const MISSION_DATA = [{
   maxCerts: 1,
   points: 1000,
   status: 'active',
-  participantCount: 12,
+  participantCount: 11,
   rewardType: 'per_cert',
   classmatesData: [{
     name: '지은',
@@ -629,7 +629,119 @@ const MISSION_DATA = [{
     emoji: '🐻',
     approved: 0
   }],
-  samplePosts: []
+  board: [{
+    name: '지은',
+    emoji: '🐰',
+    score: 4,
+    total: 4,
+    sec: 38
+  }, {
+    name: '도윤',
+    emoji: '🦊',
+    score: 4,
+    total: 4,
+    sec: 45
+  }, {
+    name: '서준',
+    emoji: '🐻',
+    score: 4,
+    total: 4,
+    sec: 51
+  }, {
+    name: '하린',
+    emoji: '🐱',
+    score: 4,
+    total: 4,
+    sec: 63
+  }, {
+    name: '민서',
+    emoji: '🐼',
+    score: 3,
+    total: 4,
+    sec: 41
+  }, {
+    name: '예준',
+    emoji: '🐯',
+    score: 3,
+    total: 4,
+    sec: 58
+  }, {
+    name: '수아',
+    emoji: '🐨',
+    score: 3,
+    total: 4,
+    sec: 72
+  }, {
+    name: '지호',
+    emoji: '🐶',
+    score: 4,
+    total: 4,
+    sec: 88
+  }, {
+    name: '서연',
+    emoji: '🐹',
+    score: 2,
+    total: 4,
+    sec: 49
+  }, {
+    name: '시우',
+    emoji: '🐸',
+    score: 3,
+    total: 4,
+    sec: 95
+  }, {
+    name: '유나',
+    emoji: '🦄',
+    score: 2,
+    total: 4,
+    sec: 77
+  }],
+  samplePosts: [{
+    id: 'sp-edurich_quiz-0',
+    authorName: '도윤',
+    authorEmoji: '🦊',
+    text: '팔란티어는 바로 맞혔는데 선 잇기에서 행동 조각이 헷갈렸어요 ㅎㅎ',
+    score: 4,
+    total: 4,
+    likeCount: 9,
+    postedAt: DEMO_NOW - 12 * MIN
+  }, {
+    id: 'sp-edurich_quiz-1',
+    authorName: '지은',
+    authorEmoji: '🐰',
+    text: '온톨로지 처음 들어봤는데 강연 듣고 바로 풀었어요! 4문제 다 맞힘',
+    score: 4,
+    total: 4,
+    likeCount: 14,
+    postedAt: DEMO_NOW - 25 * MIN
+  }, {
+    id: 'sp-edurich_quiz-2',
+    authorName: '하린',
+    authorEmoji: '🐱',
+    text: '66일이면 두 달 조금 넘네요. 이번엔 꼭 습관 만들어 볼게요',
+    score: 4,
+    total: 4,
+    likeCount: 7,
+    postedAt: DEMO_NOW - 40 * MIN
+  }, {
+    id: 'sp-edurich_quiz-3',
+    authorName: '민서',
+    authorEmoji: '🐼',
+    text: '크래빗이 로직 조각이라는 거 기억해 두기!',
+    score: 3,
+    total: 4,
+    likeCount: 5,
+    postedAt: DEMO_NOW - 58 * MIN
+  }, {
+    id: 'sp-edurich_quiz-4',
+    authorName: '서준',
+    authorEmoji: '🐻',
+    text: '선 잇기 재밌어요 ㅋㅋ 한 번에 성공',
+    score: 4,
+    total: 4,
+    likeCount: 11,
+    postedAt: DEMO_NOW - 75 * MIN
+  }]
 }, {
   id: 'mission_word_quiz',
   title: '영단어 퀴즈',
@@ -661,7 +773,7 @@ const MISSION_DATA = [{
   maxCerts: 1,
   points: 500,
   status: 'active',
-  participantCount: 24,
+  participantCount: 11,
   rewardType: 'per_cert',
   classmatesData: [{
     name: '지은',
@@ -672,7 +784,110 @@ const MISSION_DATA = [{
     emoji: '🐻',
     approved: 1
   }],
-  samplePosts: []
+  board: [{
+    name: '지은',
+    emoji: '🐰',
+    score: 3,
+    total: 3,
+    sec: 14
+  }, {
+    name: '도윤',
+    emoji: '🦊',
+    score: 3,
+    total: 3,
+    sec: 17
+  }, {
+    name: '서준',
+    emoji: '🐻',
+    score: 3,
+    total: 3,
+    sec: 19
+  }, {
+    name: '하린',
+    emoji: '🐱',
+    score: 3,
+    total: 3,
+    sec: 22
+  }, {
+    name: '민서',
+    emoji: '🐼',
+    score: 3,
+    total: 3,
+    sec: 26
+  }, {
+    name: '예준',
+    emoji: '🐯',
+    score: 2,
+    total: 3,
+    sec: 18
+  }, {
+    name: '수아',
+    emoji: '🐨',
+    score: 3,
+    total: 3,
+    sec: 31
+  }, {
+    name: '지호',
+    emoji: '🐶',
+    score: 2,
+    total: 3,
+    sec: 24
+  }, {
+    name: '서연',
+    emoji: '🐹',
+    score: 2,
+    total: 3,
+    sec: 29
+  }, {
+    name: '시우',
+    emoji: '🐸',
+    score: 1,
+    total: 3,
+    sec: 20
+  }, {
+    name: '유나',
+    emoji: '🦄',
+    score: 3,
+    total: 3,
+    sec: 40
+  }],
+  samplePosts: [{
+    id: 'sp-word_quiz-0',
+    authorName: '지은',
+    authorEmoji: '🐰',
+    text: 'library 맨날 헷갈렸는데 이번엔 바로 맞혔어요',
+    score: 3,
+    total: 3,
+    likeCount: 8,
+    postedAt: DEMO_NOW - 300 * MIN
+  }, {
+    id: 'sp-word_quiz-1',
+    authorName: '서준',
+    authorEmoji: '🐻',
+    text: 'apple은 너무 쉬웠다 ㅋㅋ 다음엔 더 어려운 거 내주세요',
+    score: 3,
+    total: 3,
+    likeCount: 12,
+    postedAt: DEMO_NOW - 1560 * MIN
+  }, {
+    id: 'sp-word_quiz-2',
+    authorName: '수아',
+    authorEmoji: '🐨',
+    text: 'happy 반대말 sad! 3문제 다 맞았어요',
+    score: 3,
+    total: 3,
+    likeCount: 6,
+    postedAt: DEMO_NOW - 1800 * MIN
+  }, {
+    id: 'sp-word_quiz-3',
+    authorName: '예준',
+    authorEmoji: '🦊',
+    text: 'kitchen이랑 library 순간 헷갈림...',
+    score: 2,
+    total: 3,
+    likeCount: 3,
+    postedAt: DEMO_NOW - 3000 * MIN
+  }]
 }, {
   id: 'mission_math_quiz',
   title: '수학 계산 퀴즈',
@@ -704,7 +919,7 @@ const MISSION_DATA = [{
   maxCerts: 1,
   points: 500,
   status: 'active',
-  participantCount: 19,
+  participantCount: 11,
   rewardType: 'per_cert',
   classmatesData: [{
     name: '도윤',
@@ -715,7 +930,110 @@ const MISSION_DATA = [{
     emoji: '🐱',
     approved: 0
   }],
-  samplePosts: []
+  board: [{
+    name: '지은',
+    emoji: '🐰',
+    score: 3,
+    total: 3,
+    sec: 11
+  }, {
+    name: '도윤',
+    emoji: '🦊',
+    score: 3,
+    total: 3,
+    sec: 13
+  }, {
+    name: '서준',
+    emoji: '🐻',
+    score: 3,
+    total: 3,
+    sec: 16
+  }, {
+    name: '하린',
+    emoji: '🐱',
+    score: 3,
+    total: 3,
+    sec: 18
+  }, {
+    name: '민서',
+    emoji: '🐼',
+    score: 2,
+    total: 3,
+    sec: 12
+  }, {
+    name: '예준',
+    emoji: '🐯',
+    score: 3,
+    total: 3,
+    sec: 24
+  }, {
+    name: '수아',
+    emoji: '🐨',
+    score: 2,
+    total: 3,
+    sec: 19
+  }, {
+    name: '지호',
+    emoji: '🐶',
+    score: 3,
+    total: 3,
+    sec: 33
+  }, {
+    name: '서연',
+    emoji: '🐹',
+    score: 1,
+    total: 3,
+    sec: 15
+  }, {
+    name: '시우',
+    emoji: '🐸',
+    score: 2,
+    total: 3,
+    sec: 27
+  }, {
+    name: '유나',
+    emoji: '🦄',
+    score: 3,
+    total: 3,
+    sec: 45
+  }],
+  samplePosts: [{
+    id: 'sp-math_quiz-0',
+    authorName: '도윤',
+    authorEmoji: '🦊',
+    text: '7×8 = 56 구구단 외운 보람이 있네요',
+    score: 3,
+    total: 3,
+    likeCount: 10,
+    postedAt: DEMO_NOW - 180 * MIN
+  }, {
+    id: 'sp-math_quiz-1',
+    authorName: '하린',
+    authorEmoji: '🐱',
+    text: '분수 더하기 통분 생각나서 바로 풀었어요',
+    score: 3,
+    total: 3,
+    likeCount: 7,
+    postedAt: DEMO_NOW - 1200 * MIN
+  }, {
+    id: 'sp-math_quiz-2',
+    authorName: '지호',
+    authorEmoji: '🐶',
+    text: '125+375 암산으로 했어요! 11초 컷',
+    score: 3,
+    total: 3,
+    likeCount: 9,
+    postedAt: DEMO_NOW - 1680 * MIN
+  }, {
+    id: 'sp-math_quiz-3',
+    authorName: '서연',
+    authorEmoji: '🐹',
+    text: '1/2 + 1/4 처음에 2/6 고를 뻔...',
+    score: 2,
+    total: 3,
+    likeCount: 4,
+    postedAt: DEMO_NOW - 3120 * MIN
+  }]
 }, {
   id: 'mission_spell_quiz',
   title: '맞춤법 퀴즈',
@@ -747,7 +1065,7 @@ const MISSION_DATA = [{
   maxCerts: 1,
   points: 500,
   status: 'active',
-  participantCount: 15,
+  participantCount: 11,
   rewardType: 'per_cert',
   classmatesData: [{
     name: '지은',
@@ -758,7 +1076,101 @@ const MISSION_DATA = [{
     emoji: '🦊',
     approved: 0
   }],
-  samplePosts: []
+  board: [{
+    name: '지은',
+    emoji: '🐰',
+    score: 3,
+    total: 3,
+    sec: 15
+  }, {
+    name: '도윤',
+    emoji: '🦊',
+    score: 3,
+    total: 3,
+    sec: 18
+  }, {
+    name: '서준',
+    emoji: '🐻',
+    score: 2,
+    total: 3,
+    sec: 14
+  }, {
+    name: '하린',
+    emoji: '🐱',
+    score: 3,
+    total: 3,
+    sec: 23
+  }, {
+    name: '민서',
+    emoji: '🐼',
+    score: 3,
+    total: 3,
+    sec: 27
+  }, {
+    name: '예준',
+    emoji: '🐯',
+    score: 2,
+    total: 3,
+    sec: 21
+  }, {
+    name: '수아',
+    emoji: '🐨',
+    score: 1,
+    total: 3,
+    sec: 19
+  }, {
+    name: '지호',
+    emoji: '🐶',
+    score: 3,
+    total: 3,
+    sec: 36
+  }, {
+    name: '서연',
+    emoji: '🐹',
+    score: 2,
+    total: 3,
+    sec: 30
+  }, {
+    name: '시우',
+    emoji: '🐸',
+    score: 3,
+    total: 3,
+    sec: 44
+  }, {
+    name: '유나',
+    emoji: '🦄',
+    score: 2,
+    total: 3,
+    sec: 38
+  }],
+  samplePosts: [{
+    id: 'sp-spell_quiz-0',
+    authorName: '지은',
+    authorEmoji: '🐰',
+    text: '금세가 맞는 거였다니! 지금까지 금새로 썼어요',
+    score: 2,
+    total: 3,
+    likeCount: 13,
+    postedAt: DEMO_NOW - 420 * MIN
+  }, {
+    id: 'sp-spell_quiz-1',
+    authorName: '민서',
+    authorEmoji: '🐼',
+    text: '돼요 되요는 \'되어요\'로 바꿔 보면 된대요',
+    score: 3,
+    total: 3,
+    likeCount: 9,
+    postedAt: DEMO_NOW - 1320 * MIN
+  }, {
+    id: 'sp-spell_quiz-2',
+    authorName: '유나',
+    authorEmoji: '🦄',
+    text: '어떡해 어떻해 진짜 헷갈려요 ㅠㅠ',
+    score: 2,
+    total: 3,
+    likeCount: 5,
+    postedAt: DEMO_NOW - 2400 * MIN
+  }]
 }];
 
 // ════════════════════════════════════════════
@@ -1158,7 +1570,8 @@ function reducer(state, action) {
           postedAt: nowTs(),
           text,
           photo: photo || null,
-          status: 'pending'
+          status: 'pending',
+          meta: action.meta || null
         };
         const mData = (state.missions || {})[missionId] || {
           submissions: [],
@@ -2575,9 +2988,9 @@ function ScholarshipScreen({
     }
   }, activeTab === 'available' ? '참여 가능한 미션이 없어요' : '아직 참여 중인 미션이 없어요')), /*#__PURE__*/React.createElement("div", {
     style: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: SPACING.lg,
+      display: 'grid',
+      gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+      gap: 12,
       marginBottom: SPACING.xxl
     }
   }, tabMissions.map(m => {
@@ -2628,7 +3041,7 @@ function ScholarshipScreen({
       missionId: m.id
     }), /*#__PURE__*/React.createElement("div", {
       style: {
-        padding: `${SPACING.md}px ${SPACING.lg}px ${SPACING.lg}px`
+        padding: '10px 12px 12px'
       }
     }, /*#__PURE__*/React.createElement("div", {
       style: {
@@ -2643,28 +3056,32 @@ function ScholarshipScreen({
         fontWeight: 600,
         color: chip.c,
         background: chip.b,
-        padding: '3px 8px',
-        borderRadius: RADIUS.pill
+        padding: '3px 7px',
+        borderRadius: RADIUS.pill,
+        whiteSpace: 'nowrap'
       }
-    }, chip.t), /*#__PURE__*/React.createElement("span", {
+    }, chip.t)), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: TYPOGRAPHY.size.xs,
-        color: COLORS.fgMuted
-      }
-    }, m.participantCount, "\uBA85 \uCC38\uC5EC\uC911")), /*#__PURE__*/React.createElement("div", {
-      style: {
-        fontSize: TYPOGRAPHY.size.lg,
+        fontSize: TYPOGRAPHY.size.body,
         fontWeight: 600,
         color: COLORS.fgDefault,
         letterSpacing: '-0.02em',
-        marginBottom: 4
+        marginBottom: 3,
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
       }
     }, m.title), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: TYPOGRAPHY.size.md,
+        fontSize: TYPOGRAPHY.size.sm,
         color: COLORS.fgSubtle,
-        lineHeight: 1.45,
-        marginBottom: SPACING.sm
+        lineHeight: 1.4,
+        marginBottom: 8,
+        display: '-webkit-box',
+        WebkitLineClamp: 2,
+        WebkitBoxOrient: 'vertical',
+        overflow: 'hidden',
+        minHeight: 34
       }
     }, (m.description || '').split(/[.!?]/)[0].trim()), /*#__PURE__*/React.createElement("div", {
       style: {
@@ -4621,65 +5038,10 @@ function MissionDetailScreen({
           height: 26
         }
       }));
-    })))), /*#__PURE__*/React.createElement("div", {
-      style: {
-        padding: `${SPACING.lg}px ${SPACING.lg}px ${SPACING.lg}px`
-      }
-    }, /*#__PURE__*/React.createElement(SectionTitle, {
-      title: "\uC6B0\uB9AC \uBC18 \uC778\uC99D \uD604\uD669"
-    }), /*#__PURE__*/React.createElement("div", {
-      style: {
-        background: COLORS.bgDefault,
-        borderRadius: RADIUS.lg,
-        overflow: 'hidden'
-      }
-    }, allParticipants.map((p, i) => /*#__PURE__*/React.createElement("div", {
-      key: p.name,
-      style: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: SPACING.md,
-        padding: `${SPACING.md}px ${SPACING.lg}px`,
-        borderTop: i > 0 ? `1px solid ${COLORS.border}` : 'none',
-        background: p.isMe ? COLORS.primarySubtle : 'transparent'
-      }
-    }, /*#__PURE__*/React.createElement("span", {
-      style: {
-        fontFamily: FONTS.primary,
-        fontSize: TYPOGRAPHY.size.body,
-        fontWeight: TYPOGRAPHY.weight.bold,
-        color: i === 0 ? COLORS.warning : COLORS.fgMuted,
-        minWidth: 20,
-        textAlign: 'center'
-      }
-    }, i + 1), /*#__PURE__*/React.createElement("div", {
-      style: {
-        width: 28,
-        height: 28,
-        borderRadius: '50%',
-        background: COLORS.bgSurface,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 15,
-        flexShrink: 0
-      }
-    }, p.emoji), /*#__PURE__*/React.createElement("span", {
-      style: {
-        flex: 1,
-        fontFamily: FONTS.primary,
-        fontSize: TYPOGRAPHY.size.body,
-        fontWeight: p.isMe ? TYPOGRAPHY.weight.bold : TYPOGRAPHY.weight.regular,
-        color: COLORS.fgDefault
-      }
-    }, p.isMe ? `나 (${state.student.name})` : p.name), /*#__PURE__*/React.createElement("span", {
-      style: {
-        fontFamily: FONTS.primary,
-        fontSize: TYPOGRAPHY.size.body,
-        fontWeight: TYPOGRAPHY.weight.bold,
-        color: COLORS.fgSubtle
-      }
-    }, p.approved, "\uD68C")))))), mission.status === 'active' && (() => {
+    })))), /*#__PURE__*/React.createElement(MissionSocial, {
+      mission: mission,
+      state: state
+    })), mission.status === 'active' && (() => {
       const isRejected = mission.rewardType === 'cert_goal' && subs.some(s => s.status === 'rejected');
       const doneOnce = mission.maxCerts && subs.filter(s => s.status !== 'rejected').length >= mission.maxCerts;
       if (doneOnce) {
@@ -9072,7 +9434,8 @@ const QUIZ_QUESTIONS = [{
 }];
 function QuizChoice({
   item,
-  onCorrect
+  onCorrect,
+  onWrong
 }) {
   const [picked, setPicked] = useState(null);
   const [wrong, setWrong] = useState([]);
@@ -9082,7 +9445,10 @@ function QuizChoice({
     if (i === item.answer) {
       setPicked(i);
       setTimeout(onCorrect, 900);
-    } else setWrong(w => w.includes(i) ? w : [...w, i]);
+    } else {
+      onWrong && onWrong();
+      setWrong(w => w.includes(i) ? w : [...w, i]);
+    }
   };
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -9142,7 +9508,8 @@ function QuizChoice({
 // 선 긋기 매칭: 왼쪽 점을 누르고(또는 끌어서) 오른쪽 항목에 놓으면 선이 이어짐
 function QuizMatch({
   item,
-  onCorrect
+  onCorrect,
+  onWrong
 }) {
   const boxRef = useRef(null);
   const dotRefs = useRef({});
@@ -9218,7 +9585,10 @@ function QuizMatch({
   const allCorrect = allLinked && item.left.every(l => isCorrect(l.id));
   const check = () => {
     setChecked(true);
-    if (allCorrect) setTimeout(onCorrect, 1100);else setTimeout(() => {
+    if (allCorrect) setTimeout(onCorrect, 1100);else {
+      onWrong && onWrong();
+    }
+    if (!allCorrect) setTimeout(() => {
       setLinks(prev => {
         const n = {
           ...prev
@@ -9404,13 +9774,23 @@ function MissionQuizScreen({
   const total = QS.length;
   const done = step >= total;
   const item = QS[step];
+  const startRef = useRef(Date.now());
+  const missRef = useRef(new Set());
+  const resultRef = useRef(null);
+  if (done && !resultRef.current) resultRef.current = {
+    score: total - missRef.current.size,
+    total,
+    sec: Math.max(1, Math.round((Date.now() - startRef.current) / 1000))
+  };
+  const result = resultRef.current;
   useEffect(() => {
     if (!done || !mission) return;
     dispatch({
       type: 'SUBMIT_MISSION',
       missionId: mission.id,
-      text: `${mission.title} ${total}문제 모두 정답!`,
-      photo: null
+      text: result.score === total ? `${total}문제 모두 한 번에 맞혔어요! ${fmtSec(result.sec)} 걸렸어요` : `${total}문제 중 ${result.score}문제를 한 번에 맞혔어요. 다음엔 만점 도전!`,
+      photo: null,
+      meta: result
     });
     const t = setTimeout(() => dispatch({
       type: 'AUTO_APPROVE_LATEST',
@@ -9488,9 +9868,11 @@ function MissionQuizScreen({
     }
   }, item.q), item.type === 'choice' ? /*#__PURE__*/React.createElement(QuizChoice, {
     item: item,
+    onWrong: () => missRef.current.add(step),
     onCorrect: () => setStep(s => s + 1)
   }) : /*#__PURE__*/React.createElement(QuizMatch, {
     item: item,
+    onWrong: () => missRef.current.add(step),
     onCorrect: () => setStep(s => s + 1)
   })) : /*#__PURE__*/React.createElement("div", {
     style: {
@@ -9517,7 +9899,33 @@ function MissionQuizScreen({
       marginTop: SPACING.lg,
       letterSpacing: '-0.02em'
     }
-  }, total, "\uBB38\uC81C \uBAA8\uB450 \uC815\uB2F5!"), /*#__PURE__*/React.createElement("div", {
+  }, result && result.score === result.total ? '만점이에요!' : '퀴즈 완료!'), result && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 8,
+      marginTop: SPACING.md
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.sm,
+      fontWeight: 600,
+      padding: '6px 12px',
+      borderRadius: 999,
+      background: COLORS.bgDefault,
+      color: COLORS.fgDefault
+    }
+  }, "\uC810\uC218 ", result.score, "/", result.total), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.sm,
+      fontWeight: 600,
+      padding: '6px 12px',
+      borderRadius: 999,
+      background: COLORS.bgDefault,
+      color: COLORS.fgDefault
+    }
+  }, fmtSec(result.sec))), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: FONTS.primary,
       fontSize: TYPOGRAPHY.size.body,
@@ -9546,8 +9954,7 @@ function MissionQuizScreen({
     }
   }, /*#__PURE__*/React.createElement("button", {
     onClick: () => dispatch({
-      type: 'TAB',
-      tab: '포인트'
+      type: 'NAV_BACK'
     }),
     style: {
       width: '100%',
@@ -9561,7 +9968,7 @@ function MissionQuizScreen({
       fontSize: TYPOGRAPHY.size.sub,
       fontWeight: 600
     }
-  }, "\uB0B4 \uD3EC\uC778\uD2B8 \uBCF4\uB7EC \uAC00\uAE30")));
+  }, "\uC21C\uC704 \uBCF4\uB7EC \uAC00\uAE30")));
 }
 
 // 포인트 기준 화면용 플랫 2D 일러스트 아이콘 세트
@@ -10159,6 +10566,352 @@ function RuleIcon({
       flexShrink: 0
     }
   }, art);
+}
+
+// ════════════════════════════════════════════
+// MissionSocial - 미션 상세의 점수 순위 + 친구들 인증 피드
+// ════════════════════════════════════════════
+function fmtSec(sec) {
+  if (sec == null) return '';
+  return sec >= 60 ? `${Math.floor(sec / 60)}분 ${sec % 60}초` : `${sec}초`;
+}
+function MissionSocial({
+  mission,
+  state
+}) {
+  const subs = ((state.missions || {})[mission.id] || {
+    submissions: []
+  }).submissions || [];
+  const mine = [...subs].reverse().find(s => s.meta && s.status !== 'rejected');
+  const [showAll, setShowAll] = useState(false);
+  const [liked, setLiked] = useState({});
+  const rows = [...(mission.board || [])].map(r => ({
+    ...r,
+    isMe: false
+  }));
+  if (mine) rows.push({
+    name: '나',
+    emoji: state.student.emoji,
+    score: mine.meta.score,
+    total: mine.meta.total,
+    sec: mine.meta.sec,
+    isMe: true
+  });
+  rows.sort((a, b) => b.score - a.score || a.sec - b.sec);
+  const myRank = rows.findIndex(r => r.isMe) + 1;
+  const visible = showAll ? rows : rows.slice(0, 5);
+  if (!showAll && myRank > 5) visible.push(rows[myRank - 1]);
+  const perfect = rows.filter(r => r.score === r.total).length;
+  const posts = [...(mine ? [{
+    id: 'my-post',
+    authorName: '나',
+    authorEmoji: state.student.emoji,
+    text: mine.text,
+    score: mine.meta.score,
+    total: mine.meta.total,
+    likeCount: 0,
+    postedAt: mine.postedAt || nowTs(),
+    isMe: true
+  }] : []), ...(mission.samplePosts || [])];
+  const medal = ['#FFC531', '#C3CAD5', '#E0A16B'];
+  const card = {
+    background: COLORS.bgDefault,
+    borderRadius: RADIUS.lg,
+    overflow: 'hidden'
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: `${SPACING.lg}px ${SPACING.lg}px ${SPACING.lg}px`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'baseline',
+      justifyContent: 'space-between',
+      marginBottom: SPACING.md
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.lg,
+      fontWeight: 600,
+      color: COLORS.fgDefault
+    }
+  }, "\uC810\uC218 \uC21C\uC704"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.sm,
+      color: COLORS.fgMuted
+    }
+  }, rows.length, "\uBA85 \uCC38\uC5EC, \uB9CC\uC810 ", perfect, "\uBA85")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'flex-end',
+      gap: 8,
+      marginBottom: SPACING.sm
+    }
+  }, [1, 0, 2].map(k => rows[k] && /*#__PURE__*/React.createElement("div", {
+    key: k,
+    style: {
+      flex: 1,
+      background: rows[k].isMe ? COLORS.primarySubtle : COLORS.bgDefault,
+      borderRadius: RADIUS.lg,
+      padding: k === 0 ? '16px 6px 14px' : '12px 6px 12px',
+      textAlign: 'center',
+      fontFamily: FONTS.primary
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'relative',
+      width: k === 0 ? 48 : 40,
+      height: k === 0 ? 48 : 40,
+      margin: '0 auto',
+      borderRadius: '50%',
+      background: COLORS.bgSurface,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: k === 0 ? 26 : 21
+    }
+  }, rows[k].emoji, /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: 'absolute',
+      right: -4,
+      bottom: -2,
+      width: 18,
+      height: 18,
+      borderRadius: '50%',
+      background: medal[k],
+      color: '#fff',
+      fontSize: 10,
+      fontWeight: 700,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
+  }, k + 1)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: TYPOGRAPHY.size.body,
+      fontWeight: 600,
+      color: COLORS.fgDefault,
+      marginTop: 8
+    }
+  }, rows[k].isMe ? `나 (${state.student.name})` : rows[k].name), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: TYPOGRAPHY.size.sm,
+      color: '#FB75BB',
+      fontWeight: 600,
+      marginTop: 2
+    }
+  }, rows[k].score, "/", rows[k].total, "\uC810"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: TYPOGRAPHY.size.xs,
+      color: COLORS.fgMuted,
+      marginTop: 1
+    }
+  }, fmtSec(rows[k].sec))))), /*#__PURE__*/React.createElement("div", {
+    style: card
+  }, visible.slice(3).map((r, i) => {
+    const rank = rows.indexOf(r) + 1;
+    return /*#__PURE__*/React.createElement("div", {
+      key: r.name + rank,
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: SPACING.md,
+        padding: `12px ${SPACING.lg}px`,
+        borderTop: i > 0 ? `1px solid ${COLORS.border}` : 'none',
+        background: r.isMe ? COLORS.primarySubtle : 'transparent',
+        fontFamily: FONTS.primary
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        width: 20,
+        textAlign: 'center',
+        fontSize: TYPOGRAPHY.size.body,
+        fontWeight: 600,
+        color: COLORS.fgMuted
+      }
+    }, rank), /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: 30,
+        height: 30,
+        borderRadius: '50%',
+        background: COLORS.bgSurface,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 16
+      }
+    }, r.emoji), /*#__PURE__*/React.createElement("span", {
+      style: {
+        flex: 1,
+        fontSize: TYPOGRAPHY.size.body,
+        fontWeight: r.isMe ? 600 : 500,
+        color: COLORS.fgDefault
+      }
+    }, r.isMe ? `나 (${state.student.name})` : r.name), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: TYPOGRAPHY.size.sm,
+        color: COLORS.fgMuted,
+        marginRight: 6
+      }
+    }, fmtSec(r.sec)), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: TYPOGRAPHY.size.body,
+        fontWeight: 600,
+        color: r.score === r.total ? '#FB75BB' : COLORS.fgSubtle
+      }
+    }, r.score, "/", r.total));
+  }), rows.length > 5 && /*#__PURE__*/React.createElement("button", {
+    onClick: () => setShowAll(v => !v),
+    style: {
+      width: '100%',
+      height: 44,
+      border: 'none',
+      borderTop: `1px solid ${COLORS.border}`,
+      background: 'transparent',
+      cursor: 'pointer',
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.md,
+      color: COLORS.fgSubtle
+    }
+  }, showAll ? '접기' : `전체 순위 보기 (${rows.length}명)`)), !mine && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: SPACING.sm,
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.sm,
+      color: COLORS.fgMuted,
+      textAlign: 'center'
+    }
+  }, "\uD034\uC988\uB97C \uD480\uBA74 \uB0B4 \uC21C\uC704\uAC00 \uC5EC\uAE30\uC5D0 \uB098\uD0C0\uB098\uC694"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'baseline',
+      justifyContent: 'space-between',
+      margin: `${SPACING.xxl}px 0 ${SPACING.md}px`
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.lg,
+      fontWeight: 600,
+      color: COLORS.fgDefault
+    }
+  }, "\uCE5C\uAD6C\uB4E4 \uC778\uC99D"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.sm,
+      color: COLORS.fgMuted
+    }
+  }, posts.length, "\uAC1C")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: SPACING.sm
+    }
+  }, posts.map(p => {
+    const on = !!liked[p.id];
+    return /*#__PURE__*/React.createElement("div", {
+      key: p.id,
+      style: {
+        ...card,
+        padding: `14px ${SPACING.lg}px`,
+        fontFamily: FONTS.primary,
+        background: p.isMe ? '#FFF7FB' : COLORS.bgDefault
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 10
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: 34,
+        height: 34,
+        borderRadius: '50%',
+        background: COLORS.bgSurface,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 18
+      }
+    }, p.authorEmoji), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1,
+        minWidth: 0
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: TYPOGRAPHY.size.body,
+        fontWeight: 600,
+        color: COLORS.fgDefault
+      }
+    }, p.isMe ? `나 (${state.student.name})` : p.authorName), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: TYPOGRAPHY.size.xs,
+        color: COLORS.fgMuted
+      }
+    }, timeAgo(p.postedAt))), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: TYPOGRAPHY.size.xs,
+        fontWeight: 600,
+        padding: '4px 8px',
+        borderRadius: RADIUS.pill,
+        background: p.score === p.total ? '#FFE9F3' : COLORS.bgSurface,
+        color: p.score === p.total ? '#E2549E' : COLORS.fgSubtle
+      }
+    }, p.score, "/", p.total, " \uC815\uB2F5")), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: TYPOGRAPHY.size.body,
+        color: COLORS.fgDefault,
+        lineHeight: 1.55,
+        marginTop: 10,
+        wordBreak: 'keep-all'
+      }
+    }, p.text), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 14,
+        marginTop: 10
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: () => setLiked(l => ({
+        ...l,
+        [p.id]: !l[p.id]
+      })),
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 4,
+        background: 'none',
+        border: 'none',
+        padding: 0,
+        cursor: 'pointer',
+        color: on ? '#FB75BB' : COLORS.fgMuted,
+        fontFamily: FONTS.primary,
+        fontSize: TYPOGRAPHY.size.sm
+      }
+    }, /*#__PURE__*/React.createElement("svg", {
+      width: "16",
+      height: "16",
+      viewBox: "0 0 24 24",
+      fill: on ? '#FB75BB' : 'none',
+      stroke: "currentColor",
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"
+    })), p.likeCount + (on ? 1 : 0)), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: TYPOGRAPHY.size.sm,
+        color: COLORS.fgMuted
+      }
+    }, "\uC751\uC6D0\uD558\uAE30")));
+  })));
 }
 
 // ════════════════════════════════════════════
