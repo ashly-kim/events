@@ -13,6 +13,12 @@ body{background:var(--bg);font-family:'Pretendard Variable',Pretendard,-apple-sy
 header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;background:#fff;border-bottom:1px solid var(--line);flex-wrap:wrap}
 h1{margin:0;font-size:16px;font-weight:700}
 .sync{font-size:13px;color:var(--sub);display:flex;align-items:center;gap:6px}
+.ctrl{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.zoom{display:flex;align-items:center;gap:6px}
+.zoom button{font:inherit;font-size:15px;font-weight:600;border:0;border-radius:8px;width:32px;height:32px;background:#F0F2F5;color:var(--ink);cursor:pointer}
+.zoom button:hover{background:#E4E7EC}
+.zoom .zv{width:auto;padding:0 10px;font-size:12.5px;min-width:56px}
+.zoom input{width:140px;accent-color:#16192A}
 .tabs{display:none;gap:6px}
 .tabs button{font:inherit;font-size:13px;font-weight:600;border:0;border-radius:99px;padding:8px 14px;background:#F0F2F5;color:var(--ink);cursor:pointer;min-height:36px}
 .tabs button.on{background:var(--ink);color:#fff}
@@ -24,13 +30,16 @@ main{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px;min
 .bar a:hover{background:#E4E7EC}
 .frame{flex:1;position:relative;overflow:hidden;background:#C9CFD8}
 .frame iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0;background:#C9CFD8}
-@media (max-width:760px){.tabs{display:flex}.sync{display:none}main{grid-template-columns:1fr;padding:8px}.col.off{display:none}}
+@media (max-width:760px){.tabs{display:flex}.sync{display:none}.zoom input{width:90px}main{grid-template-columns:1fr;padding:8px}.col.off{display:none}}
 </style>
 </head>
 <body>
 <header>
   <h1>에듀리치테이블 교안 비교</h1>
-  <label class="sync"><input type="checkbox" id="sync" checked> 스크롤 같이 움직이기</label>
+  <div class="ctrl">
+    <div class="zoom"><button type="button" id="zout" aria-label="작게">−</button><input type="range" id="z" min="50" max="200" step="10" value="100" aria-label="보기 크기"><button type="button" id="zin" aria-label="크게">+</button><button type="button" id="zv" class="zv" aria-label="크기 초기화">100%</button></div>
+    <label class="sync"><input type="checkbox" id="sync" checked> 스크롤 같이 움직이기</label>
+  </div>
   <div class="tabs"><button class="on" data-v="0">v1 남색</button><button data-v="1">v2 와인</button></div>
 </header>
 <main>
@@ -46,6 +55,15 @@ window.addEventListener('resize',fit);fit();
 let lock=false;
 ifr.forEach((el,i)=>el.addEventListener('load',()=>{try{const w=el.contentWindow;w.addEventListener('scroll',()=>{if(lock||!document.getElementById('sync').checked)return;const o=ifr[1-i].contentWindow;const d=w.document.documentElement;const r=w.scrollY/Math.max(1,d.scrollHeight-w.innerHeight);const od=o.document.documentElement;lock=true;o.scrollTo(0,r*(od.scrollHeight-o.innerHeight));requestAnimationFrame(()=>lock=false);});}catch(e){}}));
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.col').forEach((c,i)=>c.classList.toggle('off',String(i)!==b.dataset.v));fit();});
+const zr=document.getElementById('z'),zv=document.getElementById('zv');
+function setZ(v){v=Math.max(50,Math.min(200,v));zr.value=v;zv.textContent=v+'%';ifr.forEach(el=>{try{const d=el.contentDocument;if(!d||!d.body)return;const w=el.contentWindow;const r=w.scrollY/Math.max(1,d.documentElement.scrollHeight);d.body.style.zoom=v/100;w.scrollTo(w.scrollX,r*d.documentElement.scrollHeight);}catch(e){}});try{localStorage.setItem('edz',v)}catch(e){}}
+zr.oninput=()=>setZ(+zr.value);
+document.getElementById('zin').onclick=()=>setZ(+zr.value+10);
+document.getElementById('zout').onclick=()=>setZ(+zr.value-10);
+zv.onclick=()=>setZ(100);
+let z0=100;try{z0=+(localStorage.getItem('edz')||100)}catch(e){}
+ifr.forEach(el=>el.addEventListener('load',()=>setZ(+zr.value)));
+setZ(z0);
 if(matchMedia('(max-width:760px)').matches){document.querySelectorAll('.col')[1].classList.add('off');}
 </script>
 </body>
