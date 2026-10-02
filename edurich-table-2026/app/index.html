@@ -54,6 +54,12 @@
       scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
     }
 
+    @font-face {
+      font-family: 'MemomentKkukkukk';
+      src: url('kkukkukk-subset.woff2') format('woff2');
+      font-display: swap;
+    }
+
     .hide-scrollbar {
       -ms-overflow-style: none;
       scrollbar-width: none;
@@ -5762,13 +5768,14 @@ function MissionThumb({
 // ════════════════════════════════════════════
 // 이벤트 배너 디자인 (360 x 90)
 // ════════════════════════════════════════════
+const BANNER_FONT = "'MemomentKkukkukk', " + FONTS.primary;
 function BannerText({
   eyebrow,
   title,
   sub,
   titleColor,
   subColor,
-  titleSize = 17,
+  titleSize = 19,
   width = 244
 }) {
   return /*#__PURE__*/React.createElement("div", {
@@ -5781,25 +5788,25 @@ function BannerText({
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      fontFamily: FONTS.primary
+      fontFamily: BANNER_FONT
     }
   }, eyebrow, /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: titleSize,
-      fontWeight: 700,
+      fontWeight: 400,
       color: titleColor,
-      lineHeight: 1.3,
-      letterSpacing: '-0.02em',
+      lineHeight: 1.25,
+      letterSpacing: '-0.01em',
       whiteSpace: 'nowrap',
-      marginTop: eyebrow ? 5 : 0
+      marginTop: eyebrow ? 6 : 0
     }
   }, title), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 12,
-      fontWeight: 500,
+      fontSize: 13,
+      fontWeight: 400,
       color: subColor,
       lineHeight: 1.35,
-      letterSpacing: '-0.01em',
+      letterSpacing: 0,
       whiteSpace: 'nowrap',
       marginTop: 3
     }
@@ -5816,15 +5823,15 @@ function BannerPill({
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontFamily: FONTS.primary,
-      fontSize: 10,
-      fontWeight: 600,
+      fontFamily: BANNER_FONT,
+      fontSize: 11,
+      fontWeight: 400,
       lineHeight: 1,
-      padding: '4px 7px',
+      padding: '4px 8px 3px',
       borderRadius: 999,
       background: bg,
       color,
-      letterSpacing: '-0.01em'
+      letterSpacing: 0
     }
   }, children));
 }
@@ -5842,22 +5849,69 @@ function QuizBanner() {
     left: 240,
     top: -50,
     size: 180
-  }), /*#__PURE__*/React.createElement("img", {
-    src: "brain.png",
-    alt: "",
+  }), [{
+    l: 268,
+    t: 14,
+    s: 46,
+    r: -10,
+    bg: '#3B82F6',
+    c: '#FFFFFF',
+    q: 'Q'
+  }, {
+    l: 306,
+    t: 30,
+    s: 38,
+    r: 12,
+    bg: '#93C5FD',
+    c: '#0B1428',
+    q: '?'
+  }].map((b, j) => /*#__PURE__*/React.createElement("div", {
+    key: j,
     style: {
       position: 'absolute',
-      left: 262,
-      top: -10,
-      width: 112,
-      height: 112,
-      objectFit: 'contain',
-      filter: 'drop-shadow(0 18px 30px rgba(2,6,23,.8))'
+      left: b.l,
+      top: b.t,
+      width: b.s,
+      height: b.s,
+      borderRadius: '50% 50% 50% 12%',
+      background: b.bg,
+      color: b.c,
+      transform: `rotate(${b.r}deg)`,
+      boxShadow: '0 8px 18px rgba(2,6,23,.45)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: BANNER_FONT,
+      fontSize: Math.round(b.s * 0.56),
+      lineHeight: 1
+    }
+  }, b.q)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 300,
+      top: 10,
+      width: 6,
+      height: 6,
+      borderRadius: '50%',
+      background: '#93C5FD',
+      opacity: .8
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 260,
+      top: 66,
+      width: 4,
+      height: 4,
+      borderRadius: '50%',
+      background: '#FFFFFF',
+      opacity: .6
     }
   }), /*#__PURE__*/React.createElement(BannerText, {
-    eyebrow: /*#__PURE__*/React.createElement(EduMono, {
-      size: 8
-    }, "EDURICH TABLE / 2026"),
+    eyebrow: /*#__PURE__*/React.createElement(BannerPill, {
+      bg: "rgba(59,130,246,.25)",
+      color: "#BFDBFE"
+    }, "\uC624\uB298\uC758 \uBBF8\uC158"),
     title: "\uC5D0\uB4C0\uB9AC\uCE58\uD14C\uC774\uBE14 \uD034\uC988 \uBBF8\uC158",
     sub: "\uD034\uC988 \uD480\uACE0 \uC778\uC99D\uD558\uBA74 +1,000P",
     titleColor: "#FFFFFF",
@@ -6055,32 +6109,47 @@ function StampBanner() {
       inset: 0,
       background: 'radial-gradient(ellipse 45% 110% at 86% 50%, #FFE9F3 0%, #FFF6FA 55%, #FFFFFF 100%)'
     }
-  }), /*#__PURE__*/React.createElement("img", {
-    src: "brain-stamp.svg",
-    alt: "",
-    style: {
-      position: 'absolute',
-      left: 260,
-      top: 22,
-      width: 50,
-      height: 50,
-      objectFit: 'contain',
-      transform: 'rotate(-14deg)',
-      opacity: 0.55
-    }
-  }), /*#__PURE__*/React.createElement("img", {
-    src: "brain-stamp.svg",
-    alt: "",
-    style: {
-      position: 'absolute',
-      left: 290,
-      top: 12,
-      width: 60,
-      height: 60,
-      objectFit: 'contain',
-      transform: 'rotate(10deg)'
-    }
   }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 262,
+      top: 14,
+      width: 78,
+      height: 60,
+      borderRadius: 12,
+      background: '#FFFFFF',
+      boxShadow: '0 6px 14px rgba(251,117,187,.18)',
+      transform: 'rotate(-6deg)',
+      display: 'grid',
+      gridTemplateColumns: 'repeat(4, 14px)',
+      gap: 5,
+      padding: '9px 0 0 9px'
+    }
+  }, Array.from({
+    length: 8
+  }).map((_, j) => /*#__PURE__*/React.createElement("div", {
+    key: j,
+    style: {
+      width: 14,
+      height: 14,
+      borderRadius: '50%',
+      background: j < 5 ? '#FB75BB' : '#FFE9F3',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
+  }, j < 5 && /*#__PURE__*/React.createElement("svg", {
+    width: "8",
+    height: "8",
+    viewBox: "0 0 10 10"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M2 5.2 L4.2 7.2 L8 3",
+    fill: "none",
+    stroke: "#fff",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }))))), /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'absolute',
       left: 330,
@@ -6105,7 +6174,7 @@ function StampBanner() {
         color: '#FB75BB'
       }
     }, "2\uBC30")),
-    sub: "\uB1CC \uB3C4\uC7A5 \uBAA8\uC73C\uACE0 1,000P \uBC1B\uAE30",
+    sub: "\uB3C4\uC7A5 20\uAC1C \uBAA8\uC73C\uBA74 1,000P \uBC1B\uAE30",
     titleColor: "#16192A",
     subColor: "rgba(22,25,42,.6)"
   }));
