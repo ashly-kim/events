@@ -712,7 +712,7 @@ const initialState = {
     type: 'scholarship',
     icon: 'Sparkles',
     text: '스탬프판 완성! +1,000P 적립',
-    subText: '뇌 도장 20개를 모두 모았어요!',
+    subText: '뇌 도장 10개를 모두 모았어요!',
     sentAt: new Date('2026-10-01T20:10:00').getTime(),
     unread: false
   }, {
@@ -833,7 +833,7 @@ const initialState = {
   }, {
     id: 'an-seed-3',
     title: '10월 스탬프 적립 기준 안내',
-    content: '10월부터 단어 시험 통과(80점 이상)와 오답 노트 제출도 스탬프 적립 기준에 들어가요. 10월 한 달 동안은 정시 출석 시 스탬프를 2개 찍어 드립니다. 스탬프 20개를 모으면 1,000P가 자동으로 지급돼요.',
+    content: '10월부터 단어 시험 통과(80점 이상)와 오답 노트 제출도 스탬프 적립 기준에 들어가요. 10월 한 달 동안은 정시 출석 시 스탬프를 2개 찍어 드립니다. 스탬프 10개를 모으면 1,000P가 자동으로 지급돼요.',
     date: '2026. 9. 29.',
     isNew: false
   }, {
@@ -897,7 +897,7 @@ const initialState = {
       round: 1,
       date: '2026. 10. 1.',
       rewardPoints: 1000,
-      goalCount: 20
+      goalCount: 10
     }, {
       id: 'st-a-4',
       type: 'stamp',
@@ -1634,7 +1634,7 @@ const INSTANT_RULES = [{
   points: 1000
 }];
 const STAMP_BOARD_CONFIG = {
-  goalCount: 20,
+  goalCount: 10,
   rewardPoints: 1000,
   criteria: [{
     desc: '정시 출석',
@@ -2660,7 +2660,7 @@ function PointRulesScreen({
     icon: "Sparkles",
     iconBg: "#FFE9F3",
     iconColor: "#FB75BB",
-    title: "\uB1CC \uB3C4\uC7A5 20\uAC1C \uCC44\uC6B0\uAE30",
+    title: "\uB1CC \uB3C4\uC7A5 10\uAC1C \uCC44\uC6B0\uAE30",
     meta: "\uC815\uC2DC \uCD9C\uC11D, \uC219\uC81C, \uB2E8\uC5B4 \uC2DC\uD5D8\uC73C\uB85C \uB3C4\uC7A5 \uBAA8\uC73C\uAE30",
     points: "1,000P"
   }), /*#__PURE__*/React.createElement(RuleRow, {
@@ -6199,7 +6199,7 @@ function StampBanner() {
         color: '#FB75BB'
       }
     }, "2\uBC30")),
-    sub: "\uB3C4\uC7A5 20\uAC1C \uBAA8\uC73C\uBA74 1,000P \uBC1B\uAE30",
+    sub: "\uB3C4\uC7A5 10\uAC1C \uBAA8\uC73C\uBA74 1,000P \uBC1B\uAE30",
     titleColor: "#16192A",
     subColor: "rgba(22,25,42,.6)"
   }));
@@ -8031,14 +8031,14 @@ function StampBoardDetailScreen({
       letterSpacing: '-0.02em'
     }
   }, "+", rewardPoints.toLocaleString(), "P")), /*#__PURE__*/React.createElement("svg", {
-    viewBox: "-15 0 430 500",
+    viewBox: "-12 0 436 200",
     style: {
       width: '100%',
       height: 'auto',
       display: 'block'
     }
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M 50 50 L 350 50 A 50 50 0 0 1 350 150 L 50 150 A 50 50 0 0 0 50 250 L 350 250 A 50 50 0 0 1 350 350 L 50 350 A 50 50 0 0 0 50 450 L 350 450",
+    d: "M 40 50 L 360 50 A 50 50 0 0 1 360 150 L 40 150",
     fill: "none",
     stroke: "#E5E7EB",
     strokeWidth: "14",
@@ -8047,10 +8047,10 @@ function StampBoardDetailScreen({
   }), Array.from({
     length: goalCount
   }).map((_, i) => {
-    const row = Math.floor(i / 4);
-    const colInRow = i % 4;
-    const col = row % 2 === 0 ? colInRow : 3 - colInRow;
-    const cx = 50 + col * 100;
+    const row = Math.floor(i / 5);
+    const colInRow = i % 5;
+    const col = row % 2 === 0 ? colInRow : 4 - colInRow;
+    const cx = 40 + col * 80;
     const cy = 50 + row * 100;
     const filled = i < currentCount;
     const stampLog = filled ? stampSlots[i] : null;
@@ -8062,10 +8062,10 @@ function StampBoardDetailScreen({
       }
     }, filled ? /*#__PURE__*/React.createElement("image", {
       href: "brain-stamp.svg",
-      x: cx - 36,
-      y: cy - 36,
-      width: "72",
-      height: "72",
+      x: cx - 37,
+      y: cy - 37,
+      width: "74",
+      height: "74",
       preserveAspectRatio: "xMidYMid meet"
     }) : /*#__PURE__*/React.createElement("circle", {
       cx: cx,
@@ -9351,7 +9351,7 @@ function DemoPanel({
     style: DEMO_TITLE
   }, "\uC2A4\uD0EC\uD504 \uC9C0\uAE09"), /*#__PURE__*/React.createElement("div", {
     style: DEMO_DESC
-  }, "\uC120\uC0DD\uB2D8\uC774 \uD559\uC0DD\uC5D0\uAC8C \uB1CC \uB3C4\uC7A5\uC744 \uCC0D\uC5B4\uC918\uC694. 20\uAC1C\uB97C \uBAA8\uC73C\uBA74 1,000P\uAC00 \uC790\uB3D9 \uC9C0\uAE09\uB418\uACE0 \uC2A4\uD0EC\uD504\uD310\uC774 \uCD08\uAE30\uD654\uB3FC\uC694."), /*#__PURE__*/React.createElement("div", {
+  }, "\uC120\uC0DD\uB2D8\uC774 \uD559\uC0DD\uC5D0\uAC8C \uB1CC \uB3C4\uC7A5\uC744 \uCC0D\uC5B4\uC918\uC694. 10\uAC1C\uB97C \uBAA8\uC73C\uBA74 1,000P\uAC00 \uC790\uB3D9 \uC9C0\uAE09\uB418\uACE0 \uC2A4\uD0EC\uD504\uD310\uC774 \uCD08\uAE30\uD654\uB3FC\uC694."), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       flexDirection: 'column',

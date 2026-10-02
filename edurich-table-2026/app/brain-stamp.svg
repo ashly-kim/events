@@ -13,8 +13,8 @@
   <g transform="rotate(-8 60 60)" filter="url(#hand)">
     <g filter="url(#ink)">
       <!-- 도장 테두리 -->
-      <circle cx="60" cy="60" r="50" fill="#EEF4FF" stroke="#16192A" stroke-width="5"/>
-      <circle cx="60" cy="60" r="42.5" fill="none" stroke="#3B82F6" stroke-width="1.6" stroke-dasharray="3.2 3.6" stroke-linecap="round"/>
+      <circle cx="60" cy="60" r="50" fill="#EEF4FF" stroke="#2563EB" stroke-width="5"/>
+      <circle cx="60" cy="60" r="42.5" fill="none" stroke="#93C5FD" stroke-width="1.6" stroke-dasharray="3.2 3.6" stroke-linecap="round"/>
     </g>
     <!-- 뇌 몸통 -->
     <path d="M34 69 C25 69 23 57 31 53 C28 44 36 37 44 40 C46 32 56 30 60 36 C64 30 74 32 76 40 C84 37 92 44 89 53 C97 57 95 69 86 69 C86 78 76 82 70 78 C66 84 54 84 50 78 C44 82 34 78 34 69 Z"
