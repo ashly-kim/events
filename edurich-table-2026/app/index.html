@@ -56,7 +56,7 @@
 
     @font-face {
       font-family: 'MemomentKkukkukk';
-      src: url('kkukkukk-subset.woff2') format('woff2');
+      src: url('kkukkukk-subset.woff2?v=3') format('woff2');
       font-display: swap;
     }
 
@@ -630,6 +630,135 @@ const MISSION_DATA = [{
     approved: 0
   }],
   samplePosts: []
+}, {
+  id: 'mission_word_quiz',
+  title: '영단어 퀴즈',
+  description: '이번 주 배운 영단어로 만든 3문제 퀴즈예요. 다 맞히면 포인트가 바로 적립돼요.',
+  quiz: true,
+  questions: [{
+    type: 'choice',
+    q: "'apple'의 뜻은 무엇일까요?",
+    options: ['사과', '바나나', '포도'],
+    answer: 0,
+    explain: 'apple은 사과예요. 하루 한 개면 의사가 필요 없대요.'
+  }, {
+    type: 'choice',
+    q: "'도서관'을 영어로 하면?",
+    options: ['kitchen', 'library', 'hospital'],
+    answer: 1,
+    explain: 'library는 도서관, kitchen은 부엌이에요.'
+  }, {
+    type: 'choice',
+    q: "'happy'의 반대말은?",
+    options: ['big', 'fast', 'sad'],
+    answer: 2,
+    explain: 'happy(행복한)의 반대는 sad(슬픈)예요.'
+  }],
+  startDate: '2026. 10. 1.',
+  endDate: '2026. 10. 31.',
+  frequencyLabel: '3문제, 1회 참여',
+  frequency: 'once',
+  maxCerts: 1,
+  points: 500,
+  status: 'active',
+  participantCount: 24,
+  rewardType: 'per_cert',
+  classmatesData: [{
+    name: '지은',
+    emoji: '🐰',
+    approved: 1
+  }, {
+    name: '서준',
+    emoji: '🐻',
+    approved: 1
+  }],
+  samplePosts: []
+}, {
+  id: 'mission_math_quiz',
+  title: '수학 계산 퀴즈',
+  description: '머릿속으로 빠르게 풀어 보는 계산 3문제예요. 다 맞히면 포인트가 바로 적립돼요.',
+  quiz: true,
+  questions: [{
+    type: 'choice',
+    q: '7 × 8 = ?',
+    options: ['54', '56', '64'],
+    answer: 1,
+    explain: '칠팔 오십육! 구구단 7단이에요.'
+  }, {
+    type: 'choice',
+    q: '125 + 375 = ?',
+    options: ['400', '500', '600'],
+    answer: 1,
+    explain: '125와 375를 더하면 딱 500이에요.'
+  }, {
+    type: 'choice',
+    q: '1/2 + 1/4 = ?',
+    options: ['3/4', '2/6', '1/8'],
+    answer: 0,
+    explain: '1/2은 2/4니까, 2/4 + 1/4 = 3/4예요.'
+  }],
+  startDate: '2026. 10. 1.',
+  endDate: '2026. 10. 31.',
+  frequencyLabel: '3문제, 1회 참여',
+  frequency: 'once',
+  maxCerts: 1,
+  points: 500,
+  status: 'active',
+  participantCount: 19,
+  rewardType: 'per_cert',
+  classmatesData: [{
+    name: '도윤',
+    emoji: '🦊',
+    approved: 1
+  }, {
+    name: '하린',
+    emoji: '🐱',
+    approved: 0
+  }],
+  samplePosts: []
+}, {
+  id: 'mission_spell_quiz',
+  title: '맞춤법 퀴즈',
+  description: '헷갈리기 쉬운 맞춤법 3문제예요. 다 맞히면 포인트가 바로 적립돼요.',
+  quiz: true,
+  questions: [{
+    type: 'choice',
+    q: '맞는 표현을 골라 주세요. "숙제를 ___ 끝냈어요."',
+    options: ['금새', '금세', '금쌔'],
+    answer: 1,
+    explain: "'금세'는 '금시에'를 줄인 말이에요."
+  }, {
+    type: 'choice',
+    q: '맞는 표현을 골라 주세요. "지각하면 ___?"',
+    options: ['어떡해', '어떻해', '어떢해'],
+    answer: 0,
+    explain: "'어떡해'는 '어떻게 해'를 줄인 말이에요."
+  }, {
+    type: 'choice',
+    q: '맞는 표현을 골라 주세요. "수업 중에 휴대폰은 안 ___."',
+    options: ['되요', '돼요', '대요'],
+    answer: 1,
+    explain: "'돼요'는 '되어요'를 줄인 말이에요."
+  }],
+  startDate: '2026. 10. 1.',
+  endDate: '2026. 10. 31.',
+  frequencyLabel: '3문제, 1회 참여',
+  frequency: 'once',
+  maxCerts: 1,
+  points: 500,
+  status: 'active',
+  participantCount: 15,
+  rewardType: 'per_cert',
+  classmatesData: [{
+    name: '지은',
+    emoji: '🐰',
+    approved: 1
+  }, {
+    name: '도윤',
+    emoji: '🦊',
+    approved: 0
+  }],
+  samplePosts: []
 }];
 
 // ════════════════════════════════════════════
@@ -775,6 +904,18 @@ const initialState = {
     mission_edurich_quiz: {
       submissions: [],
       reminderOn: false
+    },
+    mission_word_quiz: {
+      submissions: [],
+      reminderOn: false
+    },
+    mission_math_quiz: {
+      submissions: [],
+      reminderOn: false
+    },
+    mission_spell_quiz: {
+      submissions: [],
+      reminderOn: false
     }
   },
   storyLog: [],
@@ -809,6 +950,23 @@ const initialState = {
       }
     })
   }, {
+    id: 'ae-grade',
+    kind: 'grade',
+    onTap: d => d({
+      type: 'NAV_PUSH',
+      entry: {
+        route: 'notice-detail',
+        noticeId: 'an-seed-5'
+      }
+    })
+  }, {
+    id: 'ae-newquiz',
+    kind: 'newquiz',
+    onTap: d => d({
+      type: 'TAB',
+      tab: '포인트'
+    })
+  }, {
     id: 'ae-stamp',
     kind: 'stamp',
     onTap: d => d({
@@ -819,6 +977,12 @@ const initialState = {
     })
   }],
   academyNotices: [{
+    id: 'an-seed-5',
+    title: '10월 성적 우수자 포인트 지급 안내',
+    content: '10월 단원평가와 학교 시험 성적 우수자에게 포인트를 지급합니다. 학교 시험 90점 이상은 과목별 2,000P, 직전 시험보다 10점 이상 오르면 3,000P가 적립돼요. 성적표 사진은 10월 31일(토)까지 담임 선생님께 보내 주세요. 포인트는 11월 첫 주에 지급됩니다.',
+    date: '2026. 10. 7.',
+    isNew: true
+  }, {
     id: 'an-seed-1',
     title: '에듀리치테이블 아카데미 마켓데이 안내',
     content: '10월 30일(금) 오후 4시부터 6시까지 1층 라운지에서 마켓데이가 열려요. 그동안 모은 포인트를 크래빗 카드로 정산해서 간식, 문구, 굿즈를 직접 살 수 있습니다. 포인트 정산은 10월 28일(수)까지 담임 선생님께 신청해 주세요.',
@@ -2427,11 +2591,18 @@ function ScholarshipScreen({
       t: '확인 중',
       c: COLORS.warningText,
       b: COLORS.warningSubtle
-    } : {
-      t: '오늘 마감',
-      c: COLORS.danger,
-      b: COLORS.dangerSubtle
-    };
+    } : (() => {
+      const left = Math.round((parseKoreanDate(m.endDate) - parseKoreanDate(TODAY)) / 86400000);
+      return left <= 0 ? {
+        t: '오늘 마감',
+        c: COLORS.danger,
+        b: COLORS.dangerSubtle
+      } : {
+        t: `${left}일 남음`,
+        c: COLORS.fgSubtle,
+        b: COLORS.bgSurface
+      };
+    })();
     return /*#__PURE__*/React.createElement("button", {
       key: m.id,
       onClick: () => dispatch({
@@ -2550,7 +2721,10 @@ function PointRulesScreen({
         alignItems: 'center',
         justifyContent: 'center'
       }
-    }, /*#__PURE__*/React.createElement(LucideIcon, {
+    }, typeof RuleIcon === 'function' ? /*#__PURE__*/React.createElement(RuleIcon, {
+      name: icon,
+      size: 44
+    }) : /*#__PURE__*/React.createElement(LucideIcon, {
       name: icon,
       size: 24
     })), /*#__PURE__*/React.createElement("div", {
@@ -2637,80 +2811,63 @@ function PointRulesScreen({
       overflowY: 'auto',
       padding: `${SPACING.lg}px ${SPACING.lg}px ${SPACING.xxl}px`
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: `${SPACING.sm}px 0 ${SPACING.xl}px`
-    }
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "sprout.png",
-    alt: "",
-    style: {
-      width: 240,
-      height: 240,
-      objectFit: 'contain',
-      pointerEvents: 'none',
-      background: 'transparent'
-    }
-  })), /*#__PURE__*/React.createElement(RuleCard, {
+  }, /*#__PURE__*/React.createElement(RuleCard, {
     title: "\uB0B4\uAC00 \uC9C1\uC811 \uBAA8\uC544\uC694"
   }, /*#__PURE__*/React.createElement(RuleRow, {
-    icon: "Sparkles",
-    iconBg: "#FFE9F3",
+    icon: "stamp",
+    iconBg: "transparent",
     iconColor: "#FB75BB",
     title: "\uB1CC \uB3C4\uC7A5 10\uAC1C \uCC44\uC6B0\uAE30",
-    meta: "\uC815\uC2DC \uCD9C\uC11D, \uC219\uC81C, \uB2E8\uC5B4 \uC2DC\uD5D8\uC73C\uB85C \uB3C4\uC7A5 \uBAA8\uC73C\uAE30",
+    meta: "\uCD9C\uC11D, \uC219\uC81C, \uB2E8\uC5B4 \uC2DC\uD5D8\uC73C\uB85C \uBAA8\uC544\uC694",
     points: "1,000P"
   }), /*#__PURE__*/React.createElement(RuleRow, {
-    icon: "Zap",
-    iconBg: COLORS.primarySubtle,
+    icon: "mission",
+    iconBg: "transparent",
     iconColor: COLORS.primary,
     title: "\uBBF8\uC158 \uC778\uC99D\uD558\uAE30",
-    meta: "\uC9C0\uAE08\uC740 \uC5D0\uB4C0\uB9AC\uCE58\uD14C\uC774\uBE14 \uD034\uC988 \uBBF8\uC158 \uC9C4\uD589 \uC911",
-    points: "1,000P",
+    meta: "\uC9C0\uAE08 \uD034\uC988 \uBBF8\uC158 4\uAC1C \uC9C4\uD589 \uC911",
+    points: "\uCD5C\uB300 1,000P",
     isLast: true
   })), /*#__PURE__*/React.createElement(RuleCard, {
     title: "\uC120\uC0DD\uB2D8\uC774 \uD3C9\uAC00\uD574\uC11C \uC9C0\uAE09\uD574\uC694"
   }, /*#__PURE__*/React.createElement(RuleRow, {
-    icon: "Trophy",
-    iconBg: COLORS.warningSubtle,
+    icon: "trophy",
+    iconBg: "transparent",
     iconColor: COLORS.warningText,
     title: "\uD559\uAD50 \uC2DC\uD5D8 90\uC810 \uC774\uC0C1",
     meta: "\uC911\uAC04, \uAE30\uB9D0\uACE0\uC0AC \uACFC\uBAA9\uBCC4",
     points: "2,000P"
   }), /*#__PURE__*/React.createElement(RuleRow, {
-    icon: "TrendingUp",
-    iconBg: COLORS.successSubtle,
+    icon: "growth",
+    iconBg: "transparent",
     iconColor: COLORS.success,
     title: "\uC131\uC801 \uD5A5\uC0C1",
-    meta: "\uC9C1\uC804 \uC2DC\uD5D8\uBCF4\uB2E4 10\uC810 \uC774\uC0C1 \uC624\uB974\uBA74",
+    meta: "\uC9C1\uC804 \uC2DC\uD5D8\uBCF4\uB2E4 10\uC810 \uC774\uC0C1",
     points: "3,000P"
   }), /*#__PURE__*/React.createElement(RuleRow, {
-    icon: "Award",
-    iconBg: COLORS.warningSubtle,
+    icon: "medal",
+    iconBg: "transparent",
     iconColor: COLORS.warningText,
     title: "\uB2E8\uC6D0\uD3C9\uAC00 100\uC810",
     meta: "\uD559\uC6D0 \uB2E8\uC6D0\uD3C9\uAC00 \uB9CC\uC810",
     points: "500P"
   }), /*#__PURE__*/React.createElement(RuleRow, {
-    icon: "CalendarCheck",
-    iconBg: COLORS.violetSubtle,
+    icon: "attendance",
+    iconBg: "transparent",
     iconColor: COLORS.violet,
     title: "\uD55C \uB2EC \uAC1C\uADFC",
     meta: "\uACB0\uC11D, \uC9C0\uAC01 \uC5C6\uC774 \uD55C \uB2EC \uCD9C\uC11D",
     points: "1,000P"
   }), /*#__PURE__*/React.createElement(RuleRow, {
-    icon: "CheckCircle",
-    iconBg: COLORS.violetSubtle,
+    icon: "homework",
+    iconBg: "transparent",
     iconColor: COLORS.violet,
     title: "\uC219\uC81C 100% \uC644\uB8CC",
     meta: "\uD55C \uB2EC \uC219\uC81C\uB97C \uBE60\uC9D0\uC5C6\uC774 \uC81C\uCD9C",
     points: "1,000P"
   }), /*#__PURE__*/React.createElement(RuleRow, {
-    icon: "UserPlus",
-    iconBg: COLORS.crabitSubtle,
+    icon: "friend",
+    iconBg: "transparent",
     iconColor: COLORS.crabit,
     title: "\uCE5C\uAD6C \uC18C\uAC1C",
     meta: "\uC18C\uAC1C\uD55C \uCE5C\uAD6C\uAC00 \uB4F1\uB85D\uD558\uBA74",
@@ -2719,27 +2876,27 @@ function PointRulesScreen({
   })), /*#__PURE__*/React.createElement(RuleCard, {
     title: "\uC774\uB7F0 \uD589\uB3D9\uC740 \uCC28\uAC10\uB3FC\uC694"
   }, /*#__PURE__*/React.createElement(RuleRow, {
-    icon: "Clock",
-    iconBg: COLORS.bgSurface,
+    icon: "absent",
+    iconBg: "transparent",
     iconColor: COLORS.fgSubtle,
     title: "\uBB34\uB2E8 \uACB0\uC11D",
     meta: "\uC0AC\uC804 \uC5F0\uB77D \uC5C6\uC774 \uACB0\uC11D\uD55C \uACBD\uC6B0",
     points: "500P",
     isDeduction: true
   }), /*#__PURE__*/React.createElement(RuleRow, {
-    icon: "AlarmClock",
-    iconBg: COLORS.bgSurface,
+    icon: "late",
+    iconBg: "transparent",
     iconColor: COLORS.fgSubtle,
     title: "\uC9C0\uAC01",
     meta: "10\uBD84 \uC774\uC0C1 \uB2A6\uC740 \uACBD\uC6B0",
     points: "200P",
     isDeduction: true
   }), /*#__PURE__*/React.createElement(RuleRow, {
-    icon: "BookX",
-    iconBg: COLORS.bgSurface,
+    icon: "nohw",
+    iconBg: "transparent",
     iconColor: COLORS.fgSubtle,
     title: "\uC219\uC81C \uBBF8\uC81C\uCD9C",
-    meta: "\uC218\uC5C5 \uC2DC\uC791 \uC804\uAE4C\uC9C0 \uC81C\uCD9C \uC548 \uD55C \uACBD\uC6B0",
+    meta: "\uC218\uC5C5 \uC804\uAE4C\uC9C0 \uC548 \uB0B8 \uACBD\uC6B0",
     points: "300P",
     isDeduction: true,
     isLast: true
@@ -4947,7 +5104,7 @@ function MissionDetailScreen({
       style: {
         color: COLORS.warningText
       }
-    }, " \xB7 \uB300\uAE30 ", pendingCount, "\uAC74")) : /*#__PURE__*/React.createElement("div", {
+    }, ", \uB300\uAE30 ", pendingCount, "\uAC74")) : /*#__PURE__*/React.createElement("div", {
       style: {
         fontFamily: FONTS.primary,
         fontSize: TYPOGRAPHY.size.body,
@@ -5685,28 +5842,364 @@ function EduMono({
 // ════════════════════════════════════════════
 // MissionThumb - 미션 썸네일 (320 x 180)
 // ════════════════════════════════════════════
+const EDU_GLASS = {
+  background: 'linear-gradient(145deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,.04) 55%, rgba(59,130,246,.10) 100%)',
+  border: '1px solid rgba(255,255,255,.16)',
+  boxShadow: 'inset 0 1px 0 rgba(255,255,255,.22), 0 18px 36px rgba(2,6,23,.65), 0 0 28px rgba(59,130,246,.18)',
+  backdropFilter: 'blur(6px)',
+  WebkitBackdropFilter: 'blur(6px)'
+};
+const EDU_GLASS_BLUE = {
+  background: 'linear-gradient(145deg, #60A5FA 0%, #3B82F6 45%, #1D4ED8 100%)',
+  border: '1px solid rgba(255,255,255,.28)',
+  boxShadow: 'inset 0 1px 0 rgba(255,255,255,.35), 0 18px 36px rgba(2,6,23,.6), 0 0 36px rgba(59,130,246,.45)'
+};
+function EduThumbFrame({
+  children
+}) {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      inset: 0,
+      background: EDU_NAVY_BG
+    }
+  }), /*#__PURE__*/React.createElement(EduGrid, {
+    size: 22
+  }), children);
+}
+function EduQuizHeadline({
+  word,
+  size = 46
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 16,
+      bottom: 14,
+      zIndex: 3,
+      fontFamily: "'Montserrat', sans-serif",
+      fontWeight: 600,
+      fontSize: size,
+      lineHeight: 0.98,
+      letterSpacing: '-0.035em',
+      whiteSpace: 'nowrap',
+      textShadow: '0 4px 18px rgba(2,6,23,.7)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: '#FFFFFF'
+    }
+  }, word), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: '#F4F1EA'
+    }
+  }, "Quiz", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#93C5FD'
+    }
+  }, ".")));
+}
+function EduThumbLabel({
+  children
+}) {
+  return /*#__PURE__*/React.createElement(EduMono, {
+    size: 8,
+    style: {
+      position: 'absolute',
+      left: 18,
+      top: 16,
+      zIndex: 3
+    }
+  }, children);
+}
+function EduGlassTile({
+  left,
+  top,
+  w,
+  h,
+  rotate = 0,
+  blue = false,
+  radius = 14,
+  children,
+  style
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left,
+      top,
+      width: w,
+      height: h,
+      borderRadius: radius,
+      transform: `rotate(${rotate}deg)`,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      ...(blue ? EDU_GLASS_BLUE : EDU_GLASS),
+      ...(style || {})
+    }
+  }, children);
+}
+function WordQuizMotif() {
+  const card = (word, tone) => /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "'Montserrat', sans-serif",
+      fontWeight: 600,
+      fontSize: 17,
+      letterSpacing: '-0.01em',
+      color: tone
+    }
+  }, word);
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(EduGlow, {
+    left: 150,
+    top: -30,
+    size: 240,
+    alpha: 0.5
+  }), /*#__PURE__*/React.createElement(EduGlassTile, {
+    left: 196,
+    top: 20,
+    w: 110,
+    h: 40,
+    rotate: 9,
+    radius: 12
+  }, card('banana', 'rgba(244,241,234,.7)')), /*#__PURE__*/React.createElement(EduGlassTile, {
+    left: 180,
+    top: 56,
+    w: 110,
+    h: 40,
+    rotate: -5,
+    radius: 12
+  }, card('apple', '#F4F1EA')), /*#__PURE__*/React.createElement(EduGlassTile, {
+    left: 206,
+    top: 94,
+    w: 92,
+    h: 70,
+    rotate: 4,
+    blue: true,
+    radius: 16
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "'Montserrat', sans-serif",
+      fontWeight: 600,
+      fontSize: 42,
+      letterSpacing: '-0.04em',
+      color: '#FFFFFF',
+      lineHeight: 1
+    }
+  }, "Aa")));
+}
+function MathQuizMotif() {
+  const sym = {
+    fontFamily: "'Montserrat', sans-serif",
+    fontWeight: 600,
+    fontSize: 46,
+    color: '#F4F1EA',
+    lineHeight: 1
+  };
+  const minus = /*#__PURE__*/React.createElement("svg", {
+    width: "26",
+    height: "26",
+    viewBox: "0 0 26 26",
+    style: {
+      display: 'block'
+    }
+  }, /*#__PURE__*/React.createElement("line", {
+    x1: "4",
+    y1: "13",
+    x2: "22",
+    y2: "13",
+    stroke: "#F4F1EA",
+    strokeWidth: "4",
+    strokeLinecap: "round"
+  }));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(EduGlow, {
+    left: 150,
+    top: -20,
+    size: 240,
+    alpha: 0.5
+  }), /*#__PURE__*/React.createElement(EduGlassTile, {
+    left: 186,
+    top: 16,
+    w: 58,
+    h: 58,
+    rotate: -6
+  }, /*#__PURE__*/React.createElement("span", {
+    style: sym
+  }, "+")), /*#__PURE__*/React.createElement(EduGlassTile, {
+    left: 252,
+    top: 26,
+    w: 58,
+    h: 58,
+    rotate: 5
+  }, minus), /*#__PURE__*/React.createElement(EduGlassTile, {
+    left: 180,
+    top: 84,
+    w: 58,
+    h: 58,
+    rotate: 4
+  }, /*#__PURE__*/React.createElement("span", {
+    style: sym
+  }, "\xF7")), /*#__PURE__*/React.createElement(EduGlassTile, {
+    left: 246,
+    top: 94,
+    w: 64,
+    h: 64,
+    rotate: -4,
+    blue: true,
+    radius: 16
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...sym,
+      fontSize: 54,
+      color: '#FFFFFF'
+    }
+  }, "\xD7")));
+}
+function SpellQuizMotif() {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(EduGlow, {
+    left: 150,
+    top: -20,
+    size: 240,
+    alpha: 0.5
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 178,
+      top: 34,
+      transform: 'rotate(-4deg)'
+    }
+  }, /*#__PURE__*/React.createElement(EduGlassTile, {
+    left: 0,
+    top: 0,
+    w: 124,
+    h: 64,
+    radius: 20
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: FONTS.primary,
+      fontWeight: 700,
+      fontSize: 28,
+      letterSpacing: '-0.04em',
+      color: '#F4F1EA',
+      lineHeight: 1
+    }
+  }, "\uB9DE\uCDA4\uBC95")), /*#__PURE__*/React.createElement("svg", {
+    width: "22",
+    height: "16",
+    viewBox: "0 0 22 16",
+    style: {
+      position: 'absolute',
+      left: 24,
+      top: 63
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M1 0 L4 15 L21 0",
+    fill: "rgba(255,255,255,.07)",
+    stroke: "rgba(255,255,255,.16)",
+    strokeWidth: "1",
+    strokeLinejoin: "round"
+  }))), /*#__PURE__*/React.createElement(EduGlassTile, {
+    left: 276,
+    top: 14,
+    w: 36,
+    h: 36,
+    rotate: 8,
+    blue: true,
+    radius: 18
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "20",
+    height: "20",
+    viewBox: "0 0 20 20",
+    style: {
+      display: 'block'
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M4 10.5 L8.3 14.5 L16 5.5",
+    fill: "none",
+    stroke: "#FFFFFF",
+    strokeWidth: "2.6",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }))), ['ㄱ', 'ㄴ', 'ㄷ'].map((c, i) => /*#__PURE__*/React.createElement(EduGlassTile, {
+    key: c,
+    left: 196 + i * 40,
+    top: 124,
+    w: 32,
+    h: 32,
+    radius: 10,
+    rotate: [-5, 3, -2][i]
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: FONTS.primary,
+      fontWeight: 700,
+      fontSize: 16,
+      color: 'rgba(244,241,234,.85)',
+      lineHeight: 1
+    }
+  }, c))));
+}
+const EDU_QUIZ_THUMBS = {
+  mission_word_quiz: {
+    word: 'Word',
+    label: 'Quiz 02 | Vocabulary',
+    Motif: WordQuizMotif
+  },
+  mission_math_quiz: {
+    word: 'Math',
+    label: 'Quiz 03 | Arithmetic',
+    Motif: MathQuizMotif
+  },
+  mission_spell_quiz: {
+    word: 'Spell',
+    label: 'Quiz 04 | Spelling',
+    Motif: SpellQuizMotif
+  }
+};
 function MissionThumb({
   missionId,
   radius = 0
 }) {
-  if (missionId !== 'mission_edurich_quiz') {
+  if (missionId === 'mission_edurich_quiz') {
     return /*#__PURE__*/React.createElement(Scaled, {
       w: 320,
       h: 180,
       radius: radius
-    }, /*#__PURE__*/React.createElement("div", {
+    }, /*#__PURE__*/React.createElement(EduThumbFrame, null, /*#__PURE__*/React.createElement(EduGlow, {
+      left: 150,
+      top: -10,
+      size: 230
+    }), /*#__PURE__*/React.createElement("img", {
+      src: "brain.png",
+      alt: "",
       style: {
         position: 'absolute',
-        inset: 0,
-        background: '#F1F2F4',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: '#9A9CA3'
+        left: 186,
+        top: 18,
+        width: 184,
+        height: 184,
+        objectFit: 'contain',
+        filter: 'drop-shadow(0 30px 60px rgba(2,6,23,.8))'
       }
-    }, /*#__PURE__*/React.createElement(LucideIcon, {
-      name: "Star",
-      size: 40
+    }), /*#__PURE__*/React.createElement(EduThumbLabel, null, "STATUS: ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: '#93C5FD'
+      }
+    }, "LIVE")), /*#__PURE__*/React.createElement(EduQuizHeadline, {
+      word: "Edurich",
+      size: 44
+    })));
+  }
+  const cfg = EDU_QUIZ_THUMBS[missionId];
+  if (cfg) {
+    const {
+      Motif
+    } = cfg;
+    return /*#__PURE__*/React.createElement(Scaled, {
+      w: 320,
+      h: 180,
+      radius: radius
+    }, /*#__PURE__*/React.createElement(EduThumbFrame, null, /*#__PURE__*/React.createElement(Motif, null), /*#__PURE__*/React.createElement(EduThumbLabel, null, cfg.label), /*#__PURE__*/React.createElement(EduQuizHeadline, {
+      word: cfg.word
     })));
   }
   return /*#__PURE__*/React.createElement(Scaled, {
@@ -5717,77 +6210,16 @@ function MissionThumb({
     style: {
       position: 'absolute',
       inset: 0,
-      background: EDU_NAVY_BG
-    }
-  }), /*#__PURE__*/React.createElement(EduGrid, {
-    size: 22
-  }), /*#__PURE__*/React.createElement(EduGlow, {
-    left: 150,
-    top: -10,
-    size: 230
-  }), /*#__PURE__*/React.createElement("img", {
-    src: "brain.png",
-    alt: "",
-    style: {
-      position: 'absolute',
-      left: 172,
-      top: 14,
-      width: 196,
-      height: 196,
-      objectFit: 'contain',
-      filter: 'drop-shadow(0 30px 60px rgba(2,6,23,.8))'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      left: 16,
-      top: 42,
-      fontFamily: "'Playfair Display', serif",
-      fontStyle: 'italic',
-      fontWeight: 500,
-      lineHeight: 1,
-      whiteSpace: 'nowrap'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 38,
-      color: '#FFFFFF',
-      letterSpacing: '-0.01em'
-    }
-  }, "Edurich"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 2,
+      background: '#F1F2F4',
       display: 'flex',
-      alignItems: 'baseline',
-      gap: 6
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: '#9A9CA3'
     }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontSize: 15,
-      color: '#93C5FD',
-      textDecoration: 'underline',
-      textDecorationColor: '#93C5FD',
-      textUnderlineOffset: 3,
-      textDecorationThickness: 1
-    }
-  }, "the"), /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontSize: 38,
-      color: '#F4F1EA',
-      letterSpacing: '-0.01em'
-    }
-  }, "Quiz."))), /*#__PURE__*/React.createElement(EduMono, {
-    size: 8,
-    style: {
-      position: 'absolute',
-      left: 18,
-      bottom: 14
-    }
-  }, "STATUS: ", /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: '#93C5FD'
-    }
-  }, "LIVE")));
+  }, /*#__PURE__*/React.createElement(LucideIcon, {
+    name: "Star",
+    size: 40
+  })));
 }
 
 // ════════════════════════════════════════════
@@ -6204,25 +6636,201 @@ function StampBanner() {
     subColor: "rgba(22,25,42,.6)"
   }));
 }
+function GradeBanner() {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      inset: 0,
+      background: 'linear-gradient(110deg, #FFF9EC 0%, #FFF1D2 55%, #FFE3A8 100%)'
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 250,
+      top: -40,
+      width: 170,
+      height: 170,
+      borderRadius: '50%',
+      background: 'radial-gradient(circle, rgba(255,255,255,.8) 0%, rgba(255,255,255,0) 65%)'
+    }
+  }), /*#__PURE__*/React.createElement("svg", {
+    width: "66",
+    height: "70",
+    viewBox: "0 0 48 52",
+    style: {
+      position: 'absolute',
+      left: 262,
+      top: 12
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M10 6 H38 V18 C38 27 32 33 24 33 C16 33 10 27 10 18 Z",
+    fill: "#FFC531"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M24 6 H38 V18 C38 27 32 33 24 33 Z",
+    fill: "#FFB300"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M10 10 H4 C4 18 7 22 12 23 L12 19 C9 18 8 15 8 13 H10 Z",
+    fill: "#FFC531"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M38 10 H44 C44 18 41 22 36 23 L36 19 C39 18 40 15 40 13 H38 Z",
+    fill: "#FFB300"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "21",
+    y: "32",
+    width: "6",
+    height: "8",
+    fill: "#F2A900"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "14",
+    y: "40",
+    width: "20",
+    height: "7",
+    rx: "2",
+    fill: "#B07B3A"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "17",
+    y: "42.5",
+    width: "14",
+    height: "2",
+    rx: "1",
+    fill: "#D9A15C"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M24 11 l2 4 4.4 .6 -3.2 3 .8 4.4 -4 -2.1 -4 2.1 .8 -4.4 -3.2 -3 4.4 -.6 z",
+    fill: "#FFF3C4"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 306,
+      top: 8,
+      padding: '3px 6px',
+      borderRadius: 999,
+      background: '#FF8A3D',
+      color: '#fff',
+      fontFamily: BANNER_FONT,
+      fontSize: 11,
+      lineHeight: 1,
+      transform: 'rotate(10deg)'
+    }
+  }, "+3,000P"), /*#__PURE__*/React.createElement(BannerText, {
+    eyebrow: /*#__PURE__*/React.createElement(BannerPill, {
+      bg: "#FFE1B0",
+      color: "#C26A00"
+    }, "10\uC6D4 \uC131\uC801 \uC6B0\uC218\uC790"),
+    title: "\uC131\uC801 \uC6B0\uC218\uC790 \uD3EC\uC778\uD2B8 \uC9C0\uAE09 \uC548\uB0B4",
+    sub: "90\uC810 \uC774\uC0C1 2,000P, 10\uC810 \uC624\uB974\uBA74 3,000P",
+    titleColor: "#16192A",
+    subColor: "rgba(22,25,42,.6)",
+    titleSize: 17,
+    width: 250
+  }));
+}
+function NewQuizBanner() {
+  const tiles = [{
+    l: 236,
+    t: 16,
+    r: -10,
+    bg: '#FB75BB',
+    fg: '#fff',
+    tx: 'Aa'
+  }, {
+    l: 280,
+    t: 8,
+    r: 8,
+    bg: '#FFD866',
+    fg: '#16192A',
+    tx: '7×8'
+  }, {
+    l: 260,
+    t: 48,
+    r: -6,
+    bg: '#93C5FD',
+    fg: '#0B1428',
+    tx: '맞춤'
+  }];
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      inset: 0,
+      background: 'linear-gradient(110deg, #F3F0FF 0%, #ECE7FF 55%, #E0D7FF 100%)'
+    }
+  }), tiles.map((t, j) => /*#__PURE__*/React.createElement("div", {
+    key: j,
+    style: {
+      position: 'absolute',
+      left: t.l,
+      top: t.t,
+      width: 40,
+      height: 34,
+      borderRadius: 10,
+      background: t.bg,
+      color: t.fg,
+      transform: `rotate(${t.r}deg)`,
+      boxShadow: '0 6px 12px rgba(91,70,190,.18)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: BANNER_FONT,
+      fontSize: 14,
+      lineHeight: 1
+    }
+  }, t.tx)), /*#__PURE__*/React.createElement(BannerText, {
+    eyebrow: /*#__PURE__*/React.createElement(BannerPill, {
+      bg: "#DDD3FF",
+      color: "#5B46BE"
+    }, "\uC0C8 \uBBF8\uC158 3\uAC1C"),
+    title: "\uC601\uB2E8\uC5B4, \uACC4\uC0B0, \uB9DE\uCDA4\uBC95 \uD034\uC988 \uC624\uD508",
+    sub: "3\uBB38\uC81C \uB2E4 \uB9DE\uD788\uBA74 500P\uC529 \uBC1B\uC544\uC694",
+    titleColor: "#16192A",
+    subColor: "rgba(22,25,42,.6)",
+    titleSize: 17,
+    width: 240
+  }));
+}
 const EVENT_BANNERS = {
   quiz: QuizBanner,
   market: MarketBanner,
   exam: ExamBanner,
-  stamp: StampBanner
+  stamp: StampBanner,
+  grade: GradeBanner,
+  newquiz: NewQuizBanner
 };
 
 // ════════════════════════════════════════════
-// AcademyEventBannerSection - 이벤트 배너 캐러셀
+// AcademyEventBannerSection - 이벤트 배너 캐러셀 (3.5초마다 자동 넘김)
 // ════════════════════════════════════════════
 function AcademyEventBannerSection({
   events,
   dispatch
 }) {
-  if (!events || events.length === 0) return null;
+  const scRef = useRef(null);
+  const holdUntil = useRef(0);
   const EDGE = 16;
-  const total = events.length;
-  return /*#__PURE__*/React.createElement("div", {
+  const total = (events || []).length;
+  useEffect(() => {
+    if (total < 2) return;
+    const t = setInterval(() => {
+      const el = scRef.current;
+      if (!el || Date.now() < holdUntil.current) return;
+      const w = el.clientWidth;
+      const cur = Math.round(el.scrollLeft / w);
+      const next = (cur + 1) % total;
+      el.scrollTo({
+        left: next * w,
+        behavior: next === 0 ? 'auto' : 'smooth'
+      });
+    }, 3500);
+    return () => clearInterval(t);
+  }, [total]);
+  if (!events || total === 0) return null;
+  const hold = () => {
+    holdUntil.current = Date.now() + 6000;
+  };
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    ref: scRef,
     className: "hide-scrollbar",
+    onTouchStart: hold,
+    onPointerDown: hold,
+    onWheel: hold,
     style: {
       display: 'flex',
       overflowX: 'auto',
@@ -6276,7 +6884,7 @@ function AcademyEventBannerSection({
         pointerEvents: 'none'
       }
     }, i + 1, " / ", total)));
-  }));
+  })));
 }
 
 // ════════════════════════════════════════════
@@ -7577,7 +8185,7 @@ function EndedMissionsScreen({
           color: COLORS.fgSubtle,
           marginTop: 2
         }
-      }, "\uC778\uC99D ", m.approvedCount, "\uD68C", activeTab === 'rejected' && m.rejectedCount > 0 ? ` · 반려 ${m.rejectedCount}회` : '')));
+      }, "\uC778\uC99D ", m.approvedCount, "\uD68C", activeTab === 'rejected' && m.rejectedCount > 0 ? `, 반려 ${m.rejectedCount}회` : '')));
     }));
   })()));
 }
@@ -7721,7 +8329,7 @@ function PerCertListScreen({
       fontSize: TYPOGRAPHY.size.xs,
       color: COLORS.fgMuted
     }
-  }, m.frequencyLabel, " \xB7 \uC778\uC99D ", m.approvedCount, "\uD68C")), /*#__PURE__*/React.createElement("span", {
+  }, m.frequencyLabel, ", \uC778\uC99D ", m.approvedCount, "\uD68C")), /*#__PURE__*/React.createElement("span", {
     style: {
       fontFamily: FONTS.primary,
       fontSize: TYPOGRAPHY.size.body,
@@ -8791,16 +9399,17 @@ function MissionQuizScreen({
 }) {
   const top = state.stack[state.stack.length - 1];
   const mission = MISSION_DATA.find(m => m.id === top.missionId);
+  const QS = mission && mission.questions || QUIZ_QUESTIONS;
   const [step, setStep] = useState(0);
-  const total = QUIZ_QUESTIONS.length;
+  const total = QS.length;
   const done = step >= total;
-  const item = QUIZ_QUESTIONS[step];
+  const item = QS[step];
   useEffect(() => {
     if (!done || !mission) return;
     dispatch({
       type: 'SUBMIT_MISSION',
       missionId: mission.id,
-      text: `에듀리치테이블 퀴즈 ${total}문제 모두 정답!`,
+      text: `${mission.title} ${total}문제 모두 정답!`,
       photo: null
     });
     const t = setTimeout(() => dispatch({
@@ -8823,7 +9432,7 @@ function MissionQuizScreen({
       background: COLORS.bgSubtle
     }
   }, /*#__PURE__*/React.createElement("style", null, '@keyframes quizShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}} @keyframes quizPop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}'), /*#__PURE__*/React.createElement(CrabitHeader, {
-    title: "\uC5D0\uB4C0\uB9AC\uCE58\uD14C\uC774\uBE14 \uD034\uC988",
+    title: mission ? mission.title : '퀴즈',
     showBack: true,
     onBack: () => dispatch({
       type: 'NAV_BACK'
@@ -8835,7 +9444,7 @@ function MissionQuizScreen({
       display: 'flex',
       gap: 6
     }
-  }, QUIZ_QUESTIONS.map((_, i) => /*#__PURE__*/React.createElement("div", {
+  }, QS.map((_, i) => /*#__PURE__*/React.createElement("div", {
     key: i,
     style: {
       flex: 1,
@@ -8953,6 +9562,603 @@ function MissionQuizScreen({
       fontWeight: 600
     }
   }, "\uB0B4 \uD3EC\uC778\uD2B8 \uBCF4\uB7EC \uAC00\uAE30")));
+}
+
+// 포인트 기준 화면용 플랫 2D 일러스트 아이콘 세트
+// 외곽선 없이 면 색으로만 그리고, 흰색 체크와 X 표시만 얇은 선으로 둡니다.
+
+function ruleIconStar(cx, cy, R, r) {
+  const pts = [];
+  for (let i = 0; i < 10; i++) {
+    const a = -Math.PI / 2 + i * Math.PI / 5;
+    const rad = i % 2 === 0 ? R : r;
+    pts.push((cx + rad * Math.cos(a)).toFixed(2) + ',' + (cy + rad * Math.sin(a)).toFixed(2));
+  }
+  return pts.join(' ');
+}
+function RuleIconCheck({
+  cx,
+  cy
+}) {
+  return /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("circle", {
+    cx: cx,
+    cy: cy,
+    r: "9",
+    fill: "#8BD47B"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: `M${cx - 4.2} ${cy + 0.2} l3 3 l5.4 -5.6`,
+    fill: "none",
+    stroke: "#FFFFFF",
+    strokeWidth: "2.6",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }));
+}
+function RuleIconX({
+  cx,
+  cy
+}) {
+  return /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("circle", {
+    cx: cx,
+    cy: cy,
+    r: "9",
+    fill: "#FF8A80"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: `M${cx - 3.2} ${cy - 3.2} L${cx + 3.2} ${cy + 3.2} M${cx + 3.2} ${cy - 3.2} L${cx - 3.2} ${cy + 3.2}`,
+    fill: "none",
+    stroke: "#FFFFFF",
+    strokeWidth: "2.6",
+    strokeLinecap: "round"
+  }));
+}
+function RuleIconCalendar({
+  body,
+  header,
+  ring,
+  cell
+}) {
+  return /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("rect", {
+    x: "6",
+    y: "10",
+    width: "34",
+    height: "31",
+    rx: "6",
+    fill: body
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "6",
+    y: "10",
+    width: "34",
+    height: "11",
+    rx: "6",
+    fill: header
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "6",
+    y: "15",
+    width: "34",
+    height: "6",
+    fill: header
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "13",
+    y: "6",
+    width: "3.6",
+    height: "9",
+    rx: "1.8",
+    fill: ring
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "29.4",
+    y: "6",
+    width: "3.6",
+    height: "9",
+    rx: "1.8",
+    fill: ring
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "11",
+    y: "25",
+    width: "5.5",
+    height: "4.5",
+    rx: "1.5",
+    fill: cell
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "18.5",
+    y: "25",
+    width: "5.5",
+    height: "4.5",
+    rx: "1.5",
+    fill: cell
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "26",
+    y: "25",
+    width: "5.5",
+    height: "4.5",
+    rx: "1.5",
+    fill: cell
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "11",
+    y: "32",
+    width: "5.5",
+    height: "4.5",
+    rx: "1.5",
+    fill: cell
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "18.5",
+    y: "32",
+    width: "5.5",
+    height: "4.5",
+    rx: "1.5",
+    fill: cell
+  }));
+}
+function RuleIconNotebook({
+  page,
+  cover,
+  spine,
+  label,
+  line
+}) {
+  return /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("rect", {
+    x: "12",
+    y: "8",
+    width: "26",
+    height: "33",
+    rx: "4",
+    fill: page
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "8",
+    y: "5",
+    width: "26",
+    height: "35",
+    rx: "4",
+    fill: cover
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "8",
+    y: "5",
+    width: "7",
+    height: "35",
+    rx: "3.5",
+    fill: spine
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "19",
+    y: "11",
+    width: "11",
+    height: "6",
+    rx: "2",
+    fill: label
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "19",
+    y: "21",
+    width: "11",
+    height: "2.2",
+    rx: "1.1",
+    fill: line
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "19",
+    y: "26",
+    width: "7",
+    height: "2.2",
+    rx: "1.1",
+    fill: line
+  }));
+}
+function RuleIconPerson({
+  x,
+  y,
+  r,
+  body,
+  hair
+}) {
+  return /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("rect", {
+    x: x - r * 1.35,
+    y: y + r * 1.05,
+    width: r * 2.7,
+    height: r * 2.4,
+    rx: r * 1.3,
+    fill: body
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: x,
+    cy: y,
+    r: r,
+    fill: "#FFC9C0"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: `M${x - r} ${y + 0.5} A${r} ${r} 0 0 1 ${x + r} ${y + 0.5} C${x + r * 0.4} ${y - r * 0.55} ${x - r * 0.3} ${y - r * 0.2} ${x - r} ${y + 0.5} Z`,
+    fill: hair
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: x - r * 0.38,
+    cy: y + r * 0.25,
+    r: "0.95",
+    fill: "#5D4037"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: x + r * 0.38,
+    cy: y + r * 0.25,
+    r: "0.95",
+    fill: "#5D4037"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: x - r * 0.62,
+    cy: y + r * 0.58,
+    r: "1.3",
+    fill: "#FF9E9E",
+    opacity: "0.7"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: x + r * 0.62,
+    cy: y + r * 0.58,
+    r: "1.3",
+    fill: "#FF9E9E",
+    opacity: "0.7"
+  }));
+}
+function RuleIcon({
+  name,
+  size = 44
+}) {
+  let art = null;
+  switch (name) {
+    case 'stamp':
+      {
+        const bumps = [];
+        for (let k = 0; k < 12; k++) {
+          const a = k * Math.PI / 6;
+          bumps.push(/*#__PURE__*/React.createElement("circle", {
+            key: k,
+            cx: 24 + 16 * Math.cos(a),
+            cy: 24 + 16 * Math.sin(a),
+            r: "4.6",
+            fill: "#93C5FD"
+          }));
+        }
+        art = /*#__PURE__*/React.createElement("g", null, bumps, /*#__PURE__*/React.createElement("circle", {
+          cx: "24",
+          cy: "24",
+          r: "17",
+          fill: "#93C5FD"
+        }), /*#__PURE__*/React.createElement("circle", {
+          cx: "24",
+          cy: "24",
+          r: "13",
+          fill: "#2563EB"
+        }), /*#__PURE__*/React.createElement("g", {
+          transform: "translate(24 24) scale(1.18) translate(-24 -24.5)"
+        }, /*#__PURE__*/React.createElement("circle", {
+          cx: "19.5",
+          cy: "23",
+          r: "4.6",
+          fill: "#DBEAFE"
+        }), /*#__PURE__*/React.createElement("circle", {
+          cx: "24",
+          cy: "20",
+          r: "5.2",
+          fill: "#DBEAFE"
+        }), /*#__PURE__*/React.createElement("circle", {
+          cx: "28.5",
+          cy: "23",
+          r: "4.6",
+          fill: "#DBEAFE"
+        }), /*#__PURE__*/React.createElement("circle", {
+          cx: "21.2",
+          cy: "27.2",
+          r: "4.2",
+          fill: "#DBEAFE"
+        }), /*#__PURE__*/React.createElement("circle", {
+          cx: "26.8",
+          cy: "27.2",
+          r: "4.2",
+          fill: "#DBEAFE"
+        }), /*#__PURE__*/React.createElement("circle", {
+          cx: "21.6",
+          cy: "23.8",
+          r: "1",
+          fill: "#2563EB"
+        }), /*#__PURE__*/React.createElement("circle", {
+          cx: "26.4",
+          cy: "23.8",
+          r: "1",
+          fill: "#2563EB"
+        }), /*#__PURE__*/React.createElement("circle", {
+          cx: "19.6",
+          cy: "26.4",
+          r: "1.2",
+          fill: "#FFB3D6"
+        }), /*#__PURE__*/React.createElement("circle", {
+          cx: "28.4",
+          cy: "26.4",
+          r: "1.2",
+          fill: "#FFB3D6"
+        })));
+        break;
+      }
+    case 'mission':
+      art = /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("ellipse", {
+        cx: "24",
+        cy: "41",
+        rx: "16",
+        ry: "4.5",
+        fill: "#FFD1E6"
+      }), /*#__PURE__*/React.createElement("rect", {
+        x: "11",
+        y: "7",
+        width: "3.6",
+        height: "35",
+        rx: "1.8",
+        fill: "#FFA726"
+      }), /*#__PURE__*/React.createElement("circle", {
+        cx: "12.8",
+        cy: "7",
+        r: "3.2",
+        fill: "#FFCA28"
+      }), /*#__PURE__*/React.createElement("path", {
+        d: "M14.6 10 C21 6.5 27 13.5 37 9.5 L37 26 C27 30 21 23 14.6 26.5 Z",
+        fill: "#FB75BB"
+      }), /*#__PURE__*/React.createElement("path", {
+        d: "M21 18 l3.2 3.2 l6.2 -6.4",
+        fill: "none",
+        stroke: "#FFFFFF",
+        strokeWidth: "2.6",
+        strokeLinecap: "round",
+        strokeLinejoin: "round"
+      }));
+      break;
+    case 'trophy':
+      art = /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("ellipse", {
+        cx: "12.5",
+        cy: "16.5",
+        rx: "6",
+        ry: "6.5",
+        fill: "#FFA726"
+      }), /*#__PURE__*/React.createElement("ellipse", {
+        cx: "35.5",
+        cy: "16.5",
+        rx: "6",
+        ry: "6.5",
+        fill: "#FFA726"
+      }), /*#__PURE__*/React.createElement("path", {
+        d: "M13 7 H35 V17 C35 24.5 30 29.5 24 29.5 C18 29.5 13 24.5 13 17 Z",
+        fill: "#FFCA28"
+      }), /*#__PURE__*/React.createElement("rect", {
+        x: "16.5",
+        y: "10",
+        width: "3.2",
+        height: "10",
+        rx: "1.6",
+        fill: "#FFE082"
+      }), /*#__PURE__*/React.createElement("polygon", {
+        points: ruleIconStar(25.5, 17, 5, 2.2),
+        fill: "#FFF8E1"
+      }), /*#__PURE__*/React.createElement("rect", {
+        x: "21",
+        y: "28",
+        width: "6",
+        height: "6",
+        fill: "#FFA726"
+      }), /*#__PURE__*/React.createElement("rect", {
+        x: "16.5",
+        y: "33",
+        width: "15",
+        height: "3.5",
+        rx: "1.75",
+        fill: "#FFB74D"
+      }), /*#__PURE__*/React.createElement("rect", {
+        x: "14",
+        y: "36",
+        width: "20",
+        height: "6",
+        rx: "2.5",
+        fill: "#FFA726"
+      }));
+      break;
+    case 'growth':
+      art = /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("rect", {
+        x: "7",
+        y: "29",
+        width: "9",
+        height: "13",
+        rx: "2.5",
+        fill: "#FFE082"
+      }), /*#__PURE__*/React.createElement("rect", {
+        x: "19.5",
+        y: "22",
+        width: "9",
+        height: "20",
+        rx: "2.5",
+        fill: "#FFCA28"
+      }), /*#__PURE__*/React.createElement("rect", {
+        x: "32",
+        y: "14",
+        width: "9",
+        height: "28",
+        rx: "2.5",
+        fill: "#FFA726"
+      }), /*#__PURE__*/React.createElement("circle", {
+        cx: "7",
+        cy: "26",
+        r: "2.4",
+        fill: "#5CC26B"
+      }), /*#__PURE__*/React.createElement("polygon", {
+        points: "8.33,28 27.4,15.27 29.89,18.35 33.2,8.6 23.0,8.3 25.0,11.3 5.67,24",
+        fill: "#5CC26B"
+      }));
+      break;
+    case 'medal':
+      art = /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("path", {
+        d: "M12 3 H21 L27.5 20 H18.5 Z",
+        fill: "#93C5FD"
+      }), /*#__PURE__*/React.createElement("path", {
+        d: "M36 3 H27 L20.5 20 H29.5 Z",
+        fill: "#2563EB"
+      }), /*#__PURE__*/React.createElement("circle", {
+        cx: "24",
+        cy: "30",
+        r: "13.5",
+        fill: "#FFA726"
+      }), /*#__PURE__*/React.createElement("circle", {
+        cx: "24",
+        cy: "30",
+        r: "10.5",
+        fill: "#FFCA28"
+      }), /*#__PURE__*/React.createElement("text", {
+        x: "24",
+        y: "33.6",
+        textAnchor: "middle",
+        fontFamily: "Pretendard Variable, Pretendard, sans-serif",
+        fontSize: "10",
+        fontWeight: "700",
+        fill: "#B45309"
+      }, "100"));
+      break;
+    case 'attendance':
+      art = /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement(RuleIconCalendar, {
+        body: "#EDE9FE",
+        header: "#A78BFA",
+        ring: "#7C3AED",
+        cell: "#D9D0FC"
+      }), /*#__PURE__*/React.createElement(RuleIconCheck, {
+        cx: 34,
+        cy: 35
+      }));
+      break;
+    case 'homework':
+      art = /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement(RuleIconNotebook, {
+        page: "#FFE0B2",
+        cover: "#FFB74D",
+        spine: "#FFA726",
+        label: "#FFF3E0",
+        line: "#FFE0B2"
+      }), /*#__PURE__*/React.createElement(RuleIconCheck, {
+        cx: 34,
+        cy: 35
+      }));
+      break;
+    case 'friend':
+      art = /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement(RuleIconPerson, {
+        x: 32,
+        y: 16,
+        r: 7.6,
+        body: "#FFB3D6",
+        hair: "#8D6E63"
+      }), /*#__PURE__*/React.createElement(RuleIconPerson, {
+        x: 16,
+        y: 20,
+        r: 8.4,
+        body: "#93C5FD",
+        hair: "#5D4037"
+      }), /*#__PURE__*/React.createElement("circle", {
+        cx: "40.2",
+        cy: "4.8",
+        r: "2.4",
+        fill: "#FB75BB"
+      }), /*#__PURE__*/React.createElement("circle", {
+        cx: "44.4",
+        cy: "4.8",
+        r: "2.4",
+        fill: "#FB75BB"
+      }), /*#__PURE__*/React.createElement("polygon", {
+        points: "38,5.8 46.6,5.8 42.3,10.4",
+        fill: "#FB75BB"
+      }));
+      break;
+    case 'absent':
+      art = /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement(RuleIconCalendar, {
+        body: "#E6E8EC",
+        header: "#C9CDD4",
+        ring: "#A3A8B1",
+        cell: "#D3D6DC"
+      }), /*#__PURE__*/React.createElement(RuleIconX, {
+        cx: 34,
+        cy: 35
+      }));
+      break;
+    case 'late':
+      art = /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("rect", {
+        x: "12",
+        y: "36",
+        width: "4.5",
+        height: "8",
+        rx: "2.25",
+        fill: "#A3A8B1",
+        transform: "rotate(35 14.25 40)"
+      }), /*#__PURE__*/React.createElement("rect", {
+        x: "31.5",
+        y: "36",
+        width: "4.5",
+        height: "8",
+        rx: "2.25",
+        fill: "#A3A8B1",
+        transform: "rotate(-35 33.75 40)"
+      }), /*#__PURE__*/React.createElement("circle", {
+        cx: "12.5",
+        cy: "11.5",
+        r: "6",
+        fill: "#FF8A80"
+      }), /*#__PURE__*/React.createElement("circle", {
+        cx: "35.5",
+        cy: "11.5",
+        r: "6",
+        fill: "#FF8A80"
+      }), /*#__PURE__*/React.createElement("rect", {
+        x: "22",
+        y: "6.5",
+        width: "4",
+        height: "5",
+        rx: "1.2",
+        fill: "#A3A8B1"
+      }), /*#__PURE__*/React.createElement("circle", {
+        cx: "24",
+        cy: "26",
+        r: "15",
+        fill: "#C9CDD4"
+      }), /*#__PURE__*/React.createElement("circle", {
+        cx: "24",
+        cy: "26",
+        r: "11.5",
+        fill: "#F4F5F7"
+      }), /*#__PURE__*/React.createElement("rect", {
+        x: "22.8",
+        y: "17.5",
+        width: "2.4",
+        height: "9.5",
+        rx: "1.2",
+        fill: "#8A909A"
+      }), /*#__PURE__*/React.createElement("rect", {
+        x: "22.8",
+        y: "24.8",
+        width: "9",
+        height: "2.4",
+        rx: "1.2",
+        fill: "#FF8A80"
+      }), /*#__PURE__*/React.createElement("circle", {
+        cx: "24",
+        cy: "26",
+        r: "2",
+        fill: "#8A909A"
+      }));
+      break;
+    case 'nohw':
+      art = /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement(RuleIconNotebook, {
+        page: "#E6E8EC",
+        cover: "#C9CDD4",
+        spine: "#B5BAC2",
+        label: "#F4F5F7",
+        line: "#E6E8EC"
+      }), /*#__PURE__*/React.createElement(RuleIconX, {
+        cx: 34,
+        cy: 35
+      }));
+      break;
+    default:
+      art = /*#__PURE__*/React.createElement("circle", {
+        cx: "24",
+        cy: "24",
+        r: "16",
+        fill: "#E6E8EC"
+      });
+  }
+  return /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 48 48",
+    width: size,
+    height: size,
+    "aria-hidden": "true",
+    style: {
+      display: 'block',
+      flexShrink: 0
+    }
+  }, art);
 }
 
 // ════════════════════════════════════════════
@@ -9227,7 +10433,7 @@ function NoticeDetailScreen({
       color: COLORS.fgMuted,
       marginBottom: SPACING.lg
     }
-  }, state.student.academy, " \xB7 ", notice.date), /*#__PURE__*/React.createElement("div", {
+  }, state.student.academy, ", ", notice.date), /*#__PURE__*/React.createElement("div", {
     style: {
       height: 1,
       background: COLORS.border,
