@@ -605,11 +605,11 @@ const LANE_CONFIG = {
 const MISSION_DATA = [{
   id: 'mission_edurich_quiz',
   title: '에듀리치테이블 퀴즈 미션',
-  description: '오늘 에듀리치테이블 발표 내용으로 만든 퀴즈를 풀어요. 퀴즈를 다 풀고 결과 화면을 캡처해서 인증하면 포인트가 바로 적립돼요.',
-  placeholder: '퀴즈 다 풀었어요! 결과 화면을 사진으로 첨부해 주세요.',
+  description: '오늘 에듀리치테이블 강연 내용으로 만든 아주 쉬운 퀴즈예요. 3문제를 풀고 기업과 조각을 선으로 이어 주세요. 다 맞히면 포인트가 바로 적립돼요.',
+  quiz: true,
   startDate: '2026. 10. 8.',
   endDate: '2026. 10. 8.',
-  frequencyLabel: '1회 인증',
+  frequencyLabel: '4문제, 1회 참여',
   frequency: 'once',
   maxCerts: 1,
   points: 1000,
@@ -2171,83 +2171,126 @@ function ScholarshipScreen({
     style: {
       padding: `0 ${SPACING.lg}px 0`
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      background: COLORS.bgDefault,
-      borderRadius: RADIUS.lg,
-      padding: `${SPACING.xxl}px ${SPACING.lg}px ${SPACING.xl}px`,
-      display: 'flex',
-      flexDirection: 'column',
-      overflow: 'hidden',
-      minHeight: 220
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      flex: 1,
-      display: 'flex',
-      alignItems: 'center'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      alignItems: 'baseline',
-      gap: 4
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: FONTS.primary,
-      fontWeight: TYPOGRAPHY.weight.bold,
-      fontSize: 42,
-      lineHeight: 1,
-      letterSpacing: '-0.03em',
-      color: COLORS.fgDefault
-    }
-  }, state.accumulatedBalance.toLocaleString()), /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: FONTS.primary,
-      fontSize: TYPOGRAPHY.size.xxl,
-      fontWeight: TYPOGRAPHY.weight.bold,
-      color: COLORS.fgSubtle
-    }
-  }, "P"))), /*#__PURE__*/React.createElement("button", {
-    onClick: () => dispatch({
-      type: 'NAV_PUSH',
-      entry: {
-        route: 'point-rules'
+  }, (() => {
+    const now = new Date(nowTs());
+    const monthEarned = (state.scholarshipLog || []).filter(e => {
+      const d = parseKoreanDate(e.date);
+      return d && d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth();
+    }).reduce((sum, e) => sum + e.amount, 0);
+    return /*#__PURE__*/React.createElement("div", {
+      style: {
+        background: 'linear-gradient(135deg, #FFFFFF 0%, #FFFFFF 52%, #FFF1F8 100%)',
+        borderRadius: RADIUS.lg,
+        padding: `${SPACING.xl}px ${SPACING.lg}px ${SPACING.lg}px`,
+        position: 'relative',
+        overflow: 'hidden'
       }
-    }),
-    style: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: 6,
-      width: '100%',
-      height: 48,
-      borderRadius: RADIUS.md,
-      background: '#FFE9F3',
-      border: 'none',
-      cursor: 'pointer'
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: FONTS.primary,
-      fontSize: TYPOGRAPHY.size.body,
-      fontWeight: TYPOGRAPHY.weight.bold,
-      color: '#FB75BB',
-      letterSpacing: '-0.02em'
-    }
-  }, "\uD3EC\uC778\uD2B8 \uBC1B\uB294 \uBC95"), /*#__PURE__*/React.createElement("svg", {
-    width: "14",
-    height: "14",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "#FB75BB",
-    strokeWidth: "2.5",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M9 18l6-6-6-6"
-  }))))), /*#__PURE__*/React.createElement("div", {
+    }, /*#__PURE__*/React.createElement("img", {
+      src: "point-jar.svg",
+      alt: "",
+      style: {
+        position: 'absolute',
+        right: 6,
+        top: 8,
+        width: 132,
+        height: 122,
+        pointerEvents: 'none'
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: 'relative',
+        minHeight: 112,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontFamily: FONTS.primary,
+        fontSize: TYPOGRAPHY.size.body,
+        fontWeight: 600,
+        color: COLORS.fgSubtle,
+        marginBottom: 6
+      }
+    }, state.student.name, "\uB2D8\uC774 \uBAA8\uC740 \uD3EC\uC778\uD2B8"), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        alignItems: 'baseline',
+        gap: 4
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: FONTS.primary,
+        fontWeight: 700,
+        fontSize: 40,
+        lineHeight: 1.05,
+        letterSpacing: '-0.03em',
+        color: COLORS.fgDefault
+      }
+    }, state.accumulatedBalance.toLocaleString()), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: FONTS.primary,
+        fontSize: TYPOGRAPHY.size.xxl,
+        fontWeight: 600,
+        color: COLORS.fgSubtle
+      }
+    }, "P")), monthEarned > 0 && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        marginTop: SPACING.sm
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: FONTS.primary,
+        fontSize: TYPOGRAPHY.size.sm,
+        fontWeight: 600,
+        color: '#E2549E',
+        background: '#FFE9F3',
+        padding: '5px 10px',
+        borderRadius: RADIUS.pill
+      }
+    }, now.getMonth() + 1, "\uC6D4\uC5D0 +", monthEarned.toLocaleString(), "P \uBAA8\uC558\uC5B4\uC694"))), /*#__PURE__*/React.createElement("button", {
+      onClick: () => dispatch({
+        type: 'NAV_PUSH',
+        entry: {
+          route: 'point-rules'
+        }
+      }),
+      style: {
+        position: 'relative',
+        marginTop: SPACING.lg,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 6,
+        width: '100%',
+        height: 48,
+        borderRadius: RADIUS.md,
+        background: '#FFE9F3',
+        border: 'none',
+        cursor: 'pointer'
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: FONTS.primary,
+        fontSize: TYPOGRAPHY.size.body,
+        fontWeight: 600,
+        color: '#FB75BB',
+        letterSpacing: '-0.02em'
+      }
+    }, "\uD3EC\uC778\uD2B8 \uBC1B\uB294 \uBC95"), /*#__PURE__*/React.createElement("svg", {
+      width: "14",
+      height: "14",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "#FB75BB",
+      strokeWidth: "2.5",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M9 18l6-6-6-6"
+    }))));
+  })()), /*#__PURE__*/React.createElement("div", {
     style: {
       padding: `${SPACING.lg}px ${SPACING.lg}px ${SPACING.xxl}px`
     }
@@ -4527,7 +4570,7 @@ function MissionDetailScreen({
         onClick: isRejected ? undefined : () => dispatch({
           type: 'NAV_PUSH',
           entry: {
-            route: 'mission-submit',
+            route: mission.quiz ? 'mission-quiz' : 'mission-submit',
             missionId
           }
         }),
@@ -4545,7 +4588,7 @@ function MissionDetailScreen({
           color: isRejected ? COLORS.fgMuted : '#fff',
           boxShadow: isRejected ? 'none' : SHADOW.primaryGlow
         }
-      }, isRejected ? '미션 인증 불가' : '미션 인증하기'));
+      }, isRejected ? '미션 인증 불가' : mission.quiz ? '퀴즈 풀기' : '미션 인증하기'));
     })(), selectedDay && subByDateFull[selectedDay] && (() => {
       const sub = subByDateFull[selectedDay];
       const statusCfg = {
@@ -5108,7 +5151,7 @@ function MissionDetailScreen({
       onClick: isRejected ? undefined : () => dispatch({
         type: 'NAV_PUSH',
         entry: {
-          route: 'mission-submit',
+          route: mission.quiz ? 'mission-quiz' : 'mission-submit',
           missionId
         }
       }),
@@ -5125,7 +5168,7 @@ function MissionDetailScreen({
         fontWeight: TYPOGRAPHY.weight.bold,
         color: isRejected ? COLORS.fgMuted : '#fff'
       }
-    }, isRejected ? '미션 인증 불가' : '미션 인증하기'));
+    }, isRejected ? '미션 인증 불가' : mission.quiz ? '퀴즈 풀기' : '미션 인증하기'));
   })(), selectedDay && subByDateFull[selectedDay] && (() => {
     const sub = subByDateFull[selectedDay];
     const statusCfg = {
@@ -5699,24 +5742,8 @@ function MissionThumb({
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'absolute',
-      left: 18,
-      top: 16
-    }
-  }, /*#__PURE__*/React.createElement(EduWordmark, {
-    size: 12,
-    icon: 15
-  })), /*#__PURE__*/React.createElement(EduMono, {
-    size: 8,
-    style: {
-      position: 'absolute',
-      left: 18,
-      top: 38
-    }
-  }, "EDURICH TABLE / 2026\xA0\xA0QUIZ MISSION"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
       left: 16,
-      top: 56,
+      top: 42,
       fontFamily: "'Playfair Display', serif",
       fontStyle: 'italic',
       fontWeight: 500,
@@ -8261,6 +8288,556 @@ function StampHistoryScreen({
 }
 
 // ════════════════════════════════════════════
+// 에듀리치테이블 퀴즈 (교안 내용 기반, 아주 쉽게)
+// ════════════════════════════════════════════
+const QUIZ_QUESTIONS = [{
+  type: 'choice',
+  q: '"지도가 없는 기업에 지도를 그려주고 돈을 받는다"고 소개된 기업은 어디일까요?',
+  options: ['테슬라', '팔란티어', '넷플릭스'],
+  answer: 1,
+  explain: '팔란티어는 기업에 데이터, 로직, 행동을 연결한 지도를 그려줘요.'
+}, {
+  type: 'choice',
+  q: '정보와 규칙이 서로 연결된 "지도"를 무엇이라고 부를까요?',
+  options: ['온톨로지', '알고리즘', '클라우드'],
+  answer: 0,
+  explain: '원장님 머릿속 지도를 학원 안에 꺼내 놓은 것이 온톨로지예요.'
+}, {
+  type: 'choice',
+  q: '새 행동이 습관으로 굳는 데 평균 며칠이 걸릴까요?',
+  options: ['3일', '66일', '1,000일'],
+  answer: 1,
+  explain: '그래서 등록 후 첫 두 달 동안 꾸준히 오게 붙잡는 게 중요해요.'
+}, {
+  type: 'match',
+  q: '각 테이블이 맡은 온톨로지 조각을 선으로 이어 주세요',
+  left: [{
+    id: 'toss',
+    label: '토스',
+    sub: '출석 자동화'
+  }, {
+    id: 'crabit',
+    label: '크래빗',
+    sub: '미션과 보상'
+  }, {
+    id: 'erb',
+    label: '에듀리치브레인',
+    sub: 'ERP와 마케팅'
+  }],
+  right: [{
+    id: 'logic',
+    label: '로직 조각',
+    sub: '관리 규칙이 지켜졌는지'
+  }, {
+    id: 'action',
+    label: '행동 조각',
+    sub: '글, 보고서, 연락'
+  }, {
+    id: 'data',
+    label: '데이터 조각',
+    sub: '누가 언제 왔는지'
+  }],
+  answer: {
+    toss: 'data',
+    crabit: 'logic',
+    erb: 'action'
+  },
+  explain: '세 조각이 채워질수록 원장님 지도가 학원 안에서 돌아가요.'
+}];
+function QuizChoice({
+  item,
+  onCorrect
+}) {
+  const [picked, setPicked] = useState(null);
+  const [wrong, setWrong] = useState([]);
+  const solved = picked === item.answer;
+  const pick = i => {
+    if (solved) return;
+    if (i === item.answer) {
+      setPicked(i);
+      setTimeout(onCorrect, 900);
+    } else setWrong(w => w.includes(i) ? w : [...w, i]);
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: SPACING.sm
+    }
+  }, item.options.map((opt, i) => {
+    const isRight = solved && i === item.answer;
+    const isWrong = wrong.includes(i);
+    return /*#__PURE__*/React.createElement("button", {
+      key: opt,
+      onClick: () => pick(i),
+      style: {
+        height: 60,
+        borderRadius: RADIUS.lg,
+        border: 'none',
+        cursor: 'pointer',
+        padding: `0 ${SPACING.lg}px`,
+        textAlign: 'left',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        background: isRight ? '#FB75BB' : isWrong ? COLORS.bgSurface : COLORS.bgDefault,
+        color: isRight ? '#fff' : isWrong ? COLORS.fgMuted : COLORS.fgDefault,
+        boxShadow: isRight ? '0 6px 16px rgba(251,117,187,.35)' : '0 1px 3px rgba(22,25,42,.06)',
+        fontFamily: FONTS.primary,
+        fontSize: TYPOGRAPHY.size.sub,
+        fontWeight: 600,
+        transition: 'background .2s, color .2s',
+        animation: isWrong ? 'quizShake .35s' : 'none'
+      }
+    }, /*#__PURE__*/React.createElement("span", null, opt), isRight && /*#__PURE__*/React.createElement(LucideIcon, {
+      name: "Check",
+      size: 20,
+      active: true
+    }), isWrong && /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: TYPOGRAPHY.size.sm,
+        fontWeight: 500
+      }
+    }, "\uB2E4\uC2DC \uACE8\uB77C\uBCFC\uAE4C\uC694?"));
+  }), solved && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: SPACING.sm,
+      padding: `${SPACING.md}px ${SPACING.lg}px`,
+      borderRadius: RADIUS.md,
+      background: COLORS.primarySubtle,
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.body,
+      color: '#C2407F',
+      lineHeight: 1.5
+    }
+  }, "\uC815\uB2F5\uC774\uC5D0\uC694! ", item.explain));
+}
+
+// 선 긋기 매칭: 왼쪽 점을 누르고(또는 끌어서) 오른쪽 항목에 놓으면 선이 이어짐
+function QuizMatch({
+  item,
+  onCorrect
+}) {
+  const boxRef = useRef(null);
+  const dotRefs = useRef({});
+  const [links, setLinks] = useState({}); // leftId -> rightId
+  const [active, setActive] = useState(null); // 선택 중인 leftId
+  const [drag, setDrag] = useState(null); // {x,y} 끌고 있는 끝점
+  const [checked, setChecked] = useState(false);
+  const [, force] = useState(0);
+  useEffect(() => {
+    const on = () => force(n => n + 1);
+    window.addEventListener('resize', on);
+    const t = setTimeout(on, 50);
+    return () => {
+      window.removeEventListener('resize', on);
+      clearTimeout(t);
+    };
+  }, []);
+  const center = key => {
+    const el = dotRefs.current[key],
+      box = boxRef.current;
+    if (!el || !box) return null;
+    const a = el.getBoundingClientRect(),
+      b = box.getBoundingClientRect();
+    return {
+      x: a.left + a.width / 2 - b.left,
+      y: a.top + a.height / 2 - b.top
+    };
+  };
+  const local = e => {
+    const b = boxRef.current.getBoundingClientRect();
+    return {
+      x: e.clientX - b.left,
+      y: e.clientY - b.top
+    };
+  };
+  const connect = (leftId, rightId) => {
+    setChecked(false);
+    setLinks(prev => {
+      const next = {
+        ...prev
+      };
+      Object.keys(next).forEach(k => {
+        if (next[k] === rightId) delete next[k];
+      });
+      next[leftId] = rightId;
+      return next;
+    });
+    setActive(null);
+  };
+  const startLeft = (e, id) => {
+    e.preventDefault();
+    setActive(id);
+    setDrag(local(e));
+    try {
+      boxRef.current.setPointerCapture(e.pointerId);
+    } catch (_) {}
+  };
+  const onMove = e => {
+    if (active && drag) setDrag(local(e));
+  };
+  const onUp = e => {
+    if (!active || !drag) return;
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    const r = el && el.closest('[data-right]');
+    if (r) connect(active, r.getAttribute('data-right'));
+    setDrag(null);
+  };
+  const tapRight = id => {
+    if (active) connect(active, id);
+  };
+  const allLinked = item.left.every(l => links[l.id]);
+  const isCorrect = l => links[l] === item.answer[l];
+  const allCorrect = allLinked && item.left.every(l => isCorrect(l.id));
+  const check = () => {
+    setChecked(true);
+    if (allCorrect) setTimeout(onCorrect, 1100);else setTimeout(() => {
+      setLinks(prev => {
+        const n = {
+          ...prev
+        };
+        Object.keys(n).forEach(k => {
+          if (n[k] !== item.answer[k]) delete n[k];
+        });
+        return n;
+      });
+      setChecked(false);
+    }, 1200);
+  };
+  const lineColor = l => checked ? isCorrect(l) ? '#FB75BB' : COLORS.danger : '#16192A';
+  const Card = ({
+    side,
+    it
+  }) => {
+    const isLeft = side === 'L';
+    const linked = isLeft ? !!links[it.id] : Object.values(links).includes(it.id);
+    const on = isLeft && active === it.id;
+    return /*#__PURE__*/React.createElement("div", {
+      "data-right": isLeft ? undefined : it.id,
+      onPointerDown: isLeft ? e => startLeft(e, it.id) : undefined,
+      onClick: isLeft ? undefined : () => tapRight(it.id),
+      style: {
+        position: 'relative',
+        height: 72,
+        borderRadius: RADIUS.lg,
+        background: on ? '#FFE9F3' : COLORS.bgDefault,
+        boxShadow: on ? '0 0 0 2px #FB75BB' : '0 1px 3px rgba(22,25,42,.06)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        padding: isLeft ? '0 26px 0 14px' : '0 14px 0 26px',
+        cursor: 'pointer',
+        touchAction: 'none',
+        userSelect: 'none',
+        WebkitUserSelect: 'none',
+        fontFamily: FONTS.primary
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: TYPOGRAPHY.size.body,
+        fontWeight: 600,
+        color: COLORS.fgDefault,
+        letterSpacing: '-0.02em',
+        whiteSpace: 'nowrap'
+      }
+    }, it.label), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: TYPOGRAPHY.size.xs,
+        color: COLORS.fgMuted,
+        marginTop: 2,
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
+      }
+    }, it.sub), /*#__PURE__*/React.createElement("div", {
+      ref: el => {
+        dotRefs.current[side + it.id] = el;
+      },
+      style: {
+        position: 'absolute',
+        top: '50%',
+        [isLeft ? 'right' : 'left']: -7,
+        transform: 'translateY(-50%)',
+        width: 14,
+        height: 14,
+        borderRadius: '50%',
+        background: linked || on ? '#FB75BB' : '#fff',
+        boxShadow: `0 0 0 2px ${linked || on ? '#FB75BB' : '#D3D6DD'}`
+      }
+    }));
+  };
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    ref: boxRef,
+    onPointerMove: onMove,
+    onPointerUp: onUp,
+    onPointerCancel: () => setDrag(null),
+    style: {
+      position: 'relative',
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      columnGap: 56,
+      touchAction: 'none'
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    style: {
+      position: 'absolute',
+      inset: 0,
+      width: '100%',
+      height: '100%',
+      pointerEvents: 'none',
+      overflow: 'visible',
+      zIndex: 2
+    }
+  }, Object.entries(links).map(([l, r]) => {
+    const a = center('L' + l),
+      b = center('R' + r);
+    if (!a || !b) return null;
+    return /*#__PURE__*/React.createElement("path", {
+      key: l,
+      d: `M${a.x} ${a.y} C${a.x + 30} ${a.y}, ${b.x - 30} ${b.y}, ${b.x} ${b.y}`,
+      fill: "none",
+      stroke: lineColor(l),
+      strokeWidth: "3",
+      strokeLinecap: "round"
+    });
+  }), active && drag && (() => {
+    const a = center('L' + active);
+    return a ? /*#__PURE__*/React.createElement("path", {
+      d: `M${a.x} ${a.y} L${drag.x} ${drag.y}`,
+      fill: "none",
+      stroke: "#FB75BB",
+      strokeWidth: "3",
+      strokeDasharray: "6 6",
+      strokeLinecap: "round"
+    }) : null;
+  })()), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: SPACING.md
+    }
+  }, item.left.map(it => /*#__PURE__*/React.createElement(Card, {
+    key: it.id,
+    side: "L",
+    it: it
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: SPACING.md
+    }
+  }, item.right.map(it => /*#__PURE__*/React.createElement(Card, {
+    key: it.id,
+    side: "R",
+    it: it
+  })))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: SPACING.lg,
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.md,
+      color: checked && !allCorrect ? COLORS.danger : COLORS.fgMuted,
+      textAlign: 'center'
+    }
+  }, checked ? allCorrect ? '' : '틀린 선을 지웠어요. 다시 이어 볼까요?' : active ? '이어줄 오른쪽 칸을 눌러 주세요' : '왼쪽 칸을 누르거나 끌어서 오른쪽에 이어 주세요'), checked && allCorrect && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: SPACING.sm,
+      padding: `${SPACING.md}px ${SPACING.lg}px`,
+      borderRadius: RADIUS.md,
+      background: COLORS.primarySubtle,
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.body,
+      color: '#C2407F',
+      lineHeight: 1.5
+    }
+  }, "\uC815\uB2F5\uC774\uC5D0\uC694! ", item.explain), !(checked && allCorrect) && /*#__PURE__*/React.createElement("button", {
+    onClick: allLinked ? check : undefined,
+    style: {
+      marginTop: SPACING.lg,
+      width: '100%',
+      height: 52,
+      borderRadius: RADIUS.lg,
+      border: 'none',
+      background: allLinked ? '#16192A' : COLORS.bgSurface,
+      color: allLinked ? '#fff' : COLORS.fgMuted,
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.sub,
+      fontWeight: 600,
+      cursor: allLinked ? 'pointer' : 'default'
+    }
+  }, "\uC815\uB2F5 \uD655\uC778"));
+}
+function MissionQuizScreen({
+  state,
+  dispatch
+}) {
+  const top = state.stack[state.stack.length - 1];
+  const mission = MISSION_DATA.find(m => m.id === top.missionId);
+  const [step, setStep] = useState(0);
+  const total = QUIZ_QUESTIONS.length;
+  const done = step >= total;
+  const item = QUIZ_QUESTIONS[step];
+  useEffect(() => {
+    if (!done || !mission) return;
+    dispatch({
+      type: 'SUBMIT_MISSION',
+      missionId: mission.id,
+      text: `에듀리치테이블 퀴즈 ${total}문제 모두 정답!`,
+      photo: null
+    });
+    const t = setTimeout(() => dispatch({
+      type: 'AUTO_APPROVE_LATEST',
+      missionId: mission.id,
+      points: mission.points,
+      missionTitle: mission.title
+    }), 1200);
+    return () => clearTimeout(t);
+  }, [done]);
+  const approved = done && mission && ((state.missions || {})[mission.id] || {
+    submissions: []
+  }).submissions.some(s => s.status === 'approved');
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column',
+      background: COLORS.bgSubtle
+    }
+  }, /*#__PURE__*/React.createElement("style", null, '@keyframes quizShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}} @keyframes quizPop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}'), /*#__PURE__*/React.createElement(CrabitHeader, {
+    title: "\uC5D0\uB4C0\uB9AC\uCE58\uD14C\uC774\uBE14 \uD034\uC988",
+    showBack: true,
+    onBack: () => dispatch({
+      type: 'NAV_BACK'
+    }),
+    bell: false
+  }), !done && /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: `${SPACING.md}px ${SPACING.lg}px 0`,
+      display: 'flex',
+      gap: 6
+    }
+  }, QUIZ_QUESTIONS.map((_, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      flex: 1,
+      height: 6,
+      borderRadius: 99,
+      background: i <= step ? '#FB75BB' : '#E7E8EC',
+      transition: 'background .3s'
+    }
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "hide-scrollbar",
+    style: {
+      flex: 1,
+      overflowY: 'auto',
+      padding: `${SPACING.xl}px ${SPACING.lg}px ${SPACING.xxl}px`
+    }
+  }, !done ? /*#__PURE__*/React.createElement("div", {
+    key: step
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.md,
+      fontWeight: 600,
+      color: '#FB75BB',
+      marginBottom: SPACING.sm
+    }
+  }, item.type === 'match' ? `마지막 문제, 선 잇기` : `${step + 1}번 문제`, " ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: COLORS.fgMuted,
+      fontWeight: 500
+    }
+  }, step + 1, " / ", total)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.xl + 2,
+      fontWeight: 600,
+      color: COLORS.fgDefault,
+      lineHeight: 1.45,
+      letterSpacing: '-0.02em',
+      marginBottom: SPACING.xl,
+      wordBreak: 'keep-all'
+    }
+  }, item.q), item.type === 'choice' ? /*#__PURE__*/React.createElement(QuizChoice, {
+    item: item,
+    onCorrect: () => setStep(s => s + 1)
+  }) : /*#__PURE__*/React.createElement(QuizMatch, {
+    item: item,
+    onCorrect: () => setStep(s => s + 1)
+  })) : /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      textAlign: 'center',
+      paddingTop: SPACING.xxl
+    }
+  }, /*#__PURE__*/React.createElement("img", {
+    src: "brain-stamp.svg",
+    alt: "",
+    style: {
+      width: 150,
+      height: 150,
+      animation: 'quizPop .6s ease-out'
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.display,
+      fontWeight: 700,
+      color: COLORS.fgDefault,
+      marginTop: SPACING.lg,
+      letterSpacing: '-0.02em'
+    }
+  }, total, "\uBB38\uC81C \uBAA8\uB450 \uC815\uB2F5!"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.body,
+      color: COLORS.fgSubtle,
+      marginTop: SPACING.sm,
+      lineHeight: 1.55
+    }
+  }, approved ? '포인트가 적립됐어요. 모은 포인트는 장학카드로 정산돼요.' : '포인트를 적립하고 있어요...'), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: SPACING.xl,
+      padding: '12px 22px',
+      borderRadius: 999,
+      background: approved ? '#FB75BB' : COLORS.primarySubtle,
+      color: approved ? '#fff' : '#FB75BB',
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.xl,
+      fontWeight: 700,
+      transition: 'all .3s'
+    }
+  }, "+", mission ? mission.points.toLocaleString() : 0, "P"))), done && /*#__PURE__*/React.createElement("div", {
+    style: {
+      flexShrink: 0,
+      padding: `${SPACING.md}px ${SPACING.lg}px ${SPACING.xl}px`,
+      background: COLORS.bgDefault,
+      borderTop: `1px solid ${COLORS.border}`
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => dispatch({
+      type: 'TAB',
+      tab: '포인트'
+    }),
+    style: {
+      width: '100%',
+      height: 52,
+      borderRadius: RADIUS.lg,
+      border: 'none',
+      cursor: 'pointer',
+      background: '#16192A',
+      color: '#fff',
+      fontFamily: FONTS.primary,
+      fontSize: TYPOGRAPHY.size.sub,
+      fontWeight: 600
+    }
+  }, "\uB0B4 \uD3EC\uC778\uD2B8 \uBCF4\uB7EC \uAC00\uAE30")));
+}
+
+// ════════════════════════════════════════════
 // ScreenRouter
 // ════════════════════════════════════════════
 function ScreenRouter({
@@ -8331,6 +8908,11 @@ function ScreenRouter({
       });
     case 'mission-submit':
       return /*#__PURE__*/React.createElement(MissionSubmitScreen, {
+        state: state,
+        dispatch: dispatch
+      });
+    case 'mission-quiz':
+      return /*#__PURE__*/React.createElement(MissionQuizScreen, {
         state: state,
         dispatch: dispatch
       });
