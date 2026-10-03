@@ -9,7 +9,6 @@
   --fg-muted:rgba(22,25,42,0.55);
   --fg-faint:rgba(22,25,42,0.30);
   --accent:#FB75BB;
-  --accent-tint:#FEE9F4;
   --chip-ok-bg:#16192A;
   --chip-ok-fg:#FFFFFF;
   --chip-pend-bg:#F0F0F2;
@@ -28,7 +27,6 @@
     --fg-muted:rgba(245,246,250,0.6);
     --fg-faint:rgba(245,246,250,0.32);
     --accent:#FB75BB;
-    --accent-tint:rgba(251,117,187,0.16);
     --chip-ok-bg:#F5F6FA;
     --chip-ok-fg:#16192A;
     --chip-pend-bg:#262B42;
@@ -46,7 +44,6 @@
   --fg-muted:rgba(245,246,250,0.6);
   --fg-faint:rgba(245,246,250,0.32);
   --accent:#FB75BB;
-  --accent-tint:rgba(251,117,187,0.16);
   --chip-ok-bg:#F5F6FA;
   --chip-ok-fg:#16192A;
   --chip-pend-bg:#262B42;
@@ -94,19 +91,20 @@ section{margin-bottom:44px}
   content:"";position:absolute;left:-26px;top:4px;width:12px;height:12px;border-radius:99px;
   background:var(--bg);border:2px solid var(--fg-faint);
 }
-.stage.crabit::before{background:var(--accent);border-color:var(--accent)}
 .stage-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:6px}
-.stage-time{font-size:12px;color:var(--fg-muted);font-variant-numeric:tabular-nums;font-weight:600}
-.stage-name{font-size:15px;font-weight:700}
-.stage.crabit .stage-name{color:var(--accent)}
+.stage-time{
+  display:inline-flex;align-items:center;font-size:11.5px;font-weight:700;
+  padding:4px 10px;border-radius:99px;background:var(--accent);color:#FFFFFF;
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.stage-name{font-size:15px;font-weight:700;color:var(--fg)}
 .floor-chip{
   display:inline-flex;align-items:center;font-size:11px;font-weight:700;
   padding:3px 9px;border-radius:99px;background:var(--chip-floor-bg);color:var(--chip-floor-fg);
   white-space:nowrap;
 }
 .stage-body{background:var(--surface);border-radius:14px;padding:16px 18px}
-.stage.crabit .stage-body{background:var(--accent-tint)}
-.stage-exp{font-size:13.5px;color:var(--fg-muted);margin:0 0 10px;line-height:1.6}
+.stage-exp{font-size:13.5px;color:var(--fg);margin:0 0 10px;line-height:1.6}
 .stage-checks{display:flex;flex-wrap:wrap;gap:6px}
 
 .chip{
@@ -123,7 +121,7 @@ section{margin-bottom:44px}
   background:var(--fg);color:var(--bg);font-size:11.5px;font-weight:700;
   display:flex;align-items:center;justify-content:center;
 }
-.substep p{margin:0;font-size:13.5px;color:var(--fg-muted);line-height:1.6}
+.substep p{margin:0;font-size:13.5px;color:var(--fg);line-height:1.6}
 .substep b{color:var(--fg);font-weight:600}
 
 .bottleneck{display:flex;gap:10px;margin-bottom:12px}
@@ -227,7 +225,7 @@ footer a{color:inherit}
         </div>
       </div>
 
-      <div class="stage crabit">
+      <div class="stage">
         <div class="stage-head"><span class="stage-time">13:10~</span><span class="floor-chip">2층</span><span class="stage-name">② 크래빗, 퀴즈 미션</span></div>
         <div class="stage-body">
           <p class="stage-exp">QR로 웹앱에 들어가 퀴즈를 풀고, 도장을 받은 뒤 장학카드 2장을 선물처럼 받습니다. 한 명당 3~5분 정도예요.</p>
@@ -302,18 +300,13 @@ footer a{color:inherit}
   </section>
 
   <section>
-    <h2>결정 현황</h2>
+    <h2>남은 결정 사항</h2>
     <div class="panel table-wrap">
       <table>
         <thead>
-          <tr><th>항목</th><th>결정</th><th>상태</th></tr>
+          <tr><th>항목</th><th>내용</th><th>상태</th></tr>
         </thead>
         <tbody>
-          <tr><td>층 구성</td><td>세션 1층, 부스와 음식 2층, 네트워킹은 1층과 2층 모두</td><td><span class="chip ok">확정</span></td></tr>
-          <tr><td>토스 참여</td><td>참여</td><td><span class="chip ok">확정</span></td></tr>
-          <tr><td>장학카드 전달 시점</td><td>크래빗 부스에서 미션 인증 후</td><td><span class="chip ok">확정</span></td></tr>
-          <tr><td>퀴즈 문항</td><td>이성연 대표님 발표 자료 기반, 사전 확정</td><td><span class="chip ok">확정</span></td></tr>
-          <tr><td>리포트 전달</td><td>알림톡 발송, 부스 설명 없음</td><td><span class="chip ok">확정</span></td></tr>
           <tr><td>입구 접수 데스크</td><td>1층 입구에 둘 수 있음</td><td><span class="chip pend">검토 중</span></td></tr>
           <tr><td>선물 수령 위치</td><td>2층 부스 끝 또는 1층 접수 데스크</td><td><span class="chip pend">미정</span></td></tr>
           <tr><td>크래빗 현장 인원</td><td>부스 2명 + 김현지 대표님</td><td><span class="chip pend">미정</span></td></tr>
