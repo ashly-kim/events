@@ -1,0 +1,370 @@
+<title>에듀리치테이블 동선맵</title>
+<style>
+/* 레이아웃: 세로 타임라인 한 줄 + 좌측 시간축, 크래빗 부스 구간만 핑크로 강조, 층 배지로 1층/2층 구분 */
+:root{
+  --bg:#FFFFFF;
+  --surface:#F9FAFC;
+  --surface-2:#F0F0F2;
+  --fg:#16192A;
+  --fg-muted:rgba(22,25,42,0.55);
+  --fg-faint:rgba(22,25,42,0.30);
+  --accent:#FB75BB;
+  --accent-tint:#FEE9F4;
+  --chip-ok-bg:#16192A;
+  --chip-ok-fg:#FFFFFF;
+  --chip-pend-bg:#F0F0F2;
+  --chip-pend-fg:#454755;
+  --chip-floor-bg:#E8E8EB;
+  --chip-floor-fg:#454755;
+  --font-sans:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#16192A;
+    --surface:#1F2336;
+    --surface-2:#262B42;
+    --fg:#F5F6FA;
+    --fg-muted:rgba(245,246,250,0.6);
+    --fg-faint:rgba(245,246,250,0.32);
+    --accent:#FB75BB;
+    --accent-tint:rgba(251,117,187,0.16);
+    --chip-ok-bg:#F5F6FA;
+    --chip-ok-fg:#16192A;
+    --chip-pend-bg:#262B42;
+    --chip-pend-fg:#B9BABF;
+    --chip-floor-bg:#2C3150;
+    --chip-floor-fg:#B9BABF;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#16192A;
+  --surface:#1F2336;
+  --surface-2:#262B42;
+  --fg:#F5F6FA;
+  --fg-muted:rgba(245,246,250,0.6);
+  --fg-faint:rgba(245,246,250,0.32);
+  --accent:#FB75BB;
+  --accent-tint:rgba(251,117,187,0.16);
+  --chip-ok-bg:#F5F6FA;
+  --chip-ok-fg:#16192A;
+  --chip-pend-bg:#262B42;
+  --chip-pend-fg:#B9BABF;
+  --chip-floor-bg:#2C3150;
+  --chip-floor-fg:#B9BABF;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font-sans);
+  padding-inline:16px;
+}
+.wrap{max-width:860px;margin:0 auto;padding-block:40px 64px}
+
+.eyebrow{
+  font-size:12px;font-weight:600;letter-spacing:.08em;
+  color:var(--accent);margin:0 0 10px;
+}
+h1{font-size:clamp(26px,5vw,34px);font-weight:700;margin:0 0 10px;text-wrap:balance;letter-spacing:-0.01em}
+.sub{color:var(--fg-muted);font-size:14.5px;line-height:1.6;margin:0 0 36px;max-width:62ch}
+
+h2{font-size:18px;font-weight:700;margin:0 0 14px;letter-spacing:-0.01em}
+p{line-height:1.7;font-size:14px}
+section{margin-bottom:44px}
+
+.panel{background:var(--surface);border-radius:16px;padding:22px 24px}
+.panel + .panel{margin-top:12px}
+
+.floor-key{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:18px}
+.floor-key span{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--fg-muted)}
+.floor-key b{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:20px;padding:0 8px;border-radius:99px;background:var(--chip-floor-bg);color:var(--chip-floor-fg);font-size:11px;font-weight:700}
+
+.status-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.status-row:last-child{margin-bottom:0}
+.dot{width:6px;height:6px;border-radius:99px;background:var(--fg-faint);margin-top:8px;flex:none}
+.status-row p{margin:0;color:var(--fg-muted)}
+.status-row strong{color:var(--fg);font-weight:600}
+
+.checklist{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.check-item{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.6}
+.check-item .box{width:16px;height:16px;border-radius:5px;background:var(--surface-2);flex:none;margin-top:1px}
+
+.timeline{position:relative;padding-left:26px}
+.timeline::before{
+  content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;
+  background:var(--fg-faint);
+}
+.stage{position:relative;padding-bottom:28px}
+.stage:last-child{padding-bottom:0}
+.stage::before{
+  content:"";position:absolute;left:-26px;top:4px;width:12px;height:12px;border-radius:99px;
+  background:var(--bg);border:2px solid var(--fg-faint);
+}
+.stage.crabit::before{background:var(--accent);border-color:var(--accent)}
+.stage-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:6px}
+.stage-time{font-size:12px;color:var(--fg-muted);font-variant-numeric:tabular-nums;font-weight:600}
+.stage-name{font-size:15px;font-weight:700}
+.stage.crabit .stage-name{color:var(--accent)}
+.floor-chip{
+  display:inline-flex;align-items:center;font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:99px;background:var(--chip-floor-bg);color:var(--chip-floor-fg);
+  white-space:nowrap;
+}
+.stage-body{background:var(--surface);border-radius:14px;padding:16px 18px}
+.stage.crabit .stage-body{background:var(--accent-tint)}
+.stage-exp{font-size:13.5px;color:var(--fg-muted);margin:0 0 10px;line-height:1.6}
+.stage-checks{display:flex;flex-wrap:wrap;gap:6px}
+
+.chip{
+  display:inline-flex;align-items:center;font-size:11.5px;font-weight:600;
+  padding:4px 10px;border-radius:99px;line-height:1.4;white-space:nowrap;
+}
+.chip.ok{background:var(--chip-ok-bg);color:var(--chip-ok-fg)}
+.chip.pend{background:var(--chip-pend-bg);color:var(--chip-pend-fg)}
+
+.substeps{counter-reset:s;display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.substep{display:flex;gap:12px;align-items:flex-start}
+.substep .num{
+  counter-increment:s;flex:none;width:22px;height:22px;border-radius:99px;
+  background:var(--fg);color:var(--bg);font-size:11.5px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.substep p{margin:0;font-size:13.5px;color:var(--fg-muted);line-height:1.6}
+.substep b{color:var(--fg);font-weight:600}
+
+.bottleneck{display:flex;gap:10px;margin-bottom:12px}
+.bottleneck:last-child{margin-bottom:0}
+.bottleneck .mark{flex:none;font-size:12px;font-weight:700;color:var(--accent);margin-top:2px}
+.bottleneck p{margin:0;font-size:13.5px;color:var(--fg-muted);line-height:1.6}
+
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:10px 12px;vertical-align:top}
+thead th{color:var(--fg-muted);font-weight:600;font-size:11.5px;letter-spacing:.02em}
+tbody tr:nth-child(odd){background:var(--surface)}
+tbody td:first-child,thead th:first-child{border-radius:10px 0 0 10px}
+tbody td:last-child,thead th:last-child{border-radius:0 10px 10px 0}
+
+.table-wrap{overflow-x:auto}
+
+footer{color:var(--fg-faint);font-size:12px;line-height:1.8;padding-top:8px}
+footer a{color:inherit}
+</style>
+
+<div class="wrap">
+
+  <p class="eyebrow">크래빗 부스 운영 준비 · 10/8 에듀리치테이블</p>
+  <h1>원장님 입장부터 퇴장까지, 지금 보이는 그림</h1>
+  <p class="sub">10/8(목) 11:00~15:00, 플라야 라운지 압구정. 세션은 1층에서 진행하고, 부스 체험 뒤 네트워킹은 1층과 2층을 자유롭게 오가며 즐기실 수 있어요. 2층엔 토스, 크래빗, 에듀리치브레인 부스 3곳과 음식을 준비해둡니다. 입구에는 접수 데스크를 둘 수 있어요.</p>
+
+  <div class="floor-key">
+    <span><b>1층</b>입구, 접수, 세션</span>
+    <span><b>2층</b>부스 3곳, 음식, 네트워킹</span>
+    <span><b>1·2층</b>네트워킹 구간엔 양쪽 다 자유롭게</span>
+  </div>
+
+  <section>
+    <h2>지금 공간은 말로만 그려둔 상태예요</h2>
+    <div class="panel">
+      <div class="status-row">
+        <div class="dot"></div>
+        <p><strong>플라야 내부 사진, 영상, 실측 도면은 아직 없습니다.</strong> 층별 구성(세션 1층, 부스와 음식 2층)은 방금 확인받은 내용이고, 실제 공간을 보고 동선을 확정하는 작업은 10/6(화) 현장 방문에서 이뤄질 예정이에요.</p>
+      </div>
+      <div class="status-row">
+        <div class="dot"></div>
+        <p>그 전까지는 부스 3곳의 정확한 위치, 콘센트 자리, 1층과 2층을 잇는 계단·엘리베이터 동선 모두 가정 단계라고 보시면 돼요.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>10/6 방문 때 같이 챙기면 좋은 것</h2>
+    <p style="color:var(--fg-muted);margin-top:-4px">층이 나뉘면서 이동 동선 자체가 중요해졌어요. 아래는 동선 시각화와 사인 디자인에 바로 쓸 수 있게 사진과 영상을 남기자는 제안입니다.</p>
+    <div class="panel">
+      <div class="checklist">
+        <div class="check-item"><div class="box"></div><span>건물 입구, 1층 접수·세션장 전경 사진</span></div>
+        <div class="check-item"><div class="box"></div><span>1층에서 2층으로 올라가는 계단과 엘리베이터 사진</span></div>
+        <div class="check-item"><div class="box"></div><span>2층 부스 예정 자리 3곳 각각 정면 사진, 빈 테이블 기준</span></div>
+        <div class="check-item"><div class="box"></div><span>2층 음식 테이블과 네트워킹 공간 사진</span></div>
+        <div class="check-item"><div class="box"></div><span>입구부터 퇴장까지 실제로 걸으며 찍는 영상 한 개 (입구 → 1층 세션장 → 2층 부스 → 2층 네트워킹 → 퇴장)</span></div>
+        <div class="check-item"><div class="box"></div><span>화장실, 콘센트 위치처럼 안내가 필요한 지점 사진</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>원장님 동선, 시간 순서로</h2>
+    <p style="color:var(--fg-muted);margin-top:-4px">준비물 DB의 동선 표와 상세 체크 문서에 층 구성을 반영해 다시 짰어요. 핑크로 표시한 구간이 크래빗 부스입니다.</p>
+
+    <div class="timeline">
+
+      <div class="stage">
+        <div class="stage-head"><span class="stage-time">D-1 ~ 당일 아침</span><span class="stage-name">행사 전</span></div>
+        <div class="stage-body">
+          <p class="stage-exp">리마인드 문자를 받고 지도 링크를 눌러 출발해요.</p>
+          <div class="stage-checks">
+            <span class="chip pend">발송 주체 미정</span>
+            <span class="chip pend">지도 링크 교체 필요</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head"><span class="stage-time">10:30~</span><span class="floor-chip">1층</span><span class="stage-name">도착, 입구</span></div>
+        <div class="stage-body">
+          <p class="stage-exp">건물 앞에 도착해 주차하거나 내리고 입구로 들어옵니다. 입구에 접수 데스크를 둘 수 있어요.</p>
+          <div class="stage-checks">
+            <span class="chip pend">방향 사인 미정</span>
+            <span class="chip pend">접수 데스크 입구 배치 검토 중</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head"><span class="stage-time">10:30~11:00</span><span class="floor-chip">1층</span><span class="stage-name">접수</span></div>
+        <div class="stage-body">
+          <p class="stage-exp">이름을 말하고 명찰과 책자를 받습니다. 장학카드는 여기서 드리지 않아요.</p>
+          <div class="stage-checks">
+            <span class="chip ok">카드 미전달 확정</span>
+            <span class="chip pend">접수 담당자 미정</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head"><span class="stage-time">10:40~11:00</span><span class="floor-chip">1층</span><span class="stage-name">착석, 대기</span></div>
+        <div class="stage-body">
+          <p class="stage-exp">자리에 앉아 책자를 훑어보며 시작을 기다려요. 식사가 13:10이라 공복 시간이 깁니다.</p>
+          <div class="stage-checks"><span class="chip pend">좌석 35석, 10/6 확인</span></div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head"><span class="stage-time">11:00~13:10</span><span class="floor-chip">1층</span><span class="stage-name">세션 3개</span></div>
+        <div class="stage-body">
+          <p class="stage-exp">주언규 대표님 40분, 자청 대표님 40분, 이성연 대표님 30분을 중간 휴식 없이 듣습니다.</p>
+          <div class="stage-checks"><span class="chip pend">전환 시간 없음</span></div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head"><span class="stage-time">13:10</span><span class="floor-chip">1층 → 2층</span><span class="stage-name">전환, 2층 이동</span></div>
+        <div class="stage-body">
+          <p class="stage-exp">세션을 마치고 2층으로 올라가 식사를 받거나 부스로 향합니다. 음식과 부스 모두 2층에 있어요.</p>
+          <div class="stage-checks"><span class="chip pend">"식사하며 퀴즈 먼저" 안내 필요</span></div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head"><span class="stage-time">13:10~</span><span class="floor-chip">2층</span><span class="stage-name">① 토스, 출석</span></div>
+        <div class="stage-body">
+          <p class="stage-exp">페이스패스로 얼굴을 등록하고 출석 문자를 받아요. 몇 초면 끝납니다.</p>
+          <div class="stage-checks"><span class="chip ok">참여 확정</span></div>
+        </div>
+      </div>
+
+      <div class="stage crabit">
+        <div class="stage-head"><span class="stage-time">13:10~</span><span class="floor-chip">2층</span><span class="stage-name">② 크래빗, 퀴즈 미션</span></div>
+        <div class="stage-body">
+          <p class="stage-exp">QR로 웹앱에 들어가 퀴즈를 풀고, 도장을 받은 뒤 장학카드 2장을 선물처럼 받습니다. 한 명당 3~5분 정도예요.</p>
+          <div class="stage-checks">
+            <span class="chip ok">카드 전달 방식 확정</span>
+            <span class="chip pend">와이파이 10/6 실측 필요</span>
+          </div>
+
+          <div class="substeps">
+            <div class="substep"><span class="num"></span><p>QR 스탠드를 찍고 <b>이름, 학원명, 번호</b>를 입력한 뒤 동의해요.</p></div>
+            <div class="substep"><span class="num"></span><p>퀴즈를 풀고 완료 화면을 스태프에게 보여줘요.</p></div>
+            <div class="substep"><span class="num"></span><p><b>장학카드 선물 수령.</b> 이름순 박스에서 꺼내 두 손으로, "미션 완료 보상입니다."</p></div>
+            <div class="substep"><span class="num"></span><p>원하면 옆자리에서 상담을 받고 ③으로 이동해요.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head"><span class="stage-time">13:10~</span><span class="floor-chip">2층</span><span class="stage-name">③ 에듀리치브레인, 리포트</span></div>
+        <div class="stage-body">
+          <p class="stage-exp">출석과 퀴즈 결과가 합쳐진 위클리 리포트가 알림톡으로 옵니다. ②를 마친 분만 리포트가 나와요.</p>
+          <div class="stage-checks"><span class="chip pend">알림톡 수신 시간 10/6 측정</span></div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head"><span class="stage-time">부스 후</span><span class="floor-chip">2층 또는 1층</span><span class="stage-name">선물 수령</span></div>
+        <div class="stage-body">
+          <p class="stage-exp">도장 3개를 보여주고 선물을 받아요.</p>
+          <div class="stage-checks"><span class="chip pend">수령 위치 미정 (2층 부스 끝 또는 1층 접수 데스크)</span></div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head"><span class="stage-time">13:30~14:40</span><span class="floor-chip">1·2층</span><span class="stage-name">네트워킹</span></div>
+        <div class="stage-body">
+          <p class="stage-exp">부스 체험을 마치면 1층과 2층을 자유롭게 오가며 다른 원장님, 연사, 에듀테크 대표님들과 이야기해요. 음식과 부스는 2층에 계속 있습니다. 이번 행사의 가치는 "누가 왔는가"에 있어요.</p>
+          <div class="stage-checks"><span class="chip pend">크래빗 부스 컷 촬영 요청</span></div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head"><span class="stage-time">14:40~15:00</span><span class="floor-chip">1층(가정)</span><span class="stage-name">클로징, 퇴장</span></div>
+        <div class="stage-body">
+          <p class="stage-exp">마무리 인사와 단체 사진 뒤 건물을 나섭니다.</p>
+          <div class="stage-checks">
+            <span class="chip pend">클로징 장소 확인 필요</span>
+            <span class="chip pend">카드, 선물 미수령자 확인</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>막힐 수 있는 곳 세 가지</h2>
+    <div class="panel">
+      <div class="bottleneck">
+        <span class="mark">01</span>
+        <p>13:40쯤 식사를 마친 분들이 2층 부스에 한꺼번에 몰려요. 전환 멘트에 "식사하면서 퀴즈 먼저 풀어도 된다"를 넣으면 분산됩니다.</p>
+      </div>
+      <div class="bottleneck">
+        <span class="mark">02</span>
+        <p>알림톡이 늦으면 ③ 부스 앞에서 기다리게 돼요. 10/6 리허설에서 수신 시간을 재고, 샘플 리포트 화면을 미리 준비해야 합니다.</p>
+      </div>
+      <div class="bottleneck">
+        <span class="mark">03</span>
+        <p>2층 와이파이와 LTE가 약하면 ②와 ③이 같이 멈춰요. 10/6 방문에서 가장 먼저 실측할 항목입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>결정 현황</h2>
+    <div class="panel table-wrap">
+      <table>
+        <thead>
+          <tr><th>항목</th><th>결정</th><th>상태</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>층 구성</td><td>세션 1층, 부스와 음식 2층, 네트워킹은 1·2층 자유</td><td><span class="chip ok">확정</span></td></tr>
+          <tr><td>토스 참여</td><td>참여</td><td><span class="chip ok">확정</span></td></tr>
+          <tr><td>장학카드 전달 시점</td><td>크래빗 부스에서 미션 인증 후</td><td><span class="chip ok">확정</span></td></tr>
+          <tr><td>퀴즈 문항</td><td>이성연 대표님 발표 자료 기반, 사전 확정</td><td><span class="chip ok">확정</span></td></tr>
+          <tr><td>리포트 전달</td><td>알림톡 발송, 부스 설명 없음</td><td><span class="chip ok">확정</span></td></tr>
+          <tr><td>입구 접수 데스크</td><td>1층 입구에 둘 수 있음</td><td><span class="chip pend">검토 중</span></td></tr>
+          <tr><td>선물 수령 위치</td><td>2층 부스 끝 또는 1층 접수 데스크</td><td><span class="chip pend">미정</span></td></tr>
+          <tr><td>크래빗 현장 인원</td><td>부스 2명 + 김현지 대표님</td><td><span class="chip pend">미정</span></td></tr>
+          <tr><td>참석자 명단 마감</td><td>로고 카드 리드타임 역산</td><td><span class="chip pend">미정</span></td></tr>
+          <tr><td>공간 실측, 사진, 영상</td><td>10/6 현장 방문에서 확보</td><td><span class="chip pend">10/6 예정</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    근거: 09/29 준비 미팅, 입장부터 행사 끝까지의 동선 체크, 10.06 플라야 현장 방문 체크리스트 (노션 캠페인 브리프 &gt; 에듀리치테이블 행사), 10/3 층 구성 확인. 로컬 원본은 CRABIT/MKT/에듀리치테이블-동선체크/에 있어요.
+  </footer>
+
+</div>
