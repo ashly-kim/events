@@ -83,16 +83,6 @@ section{margin-bottom:44px}
 .floor-key span{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--fg-muted)}
 .floor-key b{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:20px;padding:0 8px;border-radius:99px;background:var(--chip-floor-bg);color:var(--chip-floor-fg);font-size:11px;font-weight:700}
 
-.status-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
-.status-row:last-child{margin-bottom:0}
-.dot{width:6px;height:6px;border-radius:99px;background:var(--fg-faint);margin-top:8px;flex:none}
-.status-row p{margin:0;color:var(--fg-muted)}
-.status-row strong{color:var(--fg);font-weight:600}
-
-.checklist{display:flex;flex-direction:column;gap:10px;margin-top:16px}
-.check-item{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.6}
-.check-item .box{width:16px;height:16px;border-radius:5px;background:var(--surface-2);flex:none;margin-top:1px}
-
 .timeline{position:relative;padding-left:26px}
 .timeline::before{
   content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;
@@ -156,48 +146,19 @@ footer a{color:inherit}
 
 <div class="wrap">
 
-  <p class="eyebrow">크래빗 부스 운영 준비 · 10/8 에듀리치테이블</p>
-  <h1>원장님 입장부터 퇴장까지, 지금 보이는 그림</h1>
+  <p class="eyebrow">크래빗 부스 운영 | 10/8 에듀리치테이블</p>
+  <h1>원장님 입장부터 퇴장까지</h1>
   <p class="sub">10/8(목) 11:00~15:00, 플라야 라운지 압구정. 세션은 1층에서 진행하고, 부스 체험 뒤 네트워킹은 1층과 2층을 자유롭게 오가며 즐기실 수 있어요. 2층엔 토스, 크래빗, 에듀리치브레인 부스 3곳과 음식을 준비해둡니다. 입구에는 접수 데스크를 둘 수 있어요.</p>
 
   <div class="floor-key">
     <span><b>1층</b>입구, 접수, 세션</span>
     <span><b>2층</b>부스 3곳, 음식, 네트워킹</span>
-    <span><b>1·2층</b>네트워킹 구간엔 양쪽 다 자유롭게</span>
+    <span><b>1층|2층</b>네트워킹 구간엔 양쪽 다 자유롭게</span>
   </div>
 
   <section>
-    <h2>지금 공간은 말로만 그려둔 상태예요</h2>
-    <div class="panel">
-      <div class="status-row">
-        <div class="dot"></div>
-        <p><strong>플라야 내부 사진, 영상, 실측 도면은 아직 없습니다.</strong> 층별 구성(세션 1층, 부스와 음식 2층)은 방금 확인받은 내용이고, 실제 공간을 보고 동선을 확정하는 작업은 10/6(화) 현장 방문에서 이뤄질 예정이에요.</p>
-      </div>
-      <div class="status-row">
-        <div class="dot"></div>
-        <p>그 전까지는 부스 3곳의 정확한 위치, 콘센트 자리, 1층과 2층을 잇는 계단·엘리베이터 동선 모두 가정 단계라고 보시면 돼요.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>10/6 방문 때 같이 챙기면 좋은 것</h2>
-    <p style="color:var(--fg-muted);margin-top:-4px">층이 나뉘면서 이동 동선 자체가 중요해졌어요. 아래는 동선 시각화와 사인 디자인에 바로 쓸 수 있게 사진과 영상을 남기자는 제안입니다.</p>
-    <div class="panel">
-      <div class="checklist">
-        <div class="check-item"><div class="box"></div><span>건물 입구, 1층 접수·세션장 전경 사진</span></div>
-        <div class="check-item"><div class="box"></div><span>1층에서 2층으로 올라가는 계단과 엘리베이터 사진</span></div>
-        <div class="check-item"><div class="box"></div><span>2층 부스 예정 자리 3곳 각각 정면 사진, 빈 테이블 기준</span></div>
-        <div class="check-item"><div class="box"></div><span>2층 음식 테이블과 네트워킹 공간 사진</span></div>
-        <div class="check-item"><div class="box"></div><span>입구부터 퇴장까지 실제로 걸으며 찍는 영상 한 개 (입구 → 1층 세션장 → 2층 부스 → 2층 네트워킹 → 퇴장)</span></div>
-        <div class="check-item"><div class="box"></div><span>화장실, 콘센트 위치처럼 안내가 필요한 지점 사진</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
     <h2>원장님 동선, 시간 순서로</h2>
-    <p style="color:var(--fg-muted);margin-top:-4px">준비물 DB의 동선 표와 상세 체크 문서에 층 구성을 반영해 다시 짰어요. 핑크로 표시한 구간이 크래빗 부스입니다.</p>
+    <p style="color:var(--fg-muted);margin-top:-4px">핑크로 표시한 구간이 크래빗 부스예요.</p>
 
     <div class="timeline">
 
@@ -301,7 +262,7 @@ footer a{color:inherit}
       </div>
 
       <div class="stage">
-        <div class="stage-head"><span class="stage-time">13:30~14:40</span><span class="floor-chip">1·2층</span><span class="stage-name">네트워킹</span></div>
+        <div class="stage-head"><span class="stage-time">13:30~14:40</span><span class="floor-chip">1층|2층</span><span class="stage-name">네트워킹</span></div>
         <div class="stage-body">
           <p class="stage-exp">부스 체험을 마치면 1층과 2층을 자유롭게 오가며 다른 원장님, 연사, 에듀테크 대표님들과 이야기해요. 음식과 부스는 2층에 계속 있습니다. 이번 행사의 가치는 "누가 왔는가"에 있어요.</p>
           <div class="stage-checks"><span class="chip pend">크래빗 부스 컷 촬영 요청</span></div>
@@ -348,7 +309,7 @@ footer a{color:inherit}
           <tr><th>항목</th><th>결정</th><th>상태</th></tr>
         </thead>
         <tbody>
-          <tr><td>층 구성</td><td>세션 1층, 부스와 음식 2층, 네트워킹은 1·2층 자유</td><td><span class="chip ok">확정</span></td></tr>
+          <tr><td>층 구성</td><td>세션 1층, 부스와 음식 2층, 네트워킹은 1층과 2층 모두</td><td><span class="chip ok">확정</span></td></tr>
           <tr><td>토스 참여</td><td>참여</td><td><span class="chip ok">확정</span></td></tr>
           <tr><td>장학카드 전달 시점</td><td>크래빗 부스에서 미션 인증 후</td><td><span class="chip ok">확정</span></td></tr>
           <tr><td>퀴즈 문항</td><td>이성연 대표님 발표 자료 기반, 사전 확정</td><td><span class="chip ok">확정</span></td></tr>
@@ -357,14 +318,14 @@ footer a{color:inherit}
           <tr><td>선물 수령 위치</td><td>2층 부스 끝 또는 1층 접수 데스크</td><td><span class="chip pend">미정</span></td></tr>
           <tr><td>크래빗 현장 인원</td><td>부스 2명 + 김현지 대표님</td><td><span class="chip pend">미정</span></td></tr>
           <tr><td>참석자 명단 마감</td><td>로고 카드 리드타임 역산</td><td><span class="chip pend">미정</span></td></tr>
-          <tr><td>공간 실측, 사진, 영상</td><td>10/6 현장 방문에서 확보</td><td><span class="chip pend">10/6 예정</span></td></tr>
+          <tr><td>현장 레이아웃 확정</td><td>10/6 현장 방문에서 확정</td><td><span class="chip pend">10/6 예정</span></td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <footer>
-    근거: 09/29 준비 미팅, 입장부터 행사 끝까지의 동선 체크, 10.06 플라야 현장 방문 체크리스트 (노션 캠페인 브리프 &gt; 에듀리치테이블 행사), 10/3 층 구성 확인. 로컬 원본은 CRABIT/MKT/에듀리치테이블-동선체크/에 있어요.
+    10/3 업데이트. 현장 방문(10/6) 이후 실제 레이아웃에 맞춰 다시 정리합니다.
   </footer>
 
 </div>
