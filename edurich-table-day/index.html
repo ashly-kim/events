@@ -112,6 +112,8 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 .mat .go a,.mat .go span{display:inline-flex;align-items:center;min-height:44px;font-size:14.5px;font-weight:600;padding:0 18px;border-radius:99px;text-decoration:none}
 .mat .go a{background:var(--blue);color:#fff}
 .mat .go span{background:var(--card2);color:var(--faint)}
+.mat .go{display:flex;gap:8px;flex-wrap:wrap}
+.mat .go a.alt{background:var(--card2);color:#fff}
 /* ---------- 참석자 ---------- */
 .ppl-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .count{font-family:var(--en);font-size:13px;font-weight:600;letter-spacing:.16em;color:var(--sub)}
@@ -210,11 +212,6 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
   <h1><span class="it">Edurich</span><br><span class="the">the</span>Table.</h1>
   <p class="when">2026.10.08 THU | PLAYA LOUNGE, SEOUL</p>
   <p class="tag">오늘의 순서와 자료를 한곳에서 확인하세요</p>
-  <div class="cta">
-    <a class="btn pri" href="#timetable">타임테이블 보기</a>
-    <a class="btn sec" href="#materials">교안 받기</a>
-    <a class="btn sec" href="#apply">신청하기</a>
-  </div>
   <span class="scroll">SCROLL</span>
 </header>
 
@@ -225,7 +222,7 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
   <h2 class="h2 reveal">도착하시면 <em>편하게</em> 시작하세요</h2>
   <p class="lead reveal" style="margin-top:14px">오늘 에듀리치테이블은 플라야 라운지 1층과 2층을 모두 대관했어요. 두 층을 편하게 둘러보시며 공간을 마음껏 즐겨 주세요. 처음엔 조금 어색하실 수 있으니, 아래 순서대로 천천히 시작하시면 됩니다.</p>
   <div class="steps">
-    <div class="step reveal"><span class="fl">1F</span><h3>체크인</h3><p>1층 입구에서 명찰과 책자를 받으세요.</p></div>
+    <div class="step reveal"><span class="fl">1F</span><h3>체크인</h3><p>건물 앞에 도착하시면 발렛이 준비되어 있어요. 1층 입구에서 명찰과 책자를 받으세요.</p></div>
     <div class="step reveal" style="transition-delay:.08s"><span class="fl">2F</span><h3>핑거푸드와 음료</h3><p>2층에서 가볍게 챙겨 드세요. 세션 시작 전에 드셔도 되고, 세션 사이 쉬는 시간에 가져오셔도 괜찮아요.</p></div>
     <div class="step reveal" style="transition-delay:.16s"><span class="fl">1F</span><h3>자리에서 편하게</h3><p>음식과 음료를 챙겨 자리에 앉아, 드시면서 강연을 들어 주세요.</p></div>
   </div>
@@ -263,7 +260,7 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
   <h2 class="h2 reveal">오늘의 <em>자료</em></h2>
   <p class="lead reveal" style="margin-top:14px">필요한 자료를 바로 받아 가세요.</p>
   <div class="mats">
-    <div class="mat reveal"><span class="k">HANDOUT</span><h3>에듀리치테이블 교안</h3><p>오늘 강연과 테이블을 따라가며 채워 보는 교안이에요. PDF로 받아 두세요.</p><div class="go"><a href="https://ashly-kim.github.io/events/edurich-table-2026/edurich-table-v1.pdf" download>PDF 받기</a></div></div>
+    <div class="mat reveal"><span class="k">HANDOUT</span><h3>에듀리치테이블 교안</h3><p>오늘 강연과 테이블을 따라가며 채워 보는 교안이에요. 폰에서 바로 넘겨 보시고, 필요하면 PDF로도 받아 두세요.</p><div class="go"><a href="handout/">바로 보기</a><a class="alt" href="https://ashly-kim.github.io/events/edurich-table-2026/edurich-table-v1.pdf" download>PDF 받기</a></div></div>
     <div class="mat reveal" style="transition-delay:.08s"><span class="k">TABLE 1</span><h3>토스 페이스패스</h3><p>얼굴로 1초 만에 출석을 기록하는 서비스의 자세한 소개예요.</p><div class="go"><a href="https://tossplace.com/sector/facepass" target="_blank" rel="noopener noreferrer">자세히 보기</a></div></div>
   </div>
 </div></section>
@@ -283,8 +280,8 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 
 <section class="apply" id="apply"><div class="wrap">
   <p class="eb reveal">AFTER TODAY</p>
-  <h2 class="h2 reveal">오늘 이후에도,<br><em>이어서 이야기해요</em></h2>
-  <p class="lead reveal" style="margin-top:14px">조직원 AI 강의를 신청하거나, 도입 상담과 솔직한 후기를 남겨 주세요.</p>
+  <h2 class="h2 reveal">오신 분들께<br><em>특별 선물을 준비했어요</em></h2>
+  <p class="lead reveal" style="margin-top:14px">조직원 AI 강의를 선물로 드려요. 선물 강의는 <b style="color:#fff">올해 12월 안에</b> 진행해야 해요. 도입 상담과 솔직한 후기도 남겨 주세요.</p>
   <div class="tabs reveal" role="tablist" aria-label="신청 종류">
     <button type="button" role="tab" id="tab-lecture" aria-controls="p-lecture" aria-selected="true" class="on">조직원 AI 강의</button>
     <button type="button" role="tab" id="tab-inquiry" aria-controls="p-inquiry" aria-selected="false">도입 문의와 후기</button>
@@ -305,7 +302,7 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
         <div class="field"><label for="l-name">담당자 이름</label><input type="text" id="l-name" name="name" data-req="1" placeholder="홍길동" autocomplete="name"><span class="msg">이름을 입력해 주세요.</span></div>
         <div class="field"><label for="l-phone">휴대폰 번호</label><input type="tel" id="l-phone" class="phone" name="phone" data-req="1" placeholder="010-0000-0000" inputmode="numeric" autocomplete="tel"><span class="msg">휴대폰 번호를 확인해 주세요.</span></div>
         <div class="field"><label for="l-staff">강의를 들을 선생님과 직원 수</label><select id="l-staff" name="staff" data-req="1"><option value="">선택해 주세요</option><option>5명 이하</option><option>6명에서 10명</option><option>11명에서 20명</option><option>21명 이상</option></select><span class="msg">인원을 선택해 주세요.</span></div>
-        <div class="field"><label for="l-when">희망 시기 <span class="opt">선택</span></label><select id="l-when" name="when"><option value="">선택해 주세요</option><option>10월 말</option><option>11월 초</option><option>11월 중순</option><option>11월 말 이후</option><option>일정은 상의해서 정할게요</option></select></div>
+        <div class="field"><label for="l-when">희망 시기 <span class="opt">올해 12월 안에 진행해요</span></label><select id="l-when" name="when"><option value="">선택해 주세요</option><option>11월 초</option><option>11월 중순</option><option>11월 말</option><option>12월 초</option><option>12월 중순</option><option>12월 말</option><option>12월 안에서 상의해서 정할게요</option></select></div>
         <div class="field"><span class="lab">듣고 싶은 내용 <span class="opt">여러 개 선택할 수 있어요</span></span><div class="chips">
           <label class="chip"><input type="checkbox" name="topics" value="바이브코딩"><span>랜딩페이지와 사이트 바이브코딩</span></label>
           <label class="chip"><input type="checkbox" name="topics" value="프롬프팅 기초"><span>프롬프팅 기초</span></label>
