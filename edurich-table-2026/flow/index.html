@@ -67,9 +67,9 @@ body{
   color:var(--accent);margin:0 0 10px;
 }
 h1{font-size:clamp(26px,5vw,34px);font-weight:700;margin:0 0 10px;text-wrap:balance;letter-spacing:-0.01em}
-.sub{color:var(--fg-muted);font-size:14.5px;line-height:1.6;margin:0 0 36px;max-width:62ch}
+.sub{color:var(--fg-muted);font-size:16.5px;line-height:1.6;margin:0 0 36px;max-width:62ch}
 
-h2{font-size:18px;font-weight:700;margin:0 0 14px;letter-spacing:-0.01em}
+h2{font-size:21px;font-weight:700;margin:0 0 14px;letter-spacing:-0.01em}
 p{line-height:1.7;font-size:14px}
 section{margin-bottom:44px}
 
@@ -77,7 +77,7 @@ section{margin-bottom:44px}
 .panel + .panel{margin-top:12px}
 
 .floor-key{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:18px}
-.floor-key span{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--fg-muted)}
+.floor-key span{display:flex;align-items:center;gap:7px;font-size:14px;color:var(--fg-muted)}
 .floor-key b{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:20px;padding:0 8px;border-radius:99px;background:var(--chip-floor-bg);color:var(--chip-floor-fg);font-size:11px;font-weight:700}
 
 .timeline{position:relative;padding-left:26px}
@@ -92,24 +92,29 @@ section{margin-bottom:44px}
   background:var(--bg);border:2px solid var(--fg-faint);
 }
 .stage-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:6px}
-.stage-time{
-  display:inline-flex;align-items:center;font-size:11.5px;font-weight:700;
-  padding:4px 10px;border-radius:99px;background:var(--accent);color:#FFFFFF;
-  font-variant-numeric:tabular-nums;white-space:nowrap;
-}
-.stage-name{font-size:15px;font-weight:700;color:var(--fg)}
+.stage-time{font-size:15px;font-weight:700;color:var(--fg);font-variant-numeric:tabular-nums;white-space:nowrap}
+.stage-name{font-size:18px;font-weight:700;color:var(--fg)}
 .floor-chip{
-  display:inline-flex;align-items:center;font-size:11px;font-weight:700;
-  padding:3px 9px;border-radius:99px;background:var(--chip-floor-bg);color:var(--chip-floor-fg);
+  display:inline-flex;align-items:center;font-size:12.5px;font-weight:700;
+  padding:4px 10px;border-radius:99px;background:var(--chip-floor-bg);color:var(--chip-floor-fg);
   white-space:nowrap;
 }
-.stage-body{background:var(--surface);border-radius:14px;padding:16px 18px}
-.stage-exp{font-size:13.5px;color:var(--fg);margin:0 0 10px;line-height:1.6}
+.stage-body{background:var(--surface);border-radius:14px;padding:18px 20px}
+.stage-exp{font-size:16px;color:var(--fg);margin:0 0 10px;line-height:1.6}
 .stage-checks{display:flex;flex-wrap:wrap;gap:6px}
 
+details.draft{margin-top:12px;background:var(--bg);border-radius:12px;padding:0}
+details.draft summary{cursor:pointer;list-style:none;padding:12px 16px;font-size:15px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+details.draft summary::-webkit-details-marker{display:none}
+details.draft summary::after{content:"펼치기";font-size:13px;font-weight:500;color:var(--fg-muted)}
+details.draft[open] summary::after{content:"접기"}
+details.draft .draft-body{padding:0 16px 16px}
+details.draft pre{margin:0;white-space:pre-wrap;font-family:var(--font-sans);font-size:15.5px;line-height:1.75;color:var(--fg)}
+details.draft button{margin-top:12px;background:var(--fg);color:var(--bg);border:0;border-radius:10px;padding:9px 16px;font-size:13.5px;font-weight:600;font-family:var(--font-sans);cursor:pointer}
+
 .chip{
-  display:inline-flex;align-items:center;font-size:11.5px;font-weight:600;
-  padding:4px 10px;border-radius:99px;line-height:1.4;white-space:nowrap;
+  display:inline-flex;align-items:center;font-size:13px;font-weight:600;
+  padding:5px 12px;border-radius:99px;line-height:1.4;white-space:nowrap;
 }
 .chip.ok{background:var(--chip-ok-bg);color:var(--chip-ok-fg)}
 .chip.pend{background:var(--chip-pend-bg);color:var(--chip-pend-fg)}
@@ -121,24 +126,24 @@ section{margin-bottom:44px}
   background:var(--fg);color:var(--bg);font-size:11.5px;font-weight:700;
   display:flex;align-items:center;justify-content:center;
 }
-.substep p{margin:0;font-size:13.5px;color:var(--fg);line-height:1.6}
+.substep p{margin:0;font-size:16px;color:var(--fg);line-height:1.6}
 .substep b{color:var(--fg);font-weight:600}
 
 .bottleneck{display:flex;gap:10px;margin-bottom:12px}
 .bottleneck:last-child{margin-bottom:0}
-.bottleneck .mark{flex:none;font-size:12px;font-weight:700;color:var(--accent);margin-top:2px}
-.bottleneck p{margin:0;font-size:13.5px;color:var(--fg-muted);line-height:1.6}
+.bottleneck .mark{flex:none;font-size:14px;font-weight:700;color:var(--accent);margin-top:2px}
+.bottleneck p{margin:0;font-size:16px;color:var(--fg-muted);line-height:1.6}
 
-table{width:100%;border-collapse:collapse;font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:15px}
 th,td{text-align:left;padding:10px 12px;vertical-align:top}
-thead th{color:var(--fg-muted);font-weight:600;font-size:11.5px;letter-spacing:.02em}
+thead th{color:var(--fg-muted);font-weight:600;font-size:12.5px;letter-spacing:.02em}
 tbody tr:nth-child(odd){background:var(--surface)}
 tbody td:first-child,thead th:first-child{border-radius:10px 0 0 10px}
 tbody td:last-child,thead th:last-child{border-radius:0 10px 10px 0}
 
 .table-wrap{overflow-x:auto}
 
-footer{color:var(--fg-faint);font-size:12px;line-height:1.8;padding-top:8px}
+footer{color:var(--fg-faint);font-size:13.5px;line-height:1.8;padding-top:8px}
 footer a{color:inherit}
 </style>
 
@@ -168,6 +173,26 @@ footer a{color:inherit}
             <span class="chip pend">발송 주체 미정</span>
             <span class="chip pend">지도 링크 교체 필요</span>
           </div>
+          <details class="draft">
+            <summary>리마인드 문자 초안 (전날 발송)</summary>
+            <div class="draft-body">
+<pre id="remind-text">[에듀리치테이블] 내일 뵙겠습니다
+
+OOO 원장님, 안녕하세요.
+내일 에듀리치테이블 행사 안내드려요.
+
+일시: 10/8(목) 11:00~15:00 (접수 10:30부터)
+장소: 플라야 라운지 압구정
+지도: [네이버 지도 링크]
+주차: [주차 안내 확정 후 입력]
+
+11시 세션은 1층에서 시작하고, 이후 2층에서 부스 체험과 식사, 네트워킹이 이어집니다.
+도착하시면 1층 입구에서 명찰과 책자를 받아 주세요.
+
+내일 반갑게 뵙겠습니다. 감사합니다.</pre>
+              <button type="button" id="remind-copy">문구 복사</button>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -322,3 +347,12 @@ footer a{color:inherit}
   </footer>
 
 </div>
+
+<script>
+document.getElementById('remind-copy').addEventListener('click',function(){
+  var btn=this,el=document.getElementById('remind-text'),t=el.innerText;
+  function done(){btn.textContent='복사됨';setTimeout(function(){btn.textContent='문구 복사'},1500)}
+  function fallback(){var r=document.createRange();r.selectNodeContents(el);var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);btn.textContent='선택됨, 복사해 주세요'}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fallback)}else{fallback()}
+});
+</script>
