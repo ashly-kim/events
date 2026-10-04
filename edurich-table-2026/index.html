@@ -23,7 +23,7 @@ h1{margin:0;font-size:16px;font-weight:700}
 main{flex:1;display:flex;justify-content:center;padding:12px;min-height:0}
 .col{display:flex;flex-direction:column;min-height:0;width:100%;max-width:960px;background:#fff;border-radius:12px;overflow:hidden}
 .frame{flex:1;position:relative;overflow:hidden;background:#C9CFD8}
-.frame iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0;background:#C9CFD8}
+.frame{overflow:auto;-webkit-overflow-scrolling:touch}.pages{display:flex;flex-direction:column;align-items:center;gap:14px;padding:14px 0}.pages img{display:block;height:auto;background:#fff;box-shadow:0 1px 8px rgba(22,25,42,.12)}
 @media (max-width:760px){main{padding:8px}.zoom input{width:90px}}
 </style>
 </head>
@@ -36,21 +36,51 @@ main{flex:1;display:flex;justify-content:center;padding:12px;min-height:0}
   </div>
 </header>
 <main>
-  <section class="col"><div class="frame"><iframe src="v1.html" title="에듀리치테이블 교안"></iframe></div></section>
+  <section class="col"><div class="frame" id="fr"><div class="pages" id="pg">
+<img src="../edurich-table-day/handout/p01.jpg" alt="교안 1쪽" width="1000" height="1415">
+<img src="../edurich-table-day/handout/p02.jpg" alt="교안 2쪽" width="1000" height="1415">
+<img src="../edurich-table-day/handout/p03.jpg" alt="교안 3쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p04.jpg" alt="교안 4쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p05.jpg" alt="교안 5쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p06.jpg" alt="교안 6쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p07.jpg" alt="교안 7쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p08.jpg" alt="교안 8쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p09.jpg" alt="교안 9쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p10.jpg" alt="교안 10쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p11.jpg" alt="교안 11쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p12.jpg" alt="교안 12쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p13.jpg" alt="교안 13쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p14.jpg" alt="교안 14쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p15.jpg" alt="교안 15쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p16.jpg" alt="교안 16쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p17.jpg" alt="교안 17쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p18.jpg" alt="교안 18쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p19.jpg" alt="교안 19쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p20.jpg" alt="교안 20쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p21.jpg" alt="교안 21쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p22.jpg" alt="교안 22쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p23.jpg" alt="교안 23쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p24.jpg" alt="교안 24쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p25.jpg" alt="교안 25쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p26.jpg" alt="교안 26쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p27.jpg" alt="교안 27쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p28.jpg" alt="교안 28쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p29.jpg" alt="교안 29쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p30.jpg" alt="교안 30쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p31.jpg" alt="교안 31쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p32.jpg" alt="교안 32쪽" width="1000" height="1415" loading="lazy">
+<img src="../edurich-table-day/handout/p33.jpg" alt="교안 33쪽" width="1000" height="1415" loading="lazy">
+</div></div></section>
 </main>
 <script>
-const W=880;
-const frame=document.querySelector('.frame'),el=frame.querySelector('iframe');
-function fit(){const k=frame.clientWidth/W;el.style.width=W+'px';el.style.height=(frame.clientHeight/k)+'px';el.style.transform='scale('+k+')';}
-window.addEventListener('resize',fit);fit();
-const zr=document.getElementById('z'),zv=document.getElementById('zv');
-function setZ(v){v=Math.max(50,Math.min(200,v));zr.value=v;zv.textContent=v+'%';try{const d=el.contentDocument;if(d&&d.body){const w=el.contentWindow;const r=w.scrollY/Math.max(1,d.documentElement.scrollHeight);d.body.style.zoom=v/100;w.scrollTo(w.scrollX,r*d.documentElement.scrollHeight);}}catch(e){}try{localStorage.setItem('edz',v)}catch(e){}}
+const fr=document.getElementById('fr'),pg=document.getElementById('pg'),zr=document.getElementById('z'),zv=document.getElementById('zv');
+function setZ(v){v=Math.max(50,Math.min(200,v));zr.value=v;zv.textContent=v+'%';const base=Math.min(fr.clientWidth-24,900);const w=Math.round(base*v/100);pg.querySelectorAll('img').forEach(i=>{i.style.width=w+'px'});pg.style.minWidth=(w+24)+'px';try{localStorage.setItem('edz2',v)}catch(e){}}
 zr.oninput=()=>setZ(+zr.value);
 document.getElementById('zin').onclick=()=>setZ(+zr.value+10);
 document.getElementById('zout').onclick=()=>setZ(+zr.value-10);
 zv.onclick=()=>setZ(100);
-let z0=100;try{z0=+(localStorage.getItem('edz')||100)}catch(e){}
-el.addEventListener('load',()=>setZ(+zr.value));
+window.addEventListener('resize',()=>setZ(+zr.value));
+let z0=100;try{z0=+(localStorage.getItem('edz2')||100)}catch(e){}
 setZ(z0);
 </script>
 </body>
