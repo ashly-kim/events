@@ -67,6 +67,9 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 .step .fl{display:inline-flex;align-items:center;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.14em;padding:6px 12px;border-radius:99px;background:rgba(59,130,246,.22);color:var(--blue-l)}
 .step h3{font-size:19px;font-weight:700;letter-spacing:-.02em;margin:16px 0 0}
 .step p{font-size:14.5px;line-height:1.75;color:var(--sub);margin:8px 0 0}
+.step{position:relative}
+.step:not(:last-child)::after{content:"";position:absolute;z-index:2;width:28px;height:28px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 5l7 7-7 7'/%3E%3C/svg%3E") center/14px no-repeat;left:50%;bottom:-20px;transform:translateX(-50%) rotate(90deg)}
+@media (min-width:700px){.step:not(:last-child)::after{left:auto;bottom:auto;right:-20px;top:50%;transform:translateY(-50%)}}
 .tip{margin-top:14px;background:var(--card2);border-radius:18px;padding:22px 24px;font-size:15px;line-height:1.8;color:var(--txt)}
 .tip b{color:#fff}
 /* ---------- 소개 ---------- */
@@ -220,7 +223,7 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 <section class="s" id="welcome"><div class="wrap">
   <p class="eb reveal">WELCOME</p>
   <h2 class="h2 reveal">도착하시면 <em>편하게</em> 시작하세요</h2>
-  <p class="lead reveal" style="margin-top:14px">처음엔 조금 어색하실 수 있어요. 아래 순서대로 천천히 즐기시면 됩니다.</p>
+  <p class="lead reveal" style="margin-top:14px">오늘 에듀리치테이블은 플라야 라운지 1층과 2층을 모두 대관했어요. 두 층을 편하게 둘러보시며 공간을 마음껏 즐겨 주세요. 처음엔 조금 어색하실 수 있으니, 아래 순서대로 천천히 시작하시면 됩니다.</p>
   <div class="steps">
     <div class="step reveal"><span class="fl">1F</span><h3>체크인</h3><p>1층 입구에서 명찰과 책자를 받으세요.</p></div>
     <div class="step reveal" style="transition-delay:.08s"><span class="fl">2F</span><h3>핑거푸드와 음료</h3><p>2층에서 가볍게 챙겨 드세요. 세션 시작 전에 드셔도 되고, 세션 사이 쉬는 시간에 가져오셔도 괜찮아요.</p></div>
