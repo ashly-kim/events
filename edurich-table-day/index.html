@@ -61,12 +61,6 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 /* ---------- 소개 ---------- */
-.theme{margin-top:34px;font-size:clamp(24px,6.6vw,38px);font-weight:700;letter-spacing:-.035em;line-height:1.4}
-.theme span{display:block;color:#fff}
-.theme .dim{color:var(--faint);font-weight:600}
-.theme .hl{color:var(--blue-l)}
-.kw{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
-.kw span{font-family:var(--en);font-size:13px;font-weight:600;letter-spacing:.14em;padding:10px 16px;border-radius:99px;background:var(--card2);color:var(--txt)}
 .tables{display:grid;gap:12px;margin-top:44px}
 @media (min-width:700px){.tables{grid-template-columns:repeat(3,1fr)}}
 .tcard{background:var(--card);border-radius:18px;padding:26px 24px 28px;position:relative;overflow:hidden}
@@ -97,7 +91,7 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 .note{font-size:13px;color:var(--faint);margin:6px 0 0}
 /* ---------- 자료 ---------- */
 .mats{display:grid;gap:12px;margin-top:40px}
-@media (min-width:700px){.mats{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:700px){.mats{grid-template-columns:repeat(2,1fr)}}
 .mat{background:var(--card);border-radius:18px;padding:26px 24px;display:flex;flex-direction:column;min-height:210px}
 .mat .k{font-family:var(--en);font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--blue-l)}
 .mat h3{font-size:19px;font-weight:700;letter-spacing:-.02em;margin:14px 0 0;line-height:1.4}
@@ -193,7 +187,7 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 <nav class="nav" aria-label="구역 이동"><div class="nav-in">
   <a class="brand" href="#top"><img src="assets/brain.webp" alt=""><span>EduRich<b>Brain</b></span></a>
   <div class="links" id="links">
-    <a href="#intro">소개</a><a href="#timetable">타임테이블</a><a href="#materials">자료</a><a href="#people">참석자</a><a href="#apply">신청</a>
+    <a href="#timetable">타임테이블</a><a href="#tables">테이블</a><a href="#materials">자료</a><a href="#people">참석자</a><a href="#apply">신청</a>
   </div>
 </div></nav>
 
@@ -203,7 +197,7 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
   <p class="eyebrow">WELCOME</p>
   <h1><span class="it">Edurich</span><br><span class="the">the</span>Table.</h1>
   <p class="when">2026.10.08 THU | PLAYA LOUNGE, SEOUL</p>
-  <p class="tag">오늘의 소개, 타임테이블, 자료를 한곳에서 확인하세요</p>
+  <p class="tag">오늘의 순서와 자료를 한곳에서 확인하세요</p>
   <div class="cta">
     <a class="btn pri" href="#timetable">타임테이블 보기</a>
     <a class="btn sec" href="#materials">교안 받기</a>
@@ -213,27 +207,6 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 </header>
 
 <main>
-
-<section class="s" id="intro"><div class="wrap">
-  <p class="eb reveal">ABOUT</p>
-  <h2 class="h2 reveal">학원 다음,<br><em>함께 나누는 이야기</em></h2>
-  <div class="theme reveal">
-    <span class="dim">원생 1,000명을 만드셨어요.</span>
-    <span class="dim">그러고 나면 이런 생각이 들죠.</span>
-    <span class="hl">이걸 얼마나 더 해야 할까?</span>
-  </div>
-  <p class="lead reveal">이 얘기는 원장님들끼리도 잘 안 하게 돼요. 그래서 그 얘기만 하는 자리를 만들었어요. 오늘은 AI, 온톨로지, 교육, 그리고 미래를 이야기합니다.</p>
-  <div class="kw reveal"><span>AI</span><span>ONTOLOGY</span><span>EDUCATION</span><span>FUTURE</span></div>
-
-  <p class="eb reveal" style="margin-top:64px">THREE TABLES</p>
-  <h3 class="h2 reveal" style="font-size:clamp(24px,6vw,34px)">식사하며 세 테이블을 돌아보세요</h3>
-  <div class="tables">
-    <div class="tcard reveal"><span class="no">TABLE 1</span><div class="logo"><img src="assets/toss_logo.png" alt=""><b style="margin-left:10px;font-family:var(--en)">toss</b></div><h3>출석 자동화</h3><p>얼굴 하나로 1초 만에 등원이 기록되는 페이스패스를 체험해요.</p></div>
-    <div class="tcard reveal" style="transition-delay:.08s"><span class="no">TABLE 2</span><div class="logo"><img src="assets/crabit-white.png" alt="Crabit"></div><h3>미션과 보상 자동화</h3><p>학원 규칙이 아이의 미션이 되고, 해낸 만큼 포인트가 쌓이는 흐름을 체험해요.</p></div>
-    <div class="tcard hl reveal" style="transition-delay:.16s"><span class="no">TABLE 3</span><div class="logo"><img src="assets/brain.webp" alt=""><b style="margin-left:8px">EduRich<span style="color:var(--blue-l)">Brain</span></b></div><h3>토탈 ERP와 마케팅 자동화</h3><p>원장님의 지도가 들어가는 자리에서, 글과 보고서가 만들어지는 과정을 봐요.</p></div>
-  </div>
-  <p class="stamp-note reveal"><i></i>테이블마다 도장을 하나씩 받아 가세요.</p>
-</div></section>
 
 <section class="s" id="timetable"><div class="wrap">
   <p class="eb reveal">TIMETABLE</p>
@@ -248,6 +221,19 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
   <p class="note">시간은 예정이며 조금 달라질 수 있어요.</p>
 </div></section>
 
+<section class="s" id="tables"><div class="wrap">
+  <p class="eb reveal">THREE TABLES</p>
+  <h2 class="h2 reveal">식사하며 <em>세 테이블</em>을 돌아보세요</h2>
+<div class="tables">
+    <div class="tcard reveal"><span class="no">TABLE 1</span><div class="logo"><img src="assets/toss_logo.png" alt=""><b style="margin-left:10px;font-family:var(--en)">toss</b></div><h3>출석 자동화</h3><p>얼굴 하나로 1초 만에 등원이 기록되는 페이스패스를 체험해요.</p></div>
+    <div class="tcard reveal" style="transition-delay:.08s"><span class="no">TABLE 2</span><div class="logo"><img src="assets/crabit-white.png" alt="Crabit"></div><h3>미션과 보상 자동화</h3><p>학원 규칙이 아이의 미션이 되고, 해낸 만큼 포인트가 쌓이는 흐름을 체험해요.</p></div>
+    <div class="tcard hl reveal" style="transition-delay:.16s"><span class="no">TABLE 3</span><div class="logo"><img src="assets/brain.webp" alt=""><b style="margin-left:8px">EduRich<span style="color:var(--blue-l)">Brain</span></b></div><h3>토탈 ERP와 마케팅 자동화</h3><p>원장님의 지도가 들어가는 자리에서, 글과 보고서가 만들어지는 과정을 봐요.</p></div>
+  </div>
+  <p class="stamp-note reveal"><i></i>테이블마다 도장을 하나씩 받아 가세요.</p>
+</div></section>
+
+
+
 <section class="s" id="materials"><div class="wrap">
   <p class="eb reveal">MATERIALS</p>
   <h2 class="h2 reveal">오늘의 <em>자료</em></h2>
@@ -255,7 +241,6 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
   <div class="mats">
     <div class="mat reveal"><span class="k">HANDOUT</span><h3>에듀리치테이블 교안</h3><p>오늘 강연과 테이블을 따라가며 채워 보는 교안이에요. PDF로 받아 두세요.</p><div class="go"><a href="https://ashly-kim.github.io/events/edurich-table-2026/edurich-table-v1.pdf" download>PDF 받기</a></div></div>
     <div class="mat reveal" style="transition-delay:.08s"><span class="k">TABLE 1</span><h3>토스 페이스패스</h3><p>얼굴로 1초 만에 출석을 기록하는 서비스의 자세한 소개예요.</p><div class="go"><a href="https://tossplace.com/sector/facepass" target="_blank" rel="noopener noreferrer">자세히 보기</a></div></div>
-    <div class="mat reveal" style="transition-delay:.16s"><span class="k">SPEAKERS</span><h3>강연 자료</h3><p>연사별 강연 자료는 행사가 끝난 뒤 이곳에 올라와요.</p><div class="go"><span>행사 후 공개</span></div></div>
   </div>
 </div></section>
 
@@ -377,7 +362,7 @@ var ATTENDEES = [];
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});rv.forEach(function(el){io.observe(el)})}else{rv.forEach(function(el){el.classList.add('in')})}
 
   /* 현재 구역 표시 */
-  var secs=['intro','timetable','materials','people','apply'].map(function(id){return document.getElementById(id)});
+  var secs=['timetable','tables','materials','people','apply'].map(function(id){return document.getElementById(id)});
   var links=document.querySelectorAll('#links a');
   function spy(){var y=scrollY+120,cur=-1;secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});links.forEach(function(a,i){a.classList.toggle('on',i===cur)});var on=links[cur];if(on&&on.scrollIntoView&&innerWidth<700){var box=document.getElementById('links');box.scrollTo({left:on.offsetLeft-20,behavior:'smooth'})}}
   addEventListener('scroll',spy,{passive:true});spy();
