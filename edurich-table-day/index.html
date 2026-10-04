@@ -60,6 +60,15 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,1,.36,1)}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+/* ---------- 입장 안내 ---------- */
+.steps{display:grid;gap:12px;margin-top:40px}
+@media (min-width:700px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--card);border-radius:18px;padding:24px 22px 26px}
+.step .fl{display:inline-flex;align-items:center;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.14em;padding:6px 12px;border-radius:99px;background:rgba(59,130,246,.22);color:var(--blue-l)}
+.step h3{font-size:19px;font-weight:700;letter-spacing:-.02em;margin:16px 0 0}
+.step p{font-size:14.5px;line-height:1.75;color:var(--sub);margin:8px 0 0}
+.tip{margin-top:14px;background:var(--card2);border-radius:18px;padding:22px 24px;font-size:15px;line-height:1.8;color:var(--txt)}
+.tip b{color:#fff}
 /* ---------- 소개 ---------- */
 .tables{display:grid;gap:12px;margin-top:44px}
 @media (min-width:700px){.tables{grid-template-columns:repeat(3,1fr)}}
@@ -187,7 +196,7 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 <nav class="nav" aria-label="구역 이동"><div class="nav-in">
   <a class="brand" href="#top"><img src="assets/brain.webp" alt=""><span>EduRich<b>Brain</b></span></a>
   <div class="links" id="links">
-    <a href="#timetable">타임테이블</a><a href="#tables">테이블</a><a href="#materials">자료</a><a href="#people">참석자</a><a href="#apply">신청</a>
+    <a href="#welcome">입장 안내</a><a href="#timetable">타임테이블</a><a href="#tables">테이블</a><a href="#materials">자료</a><a href="#people">참석자</a><a href="#apply">신청</a>
   </div>
 </div></nav>
 
@@ -207,6 +216,18 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 </header>
 
 <main>
+
+<section class="s" id="welcome"><div class="wrap">
+  <p class="eb reveal">WELCOME</p>
+  <h2 class="h2 reveal">도착하시면 <em>편하게</em> 시작하세요</h2>
+  <p class="lead reveal" style="margin-top:14px">처음엔 조금 어색하실 수 있어요. 아래 순서대로 천천히 즐기시면 됩니다.</p>
+  <div class="steps">
+    <div class="step reveal"><span class="fl">1F</span><h3>체크인</h3><p>1층 입구에서 명찰과 책자를 받으세요.</p></div>
+    <div class="step reveal" style="transition-delay:.08s"><span class="fl">2F</span><h3>핑거푸드와 음료</h3><p>2층에서 가볍게 챙겨 드세요. 세션 시작 전에 드셔도 되고, 세션 사이 쉬는 시간에 가져오셔도 괜찮아요.</p></div>
+    <div class="step reveal" style="transition-delay:.16s"><span class="fl">1F</span><h3>자리에서 편하게</h3><p>음식과 음료를 챙겨 자리에 앉아, 드시면서 강연을 들어 주세요.</p></div>
+  </div>
+  <p class="tip reveal">마지막 강연이 <b>13시가 넘어서 끝나요.</b> 식사는 그 뒤라 공복 시간이 길어질 수 있어서, 미리 챙겨 드시면서 편하게 즐겨 주세요.</p>
+</div></section>
 
 <section class="s" id="timetable"><div class="wrap">
   <p class="eb reveal">TIMETABLE</p>
