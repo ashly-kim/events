@@ -25,14 +25,10 @@ img{display:block;max-width:100%}
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 20px 26px;overflow:hidden;background:radial-gradient(ellipse 80% 55% at 50% 28%,rgba(37,99,235,.30),transparent 70%),radial-gradient(ellipse 60% 40% at 88% 100%,rgba(59,130,246,.16),transparent 70%),var(--bg)}
 .hero .orb{position:absolute;left:50%;top:2%;width:min(125vw,820px);aspect-ratio:1;margin-left:calc(min(125vw,820px)/-2);border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.36) 0%,rgba(59,130,246,.1) 38%,transparent 66%);pointer-events:none}
 .stage{position:relative;width:min(64vw,360px,34svh);aspect-ratio:1;margin-bottom:2px}
-.stage .fb{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity 1s}
-.stage canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity 1s;touch-action:pan-y;cursor:grab}
-.stage canvas:active{cursor:grabbing}
-.stage.ready canvas{opacity:1}.stage.ready .fb{opacity:0}
+.stage .fb{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .hero .eyebrow{position:relative;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.34em;color:var(--blue-l);margin:0}
 .hero h1{position:relative;font-family:var(--serif);font-weight:500;font-size:clamp(46px,min(18vw,11.5svh),140px);line-height:.92;letter-spacing:-.035em;color:#F4F1EA;margin:14px 0 0}
 .hero h1 .it{font-style:italic}
-.hero h1 .the{font-style:italic;font-size:.3em;color:var(--blue-l);letter-spacing:0;margin-right:.18em;border-bottom:2px solid var(--blue-l);display:inline-block;line-height:1.05;vertical-align:baseline}
 .hero .when{position:relative;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.22em;color:var(--sub);margin:clamp(14px,3svh,26px) 0 0}
 .menu{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:9px;width:min(100%,460px);margin-top:clamp(18px,3.4svh,30px)}
 .mbtn{display:flex;align-items:center;justify-content:flex-start;gap:10px;min-height:52px;padding:0 20px;border-radius:99px;background:var(--card2);color:#fff;text-decoration:none;font-size:15px;font-weight:600;letter-spacing:-.01em;transition:background .25s,transform .25s}
@@ -255,10 +251,9 @@ section.s{padding:0}
   <div class="orb"></div>
   <div class="stage" id="stage">
     <img class="fb" src="assets/brain.webp" alt="에듀리치브레인 뇌 로고" width="340" height="340">
-    <canvas id="brain3d" role="img" aria-label="천천히 회전하는 3D 뇌 로고"></canvas>
   </div>
   <p class="eyebrow">WELCOME</p>
-  <h1><span class="it">Edurich</span><br><span class="the">the</span>Table.</h1>
+  <h1><span class="it">Edurich</span><br>Table.</h1>
   <p class="when">2026.10.08 THU | PLAYA LOUNGE, SEOUL</p>
   <nav class="menu" aria-label="메뉴">
     <a class="mbtn pri first" href="#welcome"><i>01</i>입장 안내</a>
@@ -565,65 +560,5 @@ var ATT_ENC = {"v":1,"iter":250000,"salt":"1dUVMfxlh315gk6DhtfTDw==","iv":"ico38
 })();
 </script>
 
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"}}</script>
-<script type="module">
-/* 3D 크롬 뇌: 구를 뇌 모양으로 빚고, 주름(고랑)을 노이즈로 파서 만든다. 불러오기에 실패하면 평면 로고가 그대로 보인다. */
-import * as THREE from 'three';
-import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
-import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-const stage=document.getElementById('stage'),canvas=document.getElementById('brain3d');
-try{
-  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'low-power'});
-  renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
-  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
-  const scene=new THREE.Scene();
-  const pmrem=new THREE.PMREMGenerator(renderer);
-  scene.environment=pmrem.fromScene(new RoomEnvironment(),0.03).texture;
-  const camera=new THREE.PerspectiveCamera(30,1,0.1,50);camera.position.set(0,0.12,4.5);
-  /* --- 3D 퍼린 노이즈 --- */
-  const P=new Uint8Array(512),perm=[];for(let i=0;i<256;i++)perm[i]=i;
-  let seed=20261008;function rnd(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296}
-  for(let i=255;i>0;i--){const j=Math.floor(rnd()*(i+1));const t=perm[i];perm[i]=perm[j];perm[j]=t}
-  for(let i=0;i<512;i++)P[i]=perm[i&255];
-  const fade=t=>t*t*t*(t*(t*6-15)+10),lerp=(a,b,t)=>a+t*(b-a);
-  function grad(h,x,y,z){h&=15;const u=h<8?x:y,v=h<4?y:(h===12||h===14?x:z);return((h&1)?-u:u)+((h&2)?-v:v)}
-  function noise(x,y,z){const X=Math.floor(x)&255,Y=Math.floor(y)&255,Z=Math.floor(z)&255;x-=Math.floor(x);y-=Math.floor(y);z-=Math.floor(z);const u=fade(x),v=fade(y),w=fade(z);const A=P[X]+Y,AA=P[A]+Z,AB=P[A+1]+Z,B=P[X+1]+Y,BA=P[B]+Z,BB=P[B+1]+Z;
-    return lerp(lerp(lerp(grad(P[AA],x,y,z),grad(P[BA],x-1,y,z),u),lerp(grad(P[AB],x,y-1,z),grad(P[BB],x-1,y-1,z),u),v),lerp(lerp(grad(P[AA+1],x,y,z-1),grad(P[BA+1],x-1,y,z-1),u),lerp(grad(P[AB+1],x,y-1,z-1),grad(P[BB+1],x-1,y-1,z-1),u),v),w)}
-  const sstep=(a,b,x)=>{const t=Math.min(1,Math.max(0,(x-a)/(b-a)));return t*t*(3-2*t)};
-  /* --- 형태: 로고 이미지를 3D로 변환한 메시(assets/brain.glb)를 크롬 재질로 입힌다 --- */
-  const mat=new THREE.MeshPhysicalMaterial({color:0xe4ebf7,metalness:1,roughness:0.22,clearcoat:0.5,clearcoatRoughness:0.25,envMapIntensity:1.25});
-  const holder=new THREE.Group();scene.add(holder);
-  const gltf=await new GLTFLoader().loadAsync('assets/brain.glb');
-  const brain=gltf.scene;
-  brain.traverse(o=>{if(o.isMesh){o.material=mat;o.geometry.computeVertexNormals()}});
-  const box=new THREE.Box3().setFromObject(brain),size=box.getSize(new THREE.Vector3()),ctr=box.getCenter(new THREE.Vector3());
-  brain.position.sub(ctr);const sc=2.6/Math.max(size.x,size.y,size.z);
-  const pivot=new THREE.Group();pivot.add(brain);pivot.scale.setScalar(sc);holder.add(pivot);
-  const key=new THREE.DirectionalLight(0xffffff,1.1);key.position.set(3,4,5);scene.add(key);
-  const rim=new THREE.DirectionalLight(0x5b9bff,2.4);rim.position.set(-4,2,-3);scene.add(rim);
-  /* --- 크기 --- */
-  function resize(){const w=Math.max(60,stage.clientWidth),h=Math.max(60,stage.clientHeight);renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}
-  new ResizeObserver(resize).observe(stage);resize();
-  /* --- 움직임: 천천히 자동 회전, 드래그로 돌려보기 --- */
-  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const AUTO=reduce?0:0.26;let rotY=-0.9,velY=AUTO,tilt=0.34,dragging=false,lx=0,ly=0,t0=performance.now();
-  canvas.addEventListener('pointerdown',e=>{dragging=true;lx=e.clientX;ly=e.clientY;canvas.setPointerCapture(e.pointerId)});
-  canvas.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-lx,dy=e.clientY-ly;lx=e.clientX;ly=e.clientY;rotY+=dx*0.012;velY=dx*0.012*60;tilt=Math.max(-0.5,Math.min(0.6,tilt+dy*0.006));need=true});
-  const up=()=>{dragging=false};canvas.addEventListener('pointerup',up);canvas.addEventListener('pointercancel',up);
-  let need=true,shown=false;
-  function frame(now){
-    requestAnimationFrame(frame);
-    if(shown&&(!document.body.classList.contains('home')||document.hidden)){t0=now;return}
-    const dt=Math.min(0.05,(now-t0)/1000);t0=now;
-    if(!dragging){velY+=(AUTO-velY)*Math.min(1,dt*1.6);rotY+=velY*dt;tilt+=(0.34-tilt)*Math.min(1,dt*1.2)}
-    holder.rotation.y=rotY;holder.rotation.x=tilt;holder.position.y=reduce?0:Math.sin(now/1000*0.8)*0.035;
-    if(!reduce||need||!shown){renderer.render(scene,camera);need=false}
-    if(!shown){shown=true;stage.classList.add('ready')}
-  }
-  // 첫 장면은 바로 그린다(창이 숨겨져 있어도 보이도록)
-  holder.rotation.y=rotY;holder.rotation.x=tilt;renderer.render(scene,camera);shown=true;need=false;stage.classList.add('ready');
-  requestAnimationFrame(frame);
-}catch(err){console.warn('3D 뇌를 만들지 못해 평면 로고를 보여줘요',err)}
-</script>
 </body>
 </html>
