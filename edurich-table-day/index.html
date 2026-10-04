@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#050A16">
 <title>에듀리치 테이블 2026 | 행사 안내</title>
 <meta property="og:title" content="에듀리치 테이블 2026 | 행사 안내">
-<meta property="og:description" content="행사 소개, 타임테이블, 자료, 참석자, 신청을 한곳에서 확인하세요.">
+<meta property="og:description" content="타임테이블, 자료, 참석자, 선물과 문의를 한곳에서 확인하세요.">
 <meta property="og:locale" content="ko_KR">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" crossorigin="anonymous">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap">
@@ -21,37 +21,65 @@ body{margin:0;background:var(--bg);color:var(--txt);font-family:var(--sans);-web
 a{color:inherit}
 img{display:block;max-width:100%}
 .wrap{max-width:880px;margin:0 auto;padding:0 22px}
-/* ---------- 상단 메뉴 ---------- */
-.nav{position:sticky;top:0;z-index:50;background:rgba(5,10,22,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
-.nav-in{max-width:880px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;gap:14px}
-.nav .brand{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;letter-spacing:-.02em;text-decoration:none;flex-shrink:0}
-.nav .brand img{width:26px;height:26px}
-.nav .brand b{color:var(--blue);font-weight:700}
-.nav .links{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-left:auto;padding:2px 0}
-.nav .links::-webkit-scrollbar{display:none}
-.nav .links a{flex-shrink:0;font-size:13.5px;font-weight:600;color:var(--sub);text-decoration:none;padding:9px 13px;border-radius:99px;min-height:40px;display:flex;align-items:center;transition:background .25s,color .25s}
-.nav .links a:hover{color:var(--txt)}
-.nav .links a.on{background:var(--card2);color:#fff}
-@media (max-width:560px){.nav .brand span{display:none}}
 /* ---------- 히어로 ---------- */
-.hero{position:relative;min-height:calc(100svh - 58px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 22px 52px;overflow:hidden;background:radial-gradient(ellipse 80% 55% at 50% 30%,rgba(37,99,235,.28),transparent 70%),radial-gradient(ellipse 60% 40% at 88% 100%,rgba(59,130,246,.16),transparent 70%),var(--bg)}
-.hero .orb{position:absolute;left:50%;top:7%;width:min(120vw,780px);aspect-ratio:1;margin-left:calc(min(120vw,780px)/-2);border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.34) 0%,rgba(59,130,246,.1) 38%,transparent 66%);pointer-events:none}
-.hero .brain{position:relative;width:min(62vw,330px,34svh);height:auto;margin-bottom:6px}
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 20px 26px;overflow:hidden;background:radial-gradient(ellipse 80% 55% at 50% 28%,rgba(37,99,235,.30),transparent 70%),radial-gradient(ellipse 60% 40% at 88% 100%,rgba(59,130,246,.16),transparent 70%),var(--bg)}
+.hero .orb{position:absolute;left:50%;top:2%;width:min(125vw,820px);aspect-ratio:1;margin-left:calc(min(125vw,820px)/-2);border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.36) 0%,rgba(59,130,246,.1) 38%,transparent 66%);pointer-events:none}
+.stage{position:relative;width:min(64vw,360px,34svh);aspect-ratio:1;margin-bottom:2px}
+.stage .fb{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity 1s}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity 1s;touch-action:pan-y;cursor:grab}
+.stage canvas:active{cursor:grabbing}
+.stage.ready canvas{opacity:1}.stage.ready .fb{opacity:0}
 .hero .eyebrow{position:relative;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.34em;color:var(--blue-l);margin:0}
-.hero h1{position:relative;font-family:var(--serif);font-weight:500;font-size:clamp(60px,min(19vw,15svh),148px);line-height:.92;letter-spacing:-.035em;color:#F4F1EA;margin:18px 0 0}
+.hero h1{position:relative;font-family:var(--serif);font-weight:500;font-size:clamp(46px,min(18vw,11.5svh),140px);line-height:.92;letter-spacing:-.035em;color:#F4F1EA;margin:14px 0 0}
 .hero h1 .it{font-style:italic}
-.hero h1 .the{font-style:italic;font-size:.3em;color:var(--blue-l);letter-spacing:0;margin-right:.18em;padding-bottom:.02em;border-bottom:2px solid var(--blue-l);display:inline-block;line-height:1.05;vertical-align:baseline}
-.hero .when{position:relative;font-family:var(--en);font-size:12.5px;font-weight:600;letter-spacing:.22em;color:var(--sub);margin:30px 0 0}
-.hero .tag{position:relative;font-size:clamp(16px,4.2vw,19px);font-weight:500;color:var(--txt);margin:14px 0 0;letter-spacing:-.01em}
-.hero .cta{position:relative;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:99px;font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:.01em;text-decoration:none;border:0;cursor:pointer;transition:opacity .25s,transform .25s}
-.btn.pri{background:var(--blue);color:#fff}
-.btn.sec{background:var(--card2);color:#fff}
-.btn:hover{opacity:.86}
-.btn:focus-visible,.chip input:focus-visible+span,.tabs button:focus-visible,a:focus-visible{outline:2px solid var(--blue-l);outline-offset:3px}
-.scroll{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-family:var(--en);font-size:10px;letter-spacing:.3em;color:var(--faint)}
+.hero h1 .the{font-style:italic;font-size:.3em;color:var(--blue-l);letter-spacing:0;margin-right:.18em;border-bottom:2px solid var(--blue-l);display:inline-block;line-height:1.05;vertical-align:baseline}
+.hero .when{position:relative;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.22em;color:var(--sub);margin:clamp(14px,3svh,26px) 0 0}
+.menu{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:9px;width:min(100%,460px);margin-top:clamp(18px,3.4svh,30px)}
+.mbtn{display:flex;align-items:center;justify-content:flex-start;gap:10px;min-height:52px;padding:0 20px;border-radius:99px;background:var(--card2);color:#fff;text-decoration:none;font-size:15px;font-weight:600;letter-spacing:-.01em;transition:background .25s,transform .25s}
+.mbtn i{font-family:var(--en);font-style:normal;font-size:11px;font-weight:600;letter-spacing:.16em;color:var(--blue-l)}
+.mbtn:hover{background:rgba(255,255,255,.14)}
+.mbtn:active{transform:scale(.98)}
+.mbtn.pri{background:var(--blue)}.mbtn.pri i{color:rgba(255,255,255,.78)}.mbtn.pri:hover{background:var(--blue-d)}
+.mbtn.gift{background:linear-gradient(135deg,rgba(59,130,246,.46),rgba(16,32,63,.75))}
+.mbtn:last-child,.mbtn.first{grid-column:1/-1;justify-content:center}
+@media (min-width:820px){.menu{grid-template-columns:repeat(6,auto);width:auto;gap:10px}.mbtn:last-child,.mbtn.first{grid-column:auto;justify-content:flex-start}}
+.mbtn:focus-visible{outline:2px solid var(--blue-l);outline-offset:3px}
+/* ---------- 시트(모바일은 바텀시트, 웹은 사이드 드로어) ---------- */
+.scrim{position:fixed;inset:0;z-index:90;background:rgba(2,6,14,.64);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);opacity:0;transition:opacity .3s}
+.scrim.on{opacity:1}
+body.sheet-open{overflow:hidden}
+.view{position:fixed;z-index:100;left:0;right:0;bottom:0;max-height:92svh;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;background:#0A1326;border-radius:26px 26px 0 0;transform:translateY(104%);transition:transform .4s cubic-bezier(.22,1,.36,1);padding-bottom:env(safe-area-inset-bottom)}
+.view.on{transform:none}
+@media (min-width:820px){.view{left:auto;top:0;max-height:none;width:min(580px,92vw);border-radius:0;transform:translateX(104%)}.view.on{transform:none}}
+@media (prefers-reduced-motion:reduce){.view,.scrim{transition:none}}
+.sh-head{position:sticky;top:0;z-index:5;background:#0A1326;padding-top:10px}
+.grab{display:block;width:42px;height:4px;border-radius:4px;background:rgba(255,255,255,.24);margin:0 auto}
+@media (min-width:820px){.grab{display:none}.sh-head{padding-top:6px}}
+.sh-in{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 14px 10px 22px;min-height:58px}
+.sh-in .ttl{font-size:16px;font-weight:700;letter-spacing:-.02em;color:#fff}
+.x{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--card2);color:#fff;text-decoration:none;transition:background .25s}
+.x:hover{background:rgba(255,255,255,.14)}
+.x:focus-visible{outline:2px solid var(--blue-l);outline-offset:3px}
+.vbody{padding-top:14px;padding-bottom:clamp(34px,6vw,50px)}
+.view .h2{font-size:clamp(27px,7vw,34px)}
+.view .tables,.view .steps,.view .mats,.view .who{grid-template-columns:1fr}
+.view .step:not(:last-child)::after{left:50%;right:auto;top:auto;bottom:-20px;transform:translateX(-50%) rotate(90deg)}
+.sub-h{font-size:12px;font-weight:600;letter-spacing:.26em;color:var(--blue);font-family:var(--en);margin:40px 0 0}
+body.home .foot{display:none}
+body.home{overflow-x:hidden}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* ---------- 참석자 잠금 ---------- */
+.lockbox{margin-top:30px;background:var(--card);border-radius:22px;padding:34px 26px 30px;text-align:center;color:var(--blue-l)}
+.lockbox .lk-t{font-size:20px;font-weight:700;letter-spacing:-.02em;color:#fff;margin:14px 0 0}
+.lockbox .lk-d{font-size:14.5px;line-height:1.75;color:var(--sub);margin:10px auto 0;max-width:420px}
+.lockbox form{display:flex;gap:8px;margin:22px auto 0;max-width:380px}
+.lockbox input{flex:1;min-width:0;min-height:52px;padding:0 20px;border:0;border-radius:99px;background:rgba(255,255,255,.08);color:#fff;font-family:var(--en);font-size:17px;font-weight:600;letter-spacing:.2em;text-align:center;text-transform:uppercase}
+.lockbox input::placeholder{color:var(--faint);letter-spacing:.04em;font-family:var(--sans);font-weight:400;text-transform:none}
+.lockbox input:focus{outline:2px solid var(--blue-l);outline-offset:2px}
+.lockbox .btn{min-height:52px;padding:0 24px}
+.code-err{font-size:13.5px;color:#FFB4BA;margin:14px 0 0}
 /* ---------- 섹션 공통 ---------- */
-section.s{padding:clamp(72px,13vw,120px) 0 0}
+section.s{padding:0}
 .eb{font-family:var(--en);font-size:11.5px;font-weight:600;letter-spacing:.3em;color:var(--blue);margin:0}
 .h2{font-size:clamp(30px,7.6vw,46px);font-weight:700;letter-spacing:-.035em;line-height:1.22;margin:14px 0 0}
 .h2 em{font-style:normal;color:var(--blue-l)}
@@ -60,18 +88,6 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,1,.36,1)}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-/* ---------- 입장 안내 ---------- */
-.steps{display:grid;gap:12px;margin-top:40px}
-@media (min-width:700px){.steps{grid-template-columns:repeat(3,1fr)}}
-.step{background:var(--card);border-radius:18px;padding:24px 22px 26px}
-.step .fl{display:inline-flex;align-items:center;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.14em;padding:6px 12px;border-radius:99px;background:rgba(59,130,246,.22);color:var(--blue-l)}
-.step h3{font-size:19px;font-weight:700;letter-spacing:-.02em;margin:16px 0 0}
-.step p{font-size:14.5px;line-height:1.75;color:var(--sub);margin:8px 0 0}
-.step{position:relative}
-.step:not(:last-child)::after{content:"";position:absolute;z-index:2;width:28px;height:28px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 5l7 7-7 7'/%3E%3C/svg%3E") center/14px no-repeat;left:50%;bottom:-20px;transform:translateX(-50%) rotate(90deg)}
-@media (min-width:700px){.step:not(:last-child)::after{left:auto;bottom:auto;right:-20px;top:50%;transform:translateY(-50%)}}
-.tip{margin-top:14px;background:var(--card2);border-radius:18px;padding:22px 24px;font-size:15px;line-height:1.8;color:var(--txt)}
-.tip b{color:#fff}
 /* ---------- 소개 ---------- */
 .tables{display:grid;gap:12px;margin-top:44px}
 @media (min-width:700px){.tables{grid-template-columns:repeat(3,1fr)}}
@@ -130,12 +146,8 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 .pnote{font-size:12.5px;color:var(--faint);line-height:1.7;margin-top:16px}
 .badge-sample{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;background:var(--blue);color:#fff;padding:3px 9px;border-radius:99px;margin-left:8px;vertical-align:middle}
 /* ---------- 신청 ---------- */
-.apply{background:linear-gradient(180deg,rgba(16,32,63,.0),rgba(16,32,63,.55) 14%,rgba(16,32,63,.55) 100%);margin-top:clamp(72px,13vw,120px);padding:clamp(60px,11vw,96px) 0 clamp(70px,13vw,110px)}
-.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:34px}
-.tabs button{font-family:var(--sans);font-size:15px;font-weight:600;min-height:52px;border:0;border-radius:99px;background:var(--card);color:var(--sub);cursor:pointer;transition:background .25s,color .25s;padding:0 10px}
-.tabs button.on{background:var(--blue);color:#fff}
-.panel{display:none;margin-top:20px;background:var(--card);border-radius:22px;padding:clamp(26px,6vw,40px) clamp(22px,5.5vw,36px)}
-.panel.on{display:block}
+
+.panel{margin-top:20px;background:var(--card);border-radius:22px;padding:clamp(26px,6vw,40px) clamp(22px,5.5vw,36px)}
 .panel h3{font-size:clamp(22px,5.6vw,26px);font-weight:700;letter-spacing:-.03em;margin:0}
 .panel .d{font-size:14.5px;line-height:1.75;color:var(--sub);margin:10px 0 0}
 .who{display:grid;gap:10px;margin-top:22px}
@@ -186,6 +198,45 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 .done.show{display:block}
 .done .ck{width:56px;height:56px;border-radius:50%;background:rgba(59,130,246,.2);margin:0 auto;display:flex;align-items:center;justify-content:center;color:var(--blue-l)}
 .done h3{margin-top:20px}
+
+/* ---------- 자체 드롭다운 ---------- */
+.dd{position:relative}
+.dd select{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;left:0;bottom:0}
+.dd-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:46px;padding:11px 2px 12px;background:transparent;border:0;border-bottom:1px solid rgba(147,197,253,.28);border-radius:0;font-family:var(--sans);font-size:17px;color:var(--txt);text-align:left;cursor:pointer;transition:border-color .25s}
+.dd-btn .ph{color:var(--faint)}
+.dd-btn svg{flex-shrink:0;transition:transform .25s;color:var(--sub)}
+.dd.open .dd-btn,.dd-btn:focus-visible{border-bottom-color:var(--blue-l);outline:0}
+.dd.open .dd-btn svg{transform:rotate(180deg);color:var(--blue-l)}
+.dd-list{position:absolute;z-index:30;left:0;right:0;top:calc(100% + 8px);margin:0;padding:6px;list-style:none;background:#0F1C36;border:1px solid rgba(147,197,253,.22);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.45);max-height:280px;overflow:auto;opacity:0;transform:translateY(-6px);pointer-events:none;visibility:hidden;transition:opacity .18s,transform .18s,visibility .18s}
+.dd.open .dd-list{opacity:1;transform:none;pointer-events:auto;visibility:visible}
+.dd.up .dd-list{top:auto;bottom:calc(100% + 8px)}
+.dd-list li{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:46px;padding:0 14px;border-radius:11px;font-size:16px;color:var(--txt);cursor:pointer}
+.dd-list li.act{background:rgba(147,197,253,.12)}
+.dd-list li[aria-selected=true]{color:#fff;font-weight:700}
+.dd-list li[aria-selected=true]::after{content:'';width:6px;height:11px;border:solid var(--blue-l);border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-2px);margin-right:4px;flex-shrink:0}
+.dd-list li.none{color:var(--faint)}
+.field.err .dd-btn{border-bottom-color:#FF7A85}
+/* ---------- 신청: 두 폼을 모두 보여준다 ---------- */
+.panel{display:block;margin-top:20px}
+.panel + .panel{margin-top:16px}
+.step-no{display:inline-flex;align-items:center;gap:8px;font-family:var(--en);font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--blue-l);margin:0 0 14px}
+.step-no i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(59,130,246,.22);letter-spacing:0;font-size:12px;color:#fff}
+.gift{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;background:var(--blue);color:#fff;padding:5px 12px;border-radius:99px;letter-spacing:.02em;margin-left:8px;vertical-align:middle;position:relative;top:-2px}
+.both-note{margin:26px 0 0;display:flex;gap:12px;align-items:flex-start;background:rgba(59,130,246,.12);border-radius:14px;padding:16px 18px;font-size:14.5px;line-height:1.7;color:var(--txt)}
+.both-note b{color:#fff;font-weight:700}
+.both-note i{flex-shrink:0;width:8px;height:8px;border-radius:50%;background:var(--blue-l);margin-top:9px}
+/* ---------- 입장 안내 ---------- */
+.steps{display:grid;gap:12px;margin-top:40px}
+@media (min-width:700px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--card);border-radius:18px;padding:24px 22px 26px}
+.step .fl{display:inline-flex;align-items:center;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.14em;padding:6px 12px;border-radius:99px;background:rgba(59,130,246,.22);color:var(--blue-l)}
+.step h3{font-size:19px;font-weight:700;letter-spacing:-.02em;margin:16px 0 0}
+.step p{font-size:14.5px;line-height:1.75;color:var(--sub);margin:8px 0 0}
+.step{position:relative}
+.step:not(:last-child)::after{content:"";position:absolute;z-index:2;width:28px;height:28px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 5l7 7-7 7'/%3E%3C/svg%3E") center/14px no-repeat;left:50%;bottom:-20px;transform:translateX(-50%) rotate(90deg)}
+@media (min-width:700px){.step:not(:last-child)::after{left:auto;bottom:auto;right:-20px;top:50%;transform:translateY(-50%)}}
+.tip{margin-top:14px;background:var(--card2);border-radius:18px;padding:22px 24px;font-size:15px;line-height:1.8;color:var(--txt)}
+.tip b{color:#fff}
 /* ---------- 푸터 ---------- */
 .foot{text-align:center;padding:54px 22px 64px}
 .foot img{width:44px;height:44px;margin:0 auto}
@@ -198,26 +249,32 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 </head>
 <body>
 
-<nav class="nav" aria-label="구역 이동"><div class="nav-in">
-  <a class="brand" href="#top"><img src="assets/brain.webp" alt=""><span>EduRich<b>Brain</b></span></a>
-  <div class="links" id="links">
-    <a href="#welcome">입장 안내</a><a href="#timetable">타임테이블</a><a href="#tables">테이블</a><a href="#materials">자료</a><a href="#people">참석자</a><a href="#apply">신청</a>
-  </div>
-</div></nav>
 
-<header class="hero" id="top">
+
+<header class="hero" id="home">
   <div class="orb"></div>
-  <img class="brain" src="assets/brain.webp" alt="에듀리치브레인 뇌 로고" width="330" height="330">
+  <div class="stage" id="stage">
+    <img class="fb" src="assets/brain.webp" alt="에듀리치브레인 뇌 로고" width="340" height="340">
+    <canvas id="brain3d" role="img" aria-label="천천히 회전하는 3D 뇌 로고"></canvas>
+  </div>
   <p class="eyebrow">WELCOME</p>
   <h1><span class="it">Edurich</span><br><span class="the">the</span>Table.</h1>
   <p class="when">2026.10.08 THU | PLAYA LOUNGE, SEOUL</p>
-  <p class="tag">오늘의 순서와 자료를 한곳에서 확인하세요</p>
-  <span class="scroll">SCROLL</span>
+  <nav class="menu" aria-label="메뉴">
+    <a class="mbtn pri first" href="#welcome"><i>01</i>입장 안내</a>
+    <a class="mbtn" href="#timetable"><i>02</i>타임테이블</a>
+    <a class="mbtn" href="#stamp"><i>03</i>스탬프 투어</a>
+    <a class="mbtn" href="#people"><i>04</i>참석자</a>
+    <a class="mbtn gift" href="#gift"><i>05</i>특별 선물</a>
+    <a class="mbtn" href="#review"><i>06</i>행사 후기</a>
+  </nav>
 </header>
+
+<div class="scrim" id="scrim" hidden></div>
 
 <main>
 
-<section class="s" id="welcome"><div class="wrap">
+<section class="view" id="v-welcome" hidden data-title="입장 안내"><div class="sh-head"><span class="grab" aria-hidden="true"></span><div class="sh-in"><span class="ttl">입장 안내</span><a class="x" href="#home" aria-label="닫기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></a></div></div><div class="wrap vbody">
   <p class="eb reveal">WELCOME</p>
   <h2 class="h2 reveal">도착하시면 <em>편하게</em> 시작하세요</h2>
   <p class="lead reveal" style="margin-top:14px">오늘 에듀리치테이블은 플라야 라운지 1층과 2층을 모두 대관했어요. 두 층을 편하게 둘러보시며 공간을 마음껏 즐겨 주세요. 처음엔 조금 어색하실 수 있으니, 아래 순서대로 천천히 시작하시면 됩니다.</p>
@@ -229,7 +286,7 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
   <p class="tip reveal">마지막 강연이 <b>13시가 넘어서 끝나요.</b> 식사는 그 뒤라 공복 시간이 길어질 수 있어서, 미리 챙겨 드시면서 편하게 즐겨 주세요.</p>
 </div></section>
 
-<section class="s" id="timetable"><div class="wrap">
+<section class="view" id="v-timetable" hidden data-title="타임테이블"><div class="sh-head"><span class="grab" aria-hidden="true"></span><div class="sh-in"><span class="ttl">타임테이블</span><a class="x" href="#home" aria-label="닫기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></a></div></div><div class="wrap vbody">
   <p class="eb reveal">TIMETABLE</p>
   <h2 class="h2 reveal">오늘의 <em>순서</em></h2>
   <p class="lead reveal" style="margin-top:14px">10월 8일 목요일, 11시부터 15시까지 플라야 라운지에서 진행해요.</p>
@@ -244,10 +301,11 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
   <p class="note">시간은 예정이며 조금 달라질 수 있어요.</p>
 </div></section>
 
-<section class="s" id="tables"><div class="wrap">
-  <p class="eb reveal">THREE TABLES</p>
-  <h2 class="h2 reveal">식사하며 <em>세 테이블</em>을 돌아보세요</h2>
-<div class="tables">
+<section class="view" id="v-stamp" hidden data-title="스탬프 투어"><div class="sh-head"><span class="grab" aria-hidden="true"></span><div class="sh-in"><span class="ttl">스탬프 투어</span><a class="x" href="#home" aria-label="닫기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></a></div></div><div class="wrap vbody">
+  <p class="eb reveal">STAMP TOUR</p>
+  <h2 class="h2 reveal">테이블을 돌며 <em>스탬프</em>을 모아보세요</h2>
+  <p class="lead reveal" style="margin-top:14px">출석, 퀴즈 미션, 리포트 생성까지 학원에 입장하는 학생이 되어 기능을 가볍게 체험해 보세요. 스탬프 세 개를 다 모으시면 선물이 있어요.</p>
+  <div class="tables">
     <div class="tcard reveal"><span class="no">TABLE 1</span><div class="logo"><img src="assets/toss_logo.png" alt=""><b style="margin-left:10px;font-family:var(--en)">toss</b></div><h3>출석 자동화</h3><p>얼굴 하나로 1초 만에 등원이 기록되는 페이스패스를 체험해요.</p></div>
     <div class="tcard reveal" style="transition-delay:.08s"><span class="no">TABLE 2</span><div class="logo"><img src="assets/crabit-white.png" alt="Crabit"></div><h3>미션과 보상 자동화</h3><p>학원 규칙이 아이의 미션이 되고, 해낸 만큼 포인트가 쌓이는 흐름을 체험해요.</p></div>
     <div class="tcard hl reveal" style="transition-delay:.16s"><span class="no">TABLE 3</span><div class="logo"><img src="assets/brain.webp" alt=""><b style="margin-left:8px">EduRich<span style="color:var(--blue-l)">Brain</span></b></div><h3>토탈 ERP와 마케팅 자동화</h3><p>원장님의 지도가 들어가는 자리에서, 글과 보고서가 만들어지는 과정을 봐요.</p></div>
@@ -255,45 +313,44 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
   <p class="stamp-note reveal"><i></i>테이블마다 스탬프를 하나씩 받아 가세요.</p>
 </div></section>
 
-
-
-<section class="s" id="materials"><div class="wrap">
-  <p class="eb reveal">MATERIALS</p>
-  <h2 class="h2 reveal">오늘의 <em>자료</em></h2>
-  <p class="lead reveal" style="margin-top:14px">필요한 자료를 바로 받아 가세요.</p>
-  <div class="mats">
-    <div class="mat reveal"><span class="k">HANDOUT</span><h3>에듀리치테이블 교안</h3><p>오늘 강연과 테이블을 따라가며 채워 보는 교안이에요. 폰에서 바로 넘겨 보시고, 필요하면 PDF로도 받아 두세요.</p><div class="go"><a href="handout/">바로 보기</a><a class="alt" href="https://ashly-kim.github.io/events/edurich-table-2026/edurich-table-v1.pdf" download>PDF 받기</a></div></div>
-    <div class="mat reveal" style="transition-delay:.08s"><span class="k">TABLE 1</span><h3>토스 페이스패스</h3><p>얼굴로 1초 만에 출석을 기록하는 서비스의 자세한 소개예요.</p><div class="go"><a href="https://tossplace.com/sector/facepass" target="_blank" rel="noopener noreferrer">자세히 보기</a></div></div>
-  </div>
-</div></section>
-
-<section class="s" id="people"><div class="wrap">
+<section class="view" id="v-people" hidden data-title="참석자"><div class="sh-head"><span class="grab" aria-hidden="true"></span><div class="sh-in"><span class="ttl">참석자</span><a class="x" href="#home" aria-label="닫기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></a></div></div><div class="wrap vbody">
   <p class="eb reveal">TODAY'S TABLE</p>
   <div class="ppl-head reveal">
-    <h2 class="h2" style="margin-top:14px">오늘 함께하는 <em>원장님</em><span class="badge-sample" id="sampleBadge" hidden>샘플</span></h2>
+    <h2 class="h2" style="margin-top:14px">오늘 함께하는 <em>분들</em><span class="badge-sample" id="sampleBadge" hidden>샘플</span></h2>
     <p class="count" id="count" hidden><b id="cnum">0</b>명</p>
   </div>
   <p class="lead reveal" style="margin-top:14px">같은 자리에서 같은 고민을 하는 분들이에요. 인사 나눠 보세요.</p>
-  <input class="search" id="q" type="search" placeholder="학원명이나 성함으로 찾기" aria-label="참석자 검색" hidden>
-  <div class="grid" id="grid"></div>
-  <div class="empty" id="empty">참석자 명단은 행사 당일에 공개돼요.<br>이름을 공개하는 데 동의해 주신 분만 보여요.</div>
-  <p class="pnote" id="pnote" hidden>이름 공개에 동의해 주신 분만 표시돼요. 수정이나 삭제는 이성연 대표님께 말씀해 주세요.</p>
+  <div class="lockbox reveal" id="lock">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="3"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg>
+    <p class="lk-t">오늘 이 자리에 오신 분께만 열려요</p>
+    <p class="lk-d">현장 QR로 들어오시면 바로 열려요. 주소로 직접 들어오셨다면, 현장에서 안내받은 코드를 입력해 주세요.</p>
+    <form id="codeForm" novalidate>
+      <label class="sr" for="codeIn">현장 코드</label>
+      <input id="codeIn" type="text" placeholder="코드 입력" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="12">
+      <button class="btn pri" type="submit">열기</button>
+    </form>
+    <p class="code-err" id="codeErr" role="alert" hidden>코드가 맞지 않아요. 현장 안내판의 코드를 다시 확인해 주세요.</p>
+  </div>
+  <div id="open" hidden>
+    <input class="search" id="q" type="search" placeholder="학원명이나 성함으로 찾기" aria-label="참석자 검색">
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden>찾으시는 분이 없어요.</div>
+    <p class="pnote">이름 공개에 동의해 주신 분만 표시돼요. 수정이나 삭제는 이성연 대표님께 말씀해 주세요.</p>
+  </div>
+  
 </div></section>
 
-<section class="apply" id="apply"><div class="wrap">
-  <p class="eb reveal">AFTER TODAY</p>
+<section class="view" id="v-gift" hidden data-title="특별 선물"><div class="sh-head"><span class="grab" aria-hidden="true"></span><div class="sh-in"><span class="ttl">특별 선물</span><a class="x" href="#home" aria-label="닫기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></a></div></div><div class="wrap vbody">
+  <p class="eb reveal">SPECIAL GIFT</p>
   <h2 class="h2 reveal">오신 분들께<br><em>특별 선물을 준비했어요</em></h2>
-  <p class="lead reveal" style="margin-top:14px">조직원 AI 강의를 선물로 드려요. 선물 강의는 <b style="color:#fff">올해 12월 안에</b> 진행해야 해요. 도입 상담과 솔직한 후기도 남겨 주세요.</p>
-  <div class="tabs reveal" role="tablist" aria-label="신청 종류">
-    <button type="button" role="tab" id="tab-lecture" aria-controls="p-lecture" aria-selected="true" class="on">조직원 AI 강의</button>
-    <button type="button" role="tab" id="tab-inquiry" aria-controls="p-inquiry" aria-selected="false">도입 문의와 후기</button>
-  </div>
+  <p class="lead reveal" style="margin-top:14px">조직원 AI 강의를 선물로 드려요. 원하시는 분은 아래에서 신청해 주세요.</p>
+  <div class="both-note reveal"><i></i><p style="margin:0">선물 강의는 <b>올해 12월 안에</b> 진행해야 해요. 신청해 주시면 연락드려서 날짜를 정할게요.</p></div>
 
   <!-- 조직원 AI 강의 -->
-  <div class="panel on" id="p-lecture" role="tabpanel" aria-labelledby="tab-lecture">
+  <div class="panel" id="p-lecture">
     <div data-body>
-      <h3>조직원 AI 강의 <span style="font-size:13px;font-weight:700;background:var(--blue);color:#fff;padding:4px 11px;border-radius:99px;margin-left:6px;vertical-align:middle;letter-spacing:.04em">무료</span></h3>
-      <p class="d">오늘 참석하신 원장님 학원에는 선생님과 직원분들이 AI를 업무에 바로 쓸 수 있도록, 크래빗과 에듀리치브레인 대표님이 학원으로 찾아가 강의해요.</p>
+      <h3>조직원 AI 강의<span class="gift">선물</span></h3>
+      <p class="d">오늘 오신 원장님께 선물로 드려요. 선생님과 직원분들이 AI를 업무에 바로 쓸 수 있도록, 크래빗과 에듀리치브레인 대표님이 학원으로 찾아가 강의합니다. 받아 가실 수 있게 신청해 주세요.</p>
       <div class="who">
         <div><p class="o">크래빗 | 김현지 대표님</p><p class="tt">랜딩페이지와 사이트 바이브코딩</p><p class="ds">간단한 랜딩페이지와 사이트를 AI와 함께 직접 만들어요.</p></div>
         <div><p class="o">에듀리치브레인 | 이성연 대표님</p><p class="tt">프롬프팅 기초, 블로그와 카드뉴스 자동화</p><p class="ds">AI를 잘 활용하는 기초와, 글과 카드뉴스 제작 자동화를 소개해요.</p></div>
@@ -311,54 +368,46 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
           <label class="chip"><input type="checkbox" name="topics" value="블로그와 카드뉴스 자동화"><span>블로그와 카드뉴스 자동화</span></label></div></div>
         <div class="field"><label for="l-memo">전하실 말씀 <span class="opt">선택</span></label><textarea id="l-memo" name="memo" placeholder="궁금한 점이나 바라시는 점을 적어 주세요"></textarea></div>
         <label class="consent"><input type="checkbox" name="consent" data-req="1"> (필수) 개인정보 수집과 이용에 동의해요</label>
-        <p class="cnote">수집 항목: 학원명, 담당자 이름, 휴대폰 번호, 인원, 희망 시기, 전하신 말씀<br>이용 목적: 강의 일정 조율과 안내<br>보유 기간: 목적 달성 후 지체 없이 파기<br>동의를 거부할 수 있으나, 이 경우 강의 신청이 어려워요.</p>
-        <button type="submit" class="submit" data-label="강의 신청하기">강의 신청하기</button>
+        <p class="cnote">수집 항목: 학원명, 담당자 이름, 휴대폰 번호, 인원, 희망 시기, 전하신 말씀<br>이용 목적: 강의 일정 조율과 안내<br>보유 기간: 목적 달성 후 지체 없이 파기<br>동의를 거부할 수 있으나, 이 경우 선물 강의를 받으실 수 없어요.</p>
+        <button type="submit" class="submit" data-label="선물 받기">선물 받기</button>
       </form>
     </div>
-    <div class="done"><div class="ck"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h3>신청이 접수됐어요</h3><p class="d">남겨 주신 번호로 연락드려서<br>강의 날짜를 정할게요.</p></div>
+    <div class="done"><div class="ck"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h3>선물이 준비됐어요</h3><p class="d">남겨 주신 번호로 연락드려서<br>강의 날짜를 정할게요.</p></div>
   </div>
 
-  <!-- 도입 문의와 후기 -->
-  <div class="panel" id="p-inquiry" role="tabpanel" aria-labelledby="tab-inquiry">
+  
+</div></section>
+
+<section class="view" id="v-review" hidden data-title="행사 후기"><div class="sh-head"><span class="grab" aria-hidden="true"></span><div class="sh-in"><span class="ttl">행사 후기</span><a class="x" href="#home" aria-label="닫기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></a></div></div><div class="wrap vbody">
+  <p class="eb reveal">REVIEW</p>
+  <h2 class="h2 reveal">오늘은 <em>어떠셨나요</em></h2>
+  <p class="lead reveal" style="margin-top:14px">오늘 좋았던 점과 아쉬웠던 점, 그리고 다음에 듣고 싶은 이야기를 남겨 주세요.</p>
+  <!-- 행사 후기 -->
+  <div class="panel" id="p-inquiry">
     <div data-body>
-      <h3>도입 문의와 솔직한 후기</h3>
-      <p class="d">도입이 궁금하시면 상담을 신청해 주세요. 오늘 행사에 대한 솔직한 이야기도 편하게 들려주세요. 하나만 고르셔도, 둘 다 남기셔도 좋아요.</p>
-      <div class="seg" role="radiogroup" aria-label="남길 내용">
-        <label class="chip"><input type="radio" name="type" value="도입 상담" form="f-inq"><span>도입 상담</span></label>
-        <label class="chip"><input type="radio" name="type" value="솔직한 후기" form="f-inq"><span>솔직한 후기</span></label>
-        <label class="chip"><input type="radio" name="type" value="둘 다" form="f-inq" checked><span>둘 다</span></label>
-      </div>
+      <h3>솔직한 후기</h3>
+      <p class="d">오늘 어떠셨는지 편하게 들려주세요. 다음 행사에 바로 반영할게요.</p>
       <div class="notice" role="status" aria-live="polite"></div>
-      <form class="f" id="f-inq" novalidate data-form="inquiry">
+      <form class="f" id="f-inq" novalidate data-form="review">
         <div class="field"><label for="i-academy">학원명</label><input type="text" id="i-academy" name="academy" data-req="1" placeholder="에듀리치 수학학원" autocomplete="organization"><span class="msg">학원명을 입력해 주세요.</span></div>
         <div class="field"><label for="i-name">이름</label><input type="text" id="i-name" name="name" data-req="1" placeholder="홍길동" autocomplete="name"><span class="msg">이름을 입력해 주세요.</span></div>
-        <div class="field"><label for="i-phone">휴대폰 번호 <span class="opt" data-phoneopt hidden>선택</span></label><input type="tel" id="i-phone" class="phone" name="phone" data-req="consult" placeholder="010-0000-0000" inputmode="numeric" autocomplete="tel"><span class="msg">휴대폰 번호를 확인해 주세요.</span></div>
-        <div class="blk on" data-blk="consult">
-          <p class="blk-t">도입 상담<small>상담 후 바로 도입을 진행해요</small></p>
-          <div class="field"><label for="i-students">학원 학생 수 <span class="opt">선택</span></label><select id="i-students" name="students"><option value="">선택해 주세요</option><option>100명 이하</option><option>101명에서 300명</option><option>301명에서 700명</option><option>701명에서 1,000명</option><option>1,000명 이상</option></select></div>
-          <div class="field"><span class="lab">관심 있는 분야 <span class="opt">여러 개 선택할 수 있어요</span></span><div class="chips">
-            <label class="chip"><input type="checkbox" name="interest" value="출석 자동화"><span>출석 자동화</span></label>
-            <label class="chip"><input type="checkbox" name="interest" value="미션과 보상 자동화"><span>미션과 보상 자동화</span></label>
-            <label class="chip"><input type="checkbox" name="interest" value="토탈 ERP와 마케팅 자동화"><span>토탈 ERP와 마케팅 자동화</span></label></div></div>
-          <div class="field"><label for="i-ask">문의하실 내용 <span class="opt">선택</span></label><textarea id="i-ask" name="inquiry" placeholder="학원에서 가장 손이 많이 가는 일을 적어 주셔도 좋아요"></textarea></div>
-        </div>
-        <div class="blk on" data-blk="review">
-          <p class="blk-t">솔직한 후기<small>다음 행사에 바로 반영해요</small></p>
-          <div class="field"><span class="lab">오늘 행사는 어땠나요</span>
-            <div class="rating" role="radiogroup" aria-label="만족도">
-              <label class="chip"><input type="radio" name="rating" value="1"><span>1</span></label><label class="chip"><input type="radio" name="rating" value="2"><span>2</span></label><label class="chip"><input type="radio" name="rating" value="3"><span>3</span></label><label class="chip"><input type="radio" name="rating" value="4"><span>4</span></label><label class="chip"><input type="radio" name="rating" value="5"><span>5</span></label>
-            </div><div class="rcap"><span>아쉬웠어요</span><span>정말 좋았어요</span></div></div>
-          <div class="field"><label for="i-good">좋았던 점</label><textarea id="i-good" name="good" placeholder="기억에 남는 장면이나 도움이 된 내용을 적어 주세요"></textarea></div>
-          <div class="field"><label for="i-bad">아쉬웠던 점</label><textarea id="i-bad" name="bad" placeholder="솔직하게 적어 주셔도 괜찮아요"></textarea></div>
-          <label class="consent" style="margin-top:22px"><input type="checkbox" name="publicOk" value="yes"> 후기를 이름 없이 소개 자료에 써도 좋아요 <span style="color:var(--faint);margin-left:4px">선택</span></label>
-        </div>
+        <div class="field"><span class="lab">오늘 행사는 어땠나요</span>
+          <div class="rating" role="radiogroup" aria-label="만족도">
+            <label class="chip"><input type="radio" name="rating" value="1"><span>1</span></label><label class="chip"><input type="radio" name="rating" value="2"><span>2</span></label><label class="chip"><input type="radio" name="rating" value="3"><span>3</span></label><label class="chip"><input type="radio" name="rating" value="4"><span>4</span></label><label class="chip"><input type="radio" name="rating" value="5"><span>5</span></label>
+          </div><div class="rcap"><span>아쉬웠어요</span><span>정말 좋았어요</span></div></div>
+        <div class="field"><label for="i-good">오늘 좋았던 점</label><textarea id="i-good" name="good" placeholder="기억에 남는 장면이나 도움이 된 내용을 적어 주세요"></textarea></div>
+        <div class="field"><label for="i-bad">아쉬웠던 점</label><textarea id="i-bad" name="bad" placeholder="솔직하게 적어 주셔도 괜찮아요"></textarea></div>
+        <div class="field"><label for="i-topic">이 행사를 다시 한다면, 어떤 주제의 연사를 만나고 싶으세요</label><textarea id="i-topic" name="nextSpeaker" placeholder="예: 학원 마케팅, 학부모 상담, AI 활용 사례"></textarea></div>
+        <div class="field"><label for="i-content">그 연사에게 어떤 내용을 듣고 싶으세요</label><textarea id="i-content" name="nextContent" placeholder="궁금한 점이나 꼭 듣고 싶은 이야기를 적어 주세요"></textarea></div>
+        <label class="consent" style="margin-top:22px"><input type="checkbox" name="publicOk" value="yes"> 후기를 이름 없이 소개 자료에 써도 좋아요 <span style="color:var(--faint);margin-left:4px">선택</span></label>
         <label class="consent"><input type="checkbox" name="consent" data-req="1"> (필수) 개인정보 수집과 이용에 동의해요</label>
-        <p class="cnote">수집 항목: 학원명, 이름, 휴대폰 번호(후기만 남기시면 선택), 선택하신 문의와 후기 내용<br>이용 목적: 도입 상담 연락, 후기 반영과 다음 행사 준비<br>보유 기간: 목적 달성 후 지체 없이 파기<br>동의를 거부할 수 있으나, 이 경우 도입 상담 신청이 어려워요.</p>
-        <button type="submit" class="submit" data-label="보내기">보내기</button>
+        <p class="cnote">수집 항목: 학원명, 이름, 후기 내용<br>이용 목적: 후기 반영과 다음 행사 준비<br>보유 기간: 목적 달성 후 지체 없이 파기<br>동의를 거부할 수 있으나, 이 경우 후기를 남기실 수 없어요.</p>
+        <button type="submit" class="submit" data-label="후기 보내기">후기 보내기</button>
       </form>
     </div>
-    <div class="done"><div class="ck"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h3>잘 받았어요</h3><p class="d">남겨 주셔서 고맙습니다.<br>도입 상담은 남겨 주신 번호로 연락드릴게요.</p></div>
+    <div class="done"><div class="ck"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h3>잘 받았어요</h3><p class="d">남겨 주셔서 고맙습니다.<br>다음 행사에 꼭 반영할게요.</p></div>
   </div>
+
 </div></section>
 
 </main>
@@ -374,51 +423,124 @@ section.s{padding:clamp(72px,13vw,120px) 0 0}
 /* ========== 연결할 값 ========== */
 // 신청 내용을 받을 주소. 비어 있으면 접수되지 않고 "준비 중" 안내가 나온다. 연결할 때 이 한 줄만 채우면 된다.
 var FORM_ENDPOINT = '';
-// 참석자 명단: 이름 공개에 동의한 분만 넣는다. 예) {academy:'에듀리치 수학학원', name:'홍길동 원장님', area:'압구정'}
-var ATTENDEES = [];
+// 참석자 명단: 코드로 잠가 둔 데이터다(학원명과 이름만). 바꾸려면 _private/encrypt.js 를 다시 실행한다.
+var ATT_ENC = {"v":1,"iter":250000,"salt":"1dUVMfxlh315gk6DhtfTDw==","iv":"ico38RcaqzqaGOT7","ct":"ly/oIvEyRbcd4ENcRXAykgG1+qpNPEg3QECDBUNeEUheFa6WcSj60HwgrgOdFYUNmqB1dveZ42fSXzzHkwePBEmRoqgLitIN3AdR1KVtw7UYevSoaTw8k25pE15HogfQK7dz4YUyIxIASN3LyqVqFkSXRVaoIpLg8v+fUMpyHZGQBhjVavSRFH2OJYELnBS4PlZSGA+G0tWCOvlQ25aXu/PeszNUbLyt33yu9L1EiZmQEAK5h9vm9E1aE4YELn8bLKdU3+SBuSc42DADA2+XScBgUaj/qlXwuKnByaUxCM/xRaC8BXK/rz52kMZo/O4ebxv7xLRC9w4cevDzmWMnOrpCKL/QHCxsrzrrf6KIcMZhRUqjY47jVItQWb0uXypWOJqO9UwwgU7Yw70OLj2pDRPojgN/ek9OGPpo6UrHaY1vuvtvT6GXpqcORNGwdlwLj+uUhIwVmc1aP6xNlV4nXmGvO3iBIdI3dztGm0xE2lsD0YT5vBPeUUgenNmaVvzGnLjpoeW25EVOC0Q6USXO+d9abPljsEcoqDUqrX4qRlJPj76QpKoadtJVs2tCAHfr6QRBYUFftrdFDQMO5MRrkhu1VLw7jrvR0yuBvXiUKTkPNNdqXoemWc9+7zsBT7FevoaiLRasdCeCcYuIo/NOb/6Qlrn/dskiTyzpogBJoPz1NaF3VLZS+cWIXgQFV8gRvTRqWGQ2sg4lCwtKQn681KZtYdomFK7WFV0DxVx5/4DxrPeZOhOsh+9X5xRxH/742AGiCFxGwZfgAQ04TWOARSjgBDS4QUb8MdPSQWIEROw5f4fUAJR3wuRRuwrPAFp71vF3A3B1i5qfA9B9J03kcMkWwtumfUqz/l+mnu7j6++7IxqXMtw17/5roBStqealJZTPn6z85Qi2uWO24yZ/6POf+Q7srrH3m8khgU9O+L0zcOVbR/TkWRAiJEpWmyRhA3Kntd9GzQzXLt+gmPBPBubQ7HkJMEpnp0f5pAy2M2ep+P8OSGGVFUY/V3+jfxwr+C35at6SrF6+o1PZiXGFG1eb1ZfX721P91g/YMcFpm4uyui8OotYk+2QXhcVhpYYzeRWl9VSd0PJU7lBb4Ey8i1qqF+6CbV2yqeZvYkwMTOhC9sN4RjlLzH5wV5DMDpWMTthEJcvlcxT0vnnrJmGox8AIx4U1a8X4S5YBvxDJktGng0uuNHb0atJYM817j05/7QxUJ8YtIPsBxA43HjiwCGh76HJAlo2cbDqFYGMHi3PrxXe8HyPr83uEn5jg3AnDCVC5QYw8VBR0Sn71/Whb734NuVb8GUnIZ0QTsSFn1D5g+VDNrI3R0Fesytkr6EABnQZTYQIc+tX67ntIPSqjphWT2dHpDWG7jO6mTMbXcWReYCn/p8iwDjTbXX2JWiqIZZL2QSEuF9Q1Jdc7SKPWx8tpncaA/A2QzPb3APwOM/lfmanTPTo/9xbYWSTZGa33bzJ8mfEOQ=="};
 /* ============================== */
 (function(){
   var preview=new URLSearchParams(location.search).has('preview');
 
-  /* 스크롤 등장 */
-  var rv=document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});rv.forEach(function(el){io.observe(el)})}else{rv.forEach(function(el){el.classList.add('in')})}
-
-  /* 현재 구역 표시 */
-  var secs=['timetable','tables','materials','people','apply'].map(function(id){return document.getElementById(id)});
-  var links=document.querySelectorAll('#links a');
-  function spy(){var y=scrollY+120,cur=-1;secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});links.forEach(function(a,i){a.classList.toggle('on',i===cur)});var on=links[cur];if(on&&on.scrollIntoView&&innerWidth<700){var box=document.getElementById('links');box.scrollTo({left:on.offsetLeft-20,behavior:'smooth'})}}
-  addEventListener('scroll',spy,{passive:true});spy();
-
-  /* 참석자 */
-  var SAMPLE=[{academy:'에듀리치 수학학원',name:'홍길동 원장님',area:'압구정'},{academy:'샘플 영어학원',name:'김샘플 원장님',area:'대치'},{academy:'샘플 국어학원',name:'이샘플 원장님',area:'목동'},{academy:'샘플 과학학원',name:'박샘플 원장님',area:'분당'},{academy:'샘플 코딩학원',name:'최샘플 원장님',area:'송파'}];
-  var list=ATTENDEES.length?ATTENDEES:(preview?SAMPLE:[]);
-  var grid=document.getElementById('grid'),empty=document.getElementById('empty'),q=document.getElementById('q'),cnt=document.getElementById('count'),cnum=document.getElementById('cnum');
-  function esc(t){return String(t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
-  function draw(term){
-    term=(term||'').trim().toLowerCase();
-    var rows=list.filter(function(p){return !term||(p.academy+' '+p.name+' '+(p.area||'')).toLowerCase().indexOf(term)>-1});
-    grid.innerHTML=rows.map(function(p){var ch=(p.academy||p.name||'?').trim().charAt(0);return '<div class="p"><div class="av" aria-hidden="true">'+esc(ch)+'</div><div><b>'+esc(p.academy)+'</b><span>'+esc(p.name)+(p.area?' | '+esc(p.area):'')+'</span></div></div>'}).join('');
-    if(list.length){empty.textContent='찾으시는 분이 없어요.';empty.hidden=!!rows.length}
+  /* ========== 페이지 이동 ========== */
+  var PAGES=[['welcome','입장 안내'],['timetable','타임테이블'],['stamp','스탬프 투어'],['people','참석자'],['gift','특별 선물'],['review','행사 후기']];
+  var ALIAS={tables:'stamp',materials:'stamp',lecture:'gift',inquiry:'review'};
+  var views={};PAGES.forEach(function(p){views[p[0]]=document.getElementById('v-'+p[0])});
+  var scrim=document.getElementById('scrim'),openKey=null,lastTrigger=null,closeTimer=null;
+  var BASE_TITLE='에듀리치 테이블 2026 | 행사 안내';
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('.mbtn');if(a)lastTrigger=a});
+  scrim.addEventListener('click',function(){location.hash='#home'});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&openKey)location.hash='#home'});
+  function hideNow(k){var v=views[k];v.classList.remove('on');v.hidden=true}
+  function openSheet(k,first){
+    clearTimeout(closeTimer);
+    if(openKey&&openKey!==k)hideNow(openKey);
+    var v=views[k];openKey=k;
+    v.hidden=false;v.scrollTop=0;scrim.hidden=false;
+    v.querySelectorAll('.reveal').forEach(function(el){el.classList.remove('in')});
+    void v.offsetWidth;
+    v.classList.add('on');scrim.classList.add('on');
+    v.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+    document.body.classList.remove('home');document.body.classList.add('sheet-open');
+    document.title=PAGES.filter(function(p){return p[0]===k})[0][1]+' | 에듀리치 테이블 2026';
+    var hd=v.querySelector('h2');if(hd&&!first){hd.setAttribute('tabindex','-1');hd.focus({preventScroll:true})}
+    if(k==='people')tryAutoUnlock();
   }
-  if(list.length){q.hidden=false;cnt.hidden=false;cnum.textContent=list.length;document.getElementById('pnote').hidden=false;if(!ATTENDEES.length)document.getElementById('sampleBadge').hidden=false;q.addEventListener('input',function(){draw(q.value)})}
-  draw('');
+  function closeSheet(){
+    if(!openKey)return;
+    var k=openKey,v=views[k];openKey=null;
+    v.classList.remove('on');scrim.classList.remove('on');
+    document.body.classList.remove('sheet-open');document.body.classList.add('home');
+    document.title=BASE_TITLE;
+    closeTimer=setTimeout(function(){v.hidden=true;scrim.hidden=true},420);
+    if(lastTrigger&&lastTrigger.focus){lastTrigger.focus({preventScroll:true})}
+  }
+  function route(first){
+    var h=location.hash.replace(/^#/,'');h=ALIAS[h]||h;
+    if(views[h])openSheet(h,first);else closeSheet();
+  }
+  addEventListener('hashchange',function(){route(false)});
 
-  /* 신청 탭 */
-  var tabs={lecture:document.getElementById('tab-lecture'),inquiry:document.getElementById('tab-inquiry')};
-  var panels={lecture:document.getElementById('p-lecture'),inquiry:document.getElementById('p-inquiry')};
-  function openTab(k){Object.keys(tabs).forEach(function(n){var on=n===k;tabs[n].classList.toggle('on',on);tabs[n].setAttribute('aria-selected',on);panels[n].classList.toggle('on',on)})}
-  Object.keys(tabs).forEach(function(k){tabs[k].addEventListener('click',function(){openTab(k)})});
-  function fromHash(){var h=location.hash.replace('#','');if(h==='lecture'||h==='inquiry'){openTab(h);var t=document.getElementById('apply');if(t)setTimeout(function(){t.scrollIntoView()},30)}}
-  addEventListener('hashchange',fromHash);fromHash();
+  /* ========== 참석자 명단: 코드로 열림 ========== */
+  var lock=document.getElementById('lock'),openBox=document.getElementById('open'),codeForm=document.getElementById('codeForm'),codeIn=document.getElementById('codeIn'),codeErr=document.getElementById('codeErr');
+  var grid=document.getElementById('grid'),emptyEl=document.getElementById('empty'),qEl=document.getElementById('q'),cnt=document.getElementById('count'),cnum=document.getElementById('cnum');
+  var SAMPLE=[{academy:'에듀리치 수학학원',name:'홍길동'},{academy:'샘플 영어학원',name:'김샘플'},{academy:'샘플 국어학원',name:'이샘플'},{academy:'샘플 과학학원',name:'박샘플'},{academy:'샘플 코딩학원',name:'최샘플'}];
+  var list=[];
+  function esc(t){return String(t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function draw(term){term=(term||'').trim().toLowerCase();var rows=list.filter(function(p){return !term||(p.academy+' '+p.name).toLowerCase().indexOf(term)>-1});grid.innerHTML=rows.map(function(p){var ch=(p.academy.replace(/^\(주\)|^주식회사\s*/,'')||p.name).trim().charAt(0);return '<div class="p"><div class="av" aria-hidden="true">'+esc(ch)+'</div><div><b>'+esc(p.academy)+'</b><span>'+esc(p.name)+' 님</span></div></div>'}).join('');emptyEl.hidden=!!rows.length}
+  function showList(arr,isSample){list=arr.slice().sort(function(a,b){return a.academy.localeCompare(b.academy,'ko')});lock.hidden=true;openBox.hidden=false;cnt.hidden=false;cnum.textContent=list.length;document.getElementById('sampleBadge').hidden=!isSample;draw('')}
+  qEl.addEventListener('input',function(){draw(qEl.value)});
+  function b64(x){var b=atob(x),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u}
+  function norm(c){return String(c||'').toUpperCase().replace(/[^A-Z0-9]/g,'')}
+  function unlock(code){
+    if(!(window.crypto&&crypto.subtle))return Promise.reject(new Error('nocrypto'));
+    return crypto.subtle.importKey('raw',new TextEncoder().encode(norm(code)),'PBKDF2',false,['deriveKey']).then(function(km){
+      return crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(ATT_ENC.salt),iterations:ATT_ENC.iter,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt'])
+    }).then(function(key){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64(ATT_ENC.iv)},key,b64(ATT_ENC.ct))}).then(function(buf){return JSON.parse(new TextDecoder().decode(buf))});
+  }
+  var KEYNAME='edtable_k',KEYMS=36*3600*1000;
+  function saveKey(c){try{localStorage.setItem(KEYNAME,JSON.stringify({c:norm(c),t:Date.now()}))}catch(e){}}
+  function loadKey(){try{var o=JSON.parse(localStorage.getItem(KEYNAME)||'null');if(o&&Date.now()-o.t<KEYMS)return o.c}catch(e){}return ''}
+  function clearKey(){try{localStorage.removeItem(KEYNAME)}catch(e){}}
+  var unlocked=false;
+  function tryAutoUnlock(){
+    if(unlocked)return;
+    if(preview){unlocked=true;showList(SAMPLE,true);return}
+    var c=loadKey();if(!c)return;
+    unlock(c).then(function(a){unlocked=true;showList(a,false)}).catch(function(){clearKey()});
+  }
+  codeForm.addEventListener('submit',function(e){e.preventDefault();codeErr.hidden=true;var c=codeIn.value;if(!norm(c)){codeErr.hidden=false;return}
+    var btn=codeForm.querySelector('button');btn.disabled=true;
+    unlock(c).then(function(a){saveKey(c);unlocked=true;showList(a,false)}).catch(function(err){codeErr.textContent=err&&err.message==='nocrypto'?'이 브라우저에서는 열 수 없어요. 현장 QR로 다시 들어와 주세요.':'코드가 맞지 않아요. 현장 안내판의 코드를 다시 확인해 주세요.';codeErr.hidden=false}).then(function(){btn.disabled=false});
+  });
+  // 현장 QR 주소에 들어 있는 코드(#k=...)를 받아 저장하고 주소에서 지운다
+  (function(){var m=location.hash.match(/(?:^#|&)k=([^&]+)/);if(m){saveKey(decodeURIComponent(m[1]));try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}})();
+  route(true);
+
+  /* ---------- 자체 드롭다운: 기본 select는 값 전달용으로 숨긴다 ---------- */
+  var ddCount=0,openDD=null;
+  var CHEV='<svg width="14" height="9" viewBox="0 0 12 8" fill="none" aria-hidden="true"><path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function closeDD(focusBtn){if(!openDD)return;var d=openDD;d.wrap.classList.remove('open','up');d.btn.setAttribute('aria-expanded','false');d.btn.removeAttribute('aria-activedescendant');openDD=null;if(focusBtn)d.btn.focus()}
+  document.querySelectorAll('.field select').forEach(function(sel){
+    var id='dd'+(++ddCount),required=sel.hasAttribute('data-req');
+    var wrap=document.createElement('div');wrap.className='dd';sel.parentNode.insertBefore(wrap,sel);wrap.appendChild(sel);
+    sel.tabIndex=-1;sel.setAttribute('aria-hidden','true');
+    var label=sel.id?document.querySelector('label[for="'+sel.id+'"]'):null;
+    var btn=document.createElement('button');btn.type='button';btn.className='dd-btn';btn.id=id+'-btn';btn.setAttribute('aria-haspopup','listbox');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls',id+'-list');
+    if(label){label.setAttribute('for',btn.id)}
+    var list=document.createElement('ul');list.className='dd-list';list.id=id+'-list';list.setAttribute('role','listbox');if(label){if(!label.id)label.id=id+'-lab';list.setAttribute('aria-labelledby',label.id)}
+    var opts=[].slice.call(sel.options).filter(function(o,i){return !(i===0&&o.value==='')||!required});
+    var items=opts.map(function(o,i){var li=document.createElement('li');li.id=id+'-o'+i;li.setAttribute('role','option');li.setAttribute('data-v',o.value);li.textContent=(o.value===''?'선택 안 함':o.textContent);if(o.value==='')li.className='none';list.appendChild(li);return li});
+    wrap.appendChild(btn);wrap.appendChild(list);
+    var ph=sel.options[0]?sel.options[0].textContent:'선택해 주세요';
+    var act=-1;
+    function paint(){var cur=sel.value;btn.innerHTML=(cur?'<span>'+sel.options[sel.selectedIndex].textContent+'</span>':'<span class="ph">'+ph+'</span>')+CHEV;items.forEach(function(li){li.setAttribute('aria-selected',li.getAttribute('data-v')===cur?'true':'false')})}
+    function setAct(i){if(!items.length)return;act=(i+items.length)%items.length;items.forEach(function(li,k){li.classList.toggle('act',k===act)});btn.setAttribute('aria-activedescendant',items[act].id);items[act].scrollIntoView({block:'nearest'})}
+    function open(){if(openDD&&openDD.wrap!==wrap)closeDD();var r=wrap.getBoundingClientRect();var below=innerHeight-r.bottom,above=r.top;wrap.classList.toggle('up',below<300&&above>below);wrap.classList.add('open');btn.setAttribute('aria-expanded','true');openDD={wrap:wrap,btn:btn};var k=items.map(function(li){return li.getAttribute('data-v')}).indexOf(sel.value);setAct(k>-1?k:0)}
+    function pick(i){var v=items[i].getAttribute('data-v');sel.value=v;sel.dispatchEvent(new Event('change',{bubbles:true}));paint();closeDD(true)}
+    btn.addEventListener('click',function(){wrap.classList.contains('open')?closeDD():open()});
+    btn.addEventListener('keydown',function(e){var o=wrap.classList.contains('open');
+      if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();if(!o)open();else setAct(act+(e.key==='ArrowDown'?1:-1))}
+      else if(e.key==='Home'&&o){e.preventDefault();setAct(0)}else if(e.key==='End'&&o){e.preventDefault();setAct(items.length-1)}
+      else if((e.key==='Enter'||e.key===' ')&&o){e.preventDefault();pick(act)}
+      else if(e.key==='Escape'&&o){e.preventDefault();closeDD(true)}
+      else if(e.key==='Tab'&&o){closeDD()}});
+    items.forEach(function(li,i){li.addEventListener('mousemove',function(){setAct(i)});li.addEventListener('mousedown',function(e){e.preventDefault()});li.addEventListener('click',function(){pick(i)})});
+    paint();
+  });
+  document.addEventListener('click',function(e){if(openDD&&!openDD.wrap.contains(e.target))closeDD()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDD(true)});
 
   /* 폼 공통 */
   function setErr(el,on){var f=el.closest('.field')||el.closest('.consent');if(f)f.classList.toggle('err',on)}
   document.querySelectorAll('.phone').forEach(function(p){p.addEventListener('input',function(){var d=p.value.replace(/\D/g,'').slice(0,11),o=d;if(d.length>7)o=d.slice(0,3)+'-'+d.slice(3,7)+'-'+d.slice(7);else if(d.length>3)o=d.slice(0,3)+'-'+d.slice(3);p.value=o})});
-  var needPhone=true;
-  var inq=document.getElementById('f-inq');
-  function applyType(){var v=(inq.querySelector('input[name=type]:checked')||{}).value||(document.querySelector('input[name=type]:checked')||{}).value||'둘 다';var c=(v==='도입 상담'||v==='둘 다'),r=(v==='솔직한 후기'||v==='둘 다');inq.querySelector('[data-blk=consult]').classList.toggle('on',c);inq.querySelector('[data-blk=review]').classList.toggle('on',r);needPhone=c;inq.querySelector('[data-phoneopt]').hidden=c;if(!c)setErr(inq.querySelector('.phone'),false)}
-  document.querySelectorAll('input[name=type]').forEach(function(el){el.addEventListener('change',applyType)});applyType();
 
   document.querySelectorAll('form.f').forEach(function(form){
     var panel=form.closest('.panel'),notice=panel.querySelector('.notice'),done=panel.querySelector('.done'),body=panel.querySelector('[data-body]');
@@ -428,12 +550,11 @@ var ATTENDEES = [];
       e.preventDefault();notice.classList.remove('show');var bad=null;
       form.querySelectorAll('[data-req]').forEach(function(el){
         var blk=el.closest('.blk');if(blk&&!blk.classList.contains('on')){setErr(el,false);return}
-        var req=el.getAttribute('data-req'),need=req==='1'||(req==='consult'&&needPhone),v=el.type==='checkbox'?el.checked:el.value.trim(),ok=!need||!!v;
+        var req=el.getAttribute('data-req'),need=req==='1',v=el.type==='checkbox'?el.checked:el.value.trim(),ok=!need||!!v;
         if(ok&&el.type==='tel'&&el.value.trim()&&el.value.replace(/\D/g,'').length<10)ok=false;
         setErr(el,!ok);if(!ok&&!bad)bad=el});
-      if(bad){bad.focus();show('표시된 항목을 확인해 주세요.');return}
+      if(bad){(bad.tagName==='SELECT'?bad.parentNode.querySelector('.dd-btn'):bad).focus();show('표시된 항목을 확인해 주세요.');return}
       var data={};new FormData(form).forEach(function(v,k){data[k]=data[k]!==undefined?[].concat(data[k],v):v});
-      if(form.id==='f-inq'){var t=document.querySelector('input[name=type]:checked');if(t)data.type=t.value}
       data._form=form.getAttribute('data-form');data._page=document.title;data._at=new Date().toISOString();
       function finish(){body.style.display='none';done.classList.add('show');panel.scrollIntoView({behavior:'smooth',block:'start'})}
       if(!FORM_ENDPOINT){if(preview){finish();return}show('지금은 신청을 받지 않고 있어요. 곧 열릴 예정이니, 급하시면 아래 번호로 연락 주세요.');return}
@@ -442,6 +563,67 @@ var ATTENDEES = [];
     });
   });
 })();
+</script>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"}}</script>
+<script type="module">
+/* 3D 크롬 뇌: 구를 뇌 모양으로 빚고, 주름(고랑)을 노이즈로 파서 만든다. 불러오기에 실패하면 평면 로고가 그대로 보인다. */
+import * as THREE from 'three';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+const stage=document.getElementById('stage'),canvas=document.getElementById('brain3d');
+try{
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'low-power'});
+  renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
+  const scene=new THREE.Scene();
+  const pmrem=new THREE.PMREMGenerator(renderer);
+  scene.environment=pmrem.fromScene(new RoomEnvironment(),0.03).texture;
+  const camera=new THREE.PerspectiveCamera(30,1,0.1,50);camera.position.set(0,0.12,4.5);
+  /* --- 3D 퍼린 노이즈 --- */
+  const P=new Uint8Array(512),perm=[];for(let i=0;i<256;i++)perm[i]=i;
+  let seed=20261008;function rnd(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296}
+  for(let i=255;i>0;i--){const j=Math.floor(rnd()*(i+1));const t=perm[i];perm[i]=perm[j];perm[j]=t}
+  for(let i=0;i<512;i++)P[i]=perm[i&255];
+  const fade=t=>t*t*t*(t*(t*6-15)+10),lerp=(a,b,t)=>a+t*(b-a);
+  function grad(h,x,y,z){h&=15;const u=h<8?x:y,v=h<4?y:(h===12||h===14?x:z);return((h&1)?-u:u)+((h&2)?-v:v)}
+  function noise(x,y,z){const X=Math.floor(x)&255,Y=Math.floor(y)&255,Z=Math.floor(z)&255;x-=Math.floor(x);y-=Math.floor(y);z-=Math.floor(z);const u=fade(x),v=fade(y),w=fade(z);const A=P[X]+Y,AA=P[A]+Z,AB=P[A+1]+Z,B=P[X+1]+Y,BA=P[B]+Z,BB=P[B+1]+Z;
+    return lerp(lerp(lerp(grad(P[AA],x,y,z),grad(P[BA],x-1,y,z),u),lerp(grad(P[AB],x,y-1,z),grad(P[BB],x-1,y-1,z),u),v),lerp(lerp(grad(P[AA+1],x,y,z-1),grad(P[BA+1],x-1,y,z-1),u),lerp(grad(P[AB+1],x,y-1,z-1),grad(P[BB+1],x-1,y-1,z-1),u),v),w)}
+  const sstep=(a,b,x)=>{const t=Math.min(1,Math.max(0,(x-a)/(b-a)));return t*t*(3-2*t)};
+  /* --- 형태: 로고 이미지를 3D로 변환한 메시(assets/brain.glb)를 크롬 재질로 입힌다 --- */
+  const mat=new THREE.MeshPhysicalMaterial({color:0xe4ebf7,metalness:1,roughness:0.22,clearcoat:0.5,clearcoatRoughness:0.25,envMapIntensity:1.25});
+  const holder=new THREE.Group();scene.add(holder);
+  const gltf=await new GLTFLoader().loadAsync('assets/brain.glb');
+  const brain=gltf.scene;
+  brain.traverse(o=>{if(o.isMesh){o.material=mat;o.geometry.computeVertexNormals()}});
+  const box=new THREE.Box3().setFromObject(brain),size=box.getSize(new THREE.Vector3()),ctr=box.getCenter(new THREE.Vector3());
+  brain.position.sub(ctr);const sc=2.6/Math.max(size.x,size.y,size.z);
+  const pivot=new THREE.Group();pivot.add(brain);pivot.scale.setScalar(sc);holder.add(pivot);
+  const key=new THREE.DirectionalLight(0xffffff,1.1);key.position.set(3,4,5);scene.add(key);
+  const rim=new THREE.DirectionalLight(0x5b9bff,2.4);rim.position.set(-4,2,-3);scene.add(rim);
+  /* --- 크기 --- */
+  function resize(){const w=Math.max(60,stage.clientWidth),h=Math.max(60,stage.clientHeight);renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}
+  new ResizeObserver(resize).observe(stage);resize();
+  /* --- 움직임: 천천히 자동 회전, 드래그로 돌려보기 --- */
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const AUTO=reduce?0:0.26;let rotY=-0.9,velY=AUTO,tilt=0.34,dragging=false,lx=0,ly=0,t0=performance.now();
+  canvas.addEventListener('pointerdown',e=>{dragging=true;lx=e.clientX;ly=e.clientY;canvas.setPointerCapture(e.pointerId)});
+  canvas.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-lx,dy=e.clientY-ly;lx=e.clientX;ly=e.clientY;rotY+=dx*0.012;velY=dx*0.012*60;tilt=Math.max(-0.5,Math.min(0.6,tilt+dy*0.006));need=true});
+  const up=()=>{dragging=false};canvas.addEventListener('pointerup',up);canvas.addEventListener('pointercancel',up);
+  let need=true,shown=false;
+  function frame(now){
+    requestAnimationFrame(frame);
+    if(shown&&(!document.body.classList.contains('home')||document.hidden)){t0=now;return}
+    const dt=Math.min(0.05,(now-t0)/1000);t0=now;
+    if(!dragging){velY+=(AUTO-velY)*Math.min(1,dt*1.6);rotY+=velY*dt;tilt+=(0.34-tilt)*Math.min(1,dt*1.2)}
+    holder.rotation.y=rotY;holder.rotation.x=tilt;holder.position.y=reduce?0:Math.sin(now/1000*0.8)*0.035;
+    if(!reduce||need||!shown){renderer.render(scene,camera);need=false}
+    if(!shown){shown=true;stage.classList.add('ready')}
+  }
+  // 첫 장면은 바로 그린다(창이 숨겨져 있어도 보이도록)
+  holder.rotation.y=rotY;holder.rotation.x=tilt;renderer.render(scene,camera);shown=true;need=false;stage.classList.add('ready');
+  requestAnimationFrame(frame);
+}catch(err){console.warn('3D 뇌를 만들지 못해 평면 로고를 보여줘요',err)}
 </script>
 </body>
 </html>
