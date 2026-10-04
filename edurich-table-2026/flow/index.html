@@ -15,6 +15,10 @@
   --chip-pend-fg:#454755;
   --chip-floor-bg:#E8E8EB;
   --chip-floor-fg:#454755;
+  --ph-pre:#EDEDF0;
+  --ph-live:#FEE9F4;
+  --ph-post:#EAF0FA;
+  --chip-on-body:#FFFFFF;
   --font-sans:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
 }
 @media (prefers-color-scheme: dark){
@@ -33,6 +37,10 @@
     --chip-pend-fg:#B9BABF;
     --chip-floor-bg:#2C3150;
     --chip-floor-fg:#B9BABF;
+    --ph-pre:#262B42;
+    --ph-live:rgba(251,117,187,.17);
+    --ph-post:#1E2D4F;
+    --chip-on-body:#3A4160;
   }
 }
 :root[data-theme="dark"]{
@@ -50,6 +58,10 @@
   --chip-pend-fg:#B9BABF;
   --chip-floor-bg:#2C3150;
   --chip-floor-fg:#B9BABF;
+  --ph-pre:#262B42;
+  --ph-live:rgba(251,117,187,.17);
+  --ph-post:#1E2D4F;
+  --chip-on-body:#3A4160;
 }
 
 *{box-sizing:border-box}
@@ -100,6 +112,13 @@ section{margin-bottom:44px}
   white-space:nowrap;
 }
 .stage-body{background:var(--surface);border-radius:14px;padding:18px 20px}
+.stage.pre .stage-body{background:var(--ph-pre)}
+.stage.live .stage-body{background:var(--ph-live)}
+.stage.post .stage-body{background:var(--ph-post)}
+.stage.live::before{border-color:var(--accent)}
+.stage-body .chip.pend{background:var(--chip-on-body)}
+.phase{font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--fg-muted);margin:0 0 12px -26px;padding-left:26px}
+.phase.next{margin-top:6px}
 .stage-exp{font-size:16px;color:var(--fg);margin:0 0 10px;line-height:1.6}
 .stage-checks{display:flex;flex-wrap:wrap;gap:6px}
 
@@ -165,7 +184,8 @@ footer a{color:inherit}
 
     <div class="timeline">
 
-      <div class="stage">
+      <div class="phase">행사 시작 전</div>
+      <div class="stage pre">
         <div class="stage-head"><span class="stage-time">D-1 ~ 당일 아침</span><span class="stage-name">행사 전</span></div>
         <div class="stage-body">
           <p class="stage-exp">리마인드 문자를 받고 지도 링크를 눌러 출발해요.</p>
@@ -195,7 +215,7 @@ footer a{color:inherit}
         </div>
       </div>
 
-      <div class="stage">
+      <div class="stage pre">
         <div class="stage-head"><span class="stage-time">10:30~</span><span class="floor-chip">1층</span><span class="stage-name">도착, 입구</span></div>
         <div class="stage-body">
           <p class="stage-exp">건물 앞에 도착하시면 발렛이 준비되어 있어요. 차는 맡기고 1층 입구로 들어오시면 됩니다. 입구에 접수 데스크를 둘 수 있어요.</p>
@@ -207,7 +227,7 @@ footer a{color:inherit}
         </div>
       </div>
 
-      <div class="stage">
+      <div class="stage pre">
         <div class="stage-head"><span class="stage-time">10:30~11:10</span><span class="floor-chip">1층</span><span class="stage-name">접수</span></div>
         <div class="stage-body">
           <p class="stage-exp">이름을 말하고 명찰과 책자를 받습니다. 장학카드, 키링과 같은 굿즈는 여기서 드리지 않아요.</p>
@@ -218,7 +238,7 @@ footer a{color:inherit}
         </div>
       </div>
 
-      <div class="stage">
+      <div class="stage pre">
         <div class="stage-head"><span class="stage-time">10:40~11:10</span><span class="floor-chip">1층</span><span class="stage-name">착석, 대기</span></div>
         <div class="stage-body">
           <p class="stage-exp">자리에 앉아 시작을 기다려요. 좌석은 지정석 없이 편한 자리에 앉으시면 됩니다. 대기하시기 전에 2층에서 핑거푸드와 음료를 미리 즐기셔도 돼요. 마지막 강연이 13시가 넘어 끝나서 공복 시간이 길어지니, 미리 드시면 좋아요.</p>
@@ -228,7 +248,8 @@ footer a{color:inherit}
         </div>
       </div>
 
-      <div class="stage">
+      <div class="phase next">세션 진행 (1층)</div>
+      <div class="stage live">
         <div class="stage-head"><span class="stage-time">11:10~13:40</span><span class="floor-chip">1층</span><span class="stage-name">세션 3개</span></div>
         <div class="stage-body">
           <p class="stage-exp">11:10 주언규 PD, 12:00 송명진 대표님(자청), 13:00 이성연 대표님 순서예요. 세션 사이 10분 쉬는 시간에 2층에서 음식과 음료를 가져오셔도 됩니다.</p>
@@ -236,7 +257,8 @@ footer a{color:inherit}
         </div>
       </div>
 
-      <div class="stage">
+      <div class="phase next">세션 이후 (2층)</div>
+      <div class="stage post">
         <div class="stage-head"><span class="stage-time">13:40</span><span class="floor-chip">1층 → 2층</span><span class="stage-name">전환, 2층 이동</span></div>
         <div class="stage-body">
           <p class="stage-exp">마지막 세션이 끝나면 2층으로 올라가 식사를 받거나 부스로 향합니다. 음식과 부스 모두 2층에 있어요.</p>
@@ -244,7 +266,7 @@ footer a{color:inherit}
         </div>
       </div>
 
-      <div class="stage">
+      <div class="stage post">
         <div class="stage-head"><span class="stage-time">13:40~</span><span class="floor-chip">2층</span><span class="stage-name">① 토스, 출석</span></div>
         <div class="stage-body">
           <p class="stage-exp">페이스패스로 얼굴을 등록하고 출석 문자를 받아요. 몇 초면 끝납니다.</p>
@@ -252,7 +274,7 @@ footer a{color:inherit}
         </div>
       </div>
 
-      <div class="stage">
+      <div class="stage post">
         <div class="stage-head"><span class="stage-time">13:40~</span><span class="floor-chip">2층</span><span class="stage-name">② 크래빗, 퀴즈 미션</span></div>
         <div class="stage-body">
           <p class="stage-exp">QR로 웹앱에 들어가 퀴즈를 풀고, 도장을 받은 뒤 장학카드 2장을 선물처럼 받습니다. 한 명당 3~5분 정도예요.</p>
@@ -270,7 +292,7 @@ footer a{color:inherit}
         </div>
       </div>
 
-      <div class="stage">
+      <div class="stage post">
         <div class="stage-head"><span class="stage-time">13:40~</span><span class="floor-chip">2층</span><span class="stage-name">③ 에듀리치브레인, 리포트</span></div>
         <div class="stage-body">
           <p class="stage-exp">출석과 퀴즈 결과가 합쳐진 위클리 리포트가 알림톡으로 옵니다. ②를 마친 분만 리포트가 나와요.</p>
@@ -278,7 +300,7 @@ footer a{color:inherit}
         </div>
       </div>
 
-      <div class="stage">
+      <div class="stage post">
         <div class="stage-head"><span class="stage-time">부스 후</span><span class="floor-chip">2층 또는 1층</span><span class="stage-name">선물 수령</span></div>
         <div class="stage-body">
           <p class="stage-exp">도장 3개를 보여주고 선물을 받아요.</p>
@@ -286,7 +308,7 @@ footer a{color:inherit}
         </div>
       </div>
 
-      <div class="stage">
+      <div class="stage post">
         <div class="stage-head"><span class="stage-time">13:40~14:40</span><span class="floor-chip">1층|2층</span><span class="stage-name">네트워킹</span></div>
         <div class="stage-body">
           <p class="stage-exp">부스 체험을 마치면 1층과 2층을 자유롭게 오가며 다른 원장님, 연사, 에듀테크 대표님들과 이야기해요. 음식과 부스는 2층에 계속 있습니다. 이번 행사의 가치는 "누가 왔는가"에 있어요.</p>
@@ -294,7 +316,7 @@ footer a{color:inherit}
         </div>
       </div>
 
-      <div class="stage">
+      <div class="stage post">
         <div class="stage-head"><span class="stage-time">14:40~15:00</span><span class="floor-chip">1층(가정)</span><span class="stage-name">클로징, 퇴장</span></div>
         <div class="stage-body">
           <p class="stage-exp">마무리 인사와 단체 사진 뒤 건물을 나섭니다.</p>
