@@ -318,6 +318,10 @@ section.s{padding:0}
 @keyframes gspin{from{transform:rotateX(-22deg) rotateY(0deg)}to{transform:rotateX(-22deg) rotateY(360deg)}}
 @keyframes gbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 @media (prefers-reduced-motion:reduce){.gift3d .rig{animation:none;transform:rotateX(-22deg) rotateY(-30deg)}.gift3d .bob{animation:none}}
+.tip ul{margin:0;padding-left:1.15em}
+.tip li{padding-left:.2em;line-height:1.75}
+.tip li+li{margin-top:10px}
+.tip li::marker{color:var(--blue-l)}
 </style>
 </head>
 <body>
@@ -357,8 +361,11 @@ section.s{padding:0}
     <div class="step reveal" style="transition-delay:.08s"><span class="fl">1F</span><h3>샌드위치와 음료</h3><p>간단한 샌드위치와 음료를 가볍게 챙겨 드세요.</p></div>
     <div class="step reveal" style="transition-delay:.16s"><span class="fl">1F</span><h3>편한 자리에서 강연</h3><p>지정석은 없으니 편하신 자리에 앉아, 핑거푸드와 함께 강연을 들어 주세요.</p></div>
   </div>
-  <p class="tip reveal">중간중간 <b>2층도 둘러보셔도 되고</b>, 책자에 있는 도움이 되는 자료도 살펴보세요. 오늘 함께하신 원장님들의 명단을 확인하고 <b>함께 네트워킹</b>도 해 주세요.</p>
-  <p class="tip reveal">명단에서 오늘 꼭 연결이 필요한 다른 원장님이 계시면, 이성연 대표님 혹은 조경이 대표님께 별도로 부탁해 주세요. <b>연결을 도와드릴게요!</b></p>
+  <div class="tip reveal"><ul>
+    <li>중간중간 <b>2층도 둘러보셔도 되고</b>, 책자에 있는 도움이 되는 자료도 살펴보세요.</li>
+    <li>오늘 함께하신 원장님들의 명단을 확인하고 <b>함께 네트워킹</b>도 해 주세요.</li>
+    <li>명단에서 오늘 꼭 연결이 필요한 다른 원장님이 계시면, 이성연 대표님 혹은 조경이 대표님께 별도로 부탁해 주세요. <b>연결을 도와드릴게요!</b></li>
+  </ul></div>
 </div></section>
 
 <section class="view" id="v-timetable" hidden data-title="타임테이블"><div class="sh-head"><span class="grab" aria-hidden="true"></span><div class="sh-in"><span class="ttl">타임테이블</span><a class="x" href="#home" aria-label="닫기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></a></div></div><div class="wrap vbody">
