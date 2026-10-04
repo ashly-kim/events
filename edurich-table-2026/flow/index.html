@@ -145,16 +145,6 @@ details.draft button{margin-top:12px;background:var(--fg);color:var(--bg);border
 .chip.ok{background:var(--chip-ok-bg);color:var(--chip-ok-fg)}
 .chip.pend{background:var(--chip-pend-bg);color:var(--chip-pend-fg)}
 
-.substeps{counter-reset:s;display:flex;flex-direction:column;gap:10px;margin-top:14px}
-.substep{display:flex;gap:12px;align-items:flex-start}
-.substep .num{
-  counter-increment:s;flex:none;width:20px;height:20px;margin-top:3px;border-radius:99px;
-  background:var(--fg);color:var(--bg);font-size:11px;font-weight:700;
-  display:flex;align-items:center;justify-content:center;
-}
-.substep .num::before{content:counter(s)}
-.substep p{margin:0;font-size:16px;color:var(--fg);line-height:1.6}
-.substep b{color:var(--fg);font-weight:600}
 
 .bottleneck{display:flex;gap:10px;margin-bottom:12px}
 .bottleneck:last-child{margin-bottom:0}
@@ -178,7 +168,7 @@ footer a{color:inherit}
 
   <p class="eyebrow">크래빗 부스 운영 | 10/8 에듀리치테이블</p>
   <h1>원장님 입장부터 퇴장까지</h1>
-  <ul class="sub"><li>10/8(목) 11:00~15:00, 플라야 라운지 압구정</li><li>강연은 11:10부터 13:40까지 진행함</li><li>세션은 1층에서 진행하며, 스탬프 투어 이후 네트워킹은 1층과 2층을 자유롭게 이용함</li><li>2층에 토스, 크래빗, 에듀리치브레인 부스 3곳과 음식을 준비함</li><li>입구에 접수 데스크 배치 가능</li></ul>
+  <ul class="sub"><li>10/8(목) 11:00~15:00, 플라야 라운지 압구정</li><li>강연은 11:10부터 13:40까지, 이어서 13:50까지 Q&amp;A와 안내를 진행함</li><li>세션은 1층에서 진행하며, 스탬프 투어 이후 네트워킹은 1층과 2층을 자유롭게 이용함</li><li>2층에 토스, 크래빗, 에듀리치브레인 부스 3곳과 음식을 준비함</li><li>입구에 접수 데스크 배치 가능</li></ul>
 
   <div class="floor-key">
     <span><b>1층</b>입구, 접수, 세션</span>
@@ -274,18 +264,25 @@ footer a{color:inherit}
         </div>
       </div>
 
+      <div class="stage live">
+        <div class="stage-head"><span class="stage-time">13:40~13:50</span><span class="floor-chip">1층</span><span class="stage-name">Q&amp;A, 이후 일정 안내</span></div>
+        <div class="stage-body">
+          <ul class="stage-exp"><li>Q&amp;A 및 이후 남은 시간에 대한 안내를 진행함</li><li>진행은 조경이 대표님이 맡음</li></ul>
+        </div>
+      </div>
+
       <div class="phase next">세션 이후 (2층) 스탬프 투어</div>
       <div class="stage post">
-        <div class="stage-head"><span class="stage-time">13:40</span><span class="floor-chip">1층 → 2층</span><span class="stage-name">단체 사진, 2층 이동</span></div>
+        <div class="stage-head"><span class="stage-time">13:50</span><span class="floor-chip">1층 → 2층</span><span class="stage-name">단체 사진, 2층 이동</span></div>
         <div class="stage-body">
-          <ul class="stage-exp"><li>마지막 세션 종료 후 1층에서 단체 사진을 촬영함</li><li>이후 2층으로 이동해 식사와 부스 체험을 진행함</li><li>음식과 부스는 모두 2층에 위치함</li></ul>
+          <ul class="stage-exp"><li>Q&amp;A 및 안내 종료 후 1층에서 단체 사진을 촬영함</li><li>이후 2층으로 이동해 식사와 부스 체험을 진행함</li><li>음식과 부스는 모두 2층에 위치함</li></ul>
           <div class="stage-checks"><span class="chip ok">세션 후 단체 사진</span>
           <span class="chip pend">"식사하며 퀴즈 먼저" 안내 필요</span></div>
         </div>
       </div>
 
       <div class="stage post">
-        <div class="stage-head"><span class="stage-time">13:40~</span><span class="floor-chip">2층</span><span class="stage-name">① 토스, 출석</span></div>
+        <div class="stage-head"><span class="stage-time">13:50~</span><span class="floor-chip">2층</span><span class="stage-name">① 토스, 출석</span></div>
         <div class="stage-body">
           <ul class="stage-exp"><li>체험 시작 시 간단한 얼굴 등록을 먼저 진행함</li><li>등록 후 페이스패스로 출석 문자를 수신함</li><li>소요 시간은 몇 초임</li></ul>
           <div class="stage-checks"><span class="chip ok">참여 확정</span></div>
@@ -293,20 +290,13 @@ footer a{color:inherit}
       </div>
 
       <div class="stage post">
-        <div class="stage-head"><span class="stage-time">13:40~</span><span class="floor-chip">2층</span><span class="stage-name">② 크래빗, 퀴즈 미션</span></div>
+        <div class="stage-head"><span class="stage-time">13:50~</span><span class="floor-chip">2층</span><span class="stage-name">② 크래빗, 퀴즈 미션</span></div>
         <div class="stage-body">
           <ul class="stage-exp"><li>QR로 웹앱에 접속해 퀴즈를 풀고 스탬프를 받음</li><li>미션 완료 후 장학카드를 선물로 받음</li><li>푼 미션 데이터는 ③ 에듀리치브레인으로 전달되어 리포트에 반영됨</li><li>1인당 소요 시간은 3~5분임</li></ul>
           <div class="stage-checks">
             <span class="chip ok">부스 2명 확정</span>
             <span class="chip ok">카드 전달 방식 확정</span>
             <span class="chip pend">와이파이 10/6 실측 필요</span>
-          </div>
-
-          <div class="substeps">
-            <div class="substep"><span class="num"></span><p>QR 스탠드를 찍고 <b>이름, 학원명, 번호</b>를 입력한 뒤 동의함</p></div>
-            <div class="substep"><span class="num"></span><p>퀴즈를 풀고 완료 화면을 스태프에게 제시함</p></div>
-            <div class="substep"><span class="num"></span><p><b>미션 완료자에게 장학카드를 전달함.</b> 이름순 박스에서 꺼내 두 손으로 "미션 완료 보상입니다"라고 전함</p></div>
-            <div class="substep"><span class="num"></span><p>희망 시 옆자리에서 상담한 뒤 ③으로 이동함</p></div>
           </div>
           <div class="crew">
             <span class="crew-t">크래빗 부스 2명</span>
@@ -317,7 +307,7 @@ footer a{color:inherit}
       </div>
 
       <div class="stage post">
-        <div class="stage-head"><span class="stage-time">13:40~</span><span class="floor-chip">2층</span><span class="stage-name">③ 에듀리치브레인, 리포트</span></div>
+        <div class="stage-head"><span class="stage-time">13:50~</span><span class="floor-chip">2층</span><span class="stage-name">③ 에듀리치브레인, 리포트</span></div>
         <div class="stage-body">
           <ul class="stage-exp"><li>크래빗에서 푼 미션 데이터가 위클리 리포트에 반영됨</li><li>리포트는 알림톡으로 수신함</li><li>②를 완료한 경우에만 리포트가 생성됨</li></ul>
           <div class="stage-checks"><span class="chip pend">알림톡 수신 시간 10/6 측정</span></div>
@@ -333,7 +323,7 @@ footer a{color:inherit}
       </div>
 
       <div class="stage post">
-        <div class="stage-head"><span class="stage-time">13:40~14:40</span><span class="floor-chip">1층|2층</span><span class="stage-name">네트워킹</span></div>
+        <div class="stage-head"><span class="stage-time">13:50~14:40</span><span class="floor-chip">1층|2층</span><span class="stage-name">네트워킹</span></div>
         <div class="stage-body">
           <ul class="stage-exp"><li>스탬프 투어 이후 1층과 2층을 자유롭게 오가며 교류함</li><li>다른 원장님, 연사, 에듀테크 대표님과 네트워킹함</li><li>음식과 부스는 2층에서 계속 운영함</li></ul>
         </div>
@@ -358,7 +348,7 @@ footer a{color:inherit}
     <div class="panel">
       <div class="bottleneck">
         <span class="mark">01</span>
-        <p>13:40 강연 종료 직후 참석자가 2층으로 한꺼번에 몰림. 세션 전과 쉬는 시간에 음식 섭취, 식사 중 퀴즈 먼저 풀기를 안내해 분산함</p>
+        <p>13:50 안내 종료 직후 참석자가 2층으로 한꺼번에 몰림. 세션 전과 쉬는 시간에 음식 섭취, 식사 중 퀴즈 먼저 풀기를 안내해 분산함</p>
       </div>
       <div class="bottleneck">
         <span class="mark">02</span>
