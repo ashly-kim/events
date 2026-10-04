@@ -249,8 +249,8 @@ section.s{padding:0}
 .foot .c a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:1px}
 .foot .y{font-family:var(--en);font-size:10.5px;letter-spacing:.24em;color:var(--faint);margin:22px 0 0}
 /* ---------- 폼 영역을 더 밝게 ---------- */
-.view .panel{background:rgba(255,255,255,.16)}
-.view .who div{background:rgba(255,255,255,.12)}
+.view .panel{background:var(--card)}
+.view .who div{background:rgba(255,255,255,.07)}
 .view .field input[type=text],.view .field input[type=tel],.view .field textarea{background:rgba(255,255,255,.13);border:0;border-radius:12px;padding:13px 15px;min-height:50px}
 .view .field textarea{min-height:98px}
 .view .dd-btn{background:rgba(255,255,255,.13);border:0;border-radius:12px;padding:13px 15px}
@@ -261,12 +261,7 @@ section.s{padding:0}
 .view .consent input{background:rgba(255,255,255,.24)}
 .view .dd-list{background:#1B2B4D}
 .welcome-msg{position:relative;margin:clamp(16px,3svh,26px) 0 0;font-size:clamp(21px,5.6vw,28px);font-weight:700;line-height:1.4;letter-spacing:-.03em;color:#fff;word-break:keep-all}
-/* 글래스 버튼 */
-.mbtn{background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.07));-webkit-backdrop-filter:blur(16px) saturate(1.5);backdrop-filter:blur(16px) saturate(1.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -1px 0 rgba(255,255,255,.06),0 8px 24px rgba(2,8,24,.28)}
-.mbtn:hover{background:linear-gradient(135deg,rgba(255,255,255,.3),rgba(255,255,255,.11))}
-.mbtn.pri{background:linear-gradient(135deg,rgba(96,165,250,.82),rgba(37,99,235,.55))}
-.mbtn.pri:hover{background:linear-gradient(135deg,rgba(116,178,252,.9),rgba(37,99,235,.68))}
-.mbtn.giftbtn{background:linear-gradient(135deg,rgba(147,197,253,.34),rgba(59,130,246,.16))}
+
 /* 명단: 학원명과 이름 모두 큼직하게 */
 .grid{grid-template-columns:1fr}
 .p{padding:18px 20px;gap:16px}
@@ -275,8 +270,8 @@ section.s{padding:0}
 .p span{font-size:21px;font-weight:600;line-height:1.3;margin-top:3px;color:#DCE6F6;letter-spacing:-.02em}
 .p span em{font-style:normal;font-size:.76em;font-weight:500;color:var(--sub);margin-left:.4em}
 /* 폼 영역: 스탬프 투어 카드와 같은 배경, 요소는 더 선명하게 */
-.view .panel{background:linear-gradient(160deg,rgba(37,99,235,.46),rgba(16,32,63,.78))}
-.view .who div{background:rgba(255,255,255,.12)}
+.view .panel{background:var(--card)}
+.view .who div{background:rgba(255,255,255,.07)}
 .view .who .o{color:#BBD7FF;font-size:13px}
 .view .who .tt{font-size:17px;color:#fff}
 .view .who .ds{color:#D2DDF0;font-size:14.5px}
@@ -290,10 +285,39 @@ section.s{padding:0}
 .view .rcap{color:#B4C6E4}
 .view .consent{color:#EAF1FF}
 .view .cnote{color:#B4C6E4}
-/* 메뉴 버튼: 모두 남색빛 글래스 */
-.mbtn,.mbtn:hover,.mbtn.pri,.mbtn.pri:hover,.mbtn.giftbtn{background:linear-gradient(135deg,rgba(72,116,214,.52),rgba(14,30,66,.62))}
-.mbtn:hover,.mbtn.pri:hover{background:linear-gradient(135deg,rgba(92,138,232,.62),rgba(20,40,86,.7))}
-.mbtn .ic,.mbtn.pri .ic{color:#BBD7FF}
+/* 메뉴 버튼: 테두리 없는 남색 그라데이션 */
+.mbtn,.mbtn.pri,.mbtn.giftbtn{background:linear-gradient(150deg,rgba(76,125,230,.62),rgba(18,36,78,.78));box-shadow:none;border:0;-webkit-backdrop-filter:none;backdrop-filter:none;border-radius:26px}
+.mbtn:hover,.mbtn.pri:hover{background:linear-gradient(150deg,rgba(96,146,246,.74),rgba(24,46,98,.86))}
+.mbtn .ic,.mbtn.pri .ic{color:#CFE2FF}
+
+.mini span{white-space:nowrap}
+@media (max-width:380px){.mini span{font-size:12.5px;padding:7px 11px}.mini.seq span+span::before{margin-right:.4em}.mbtn{font-size:16px}.welcome-msg{font-size:20px}}
+/* 3D 선물박스 아이콘 */
+#v-gift .vbody{position:relative}
+#v-gift .h2{padding-right:84px}
+.gift3d{position:absolute;top:8px;right:22px;width:76px;height:84px;perspective:420px;pointer-events:none}
+.gift3d .bob{position:absolute;inset:0;animation:gbob 2.6s ease-in-out infinite}
+.gift3d .rig{position:absolute;left:50%;top:54%;width:0;height:0;transform-style:preserve-3d;transform:rotateX(-22deg) rotateY(0deg);animation:gspin 8s linear infinite}
+.gift3d .part{position:absolute;left:0;top:0;transform-style:preserve-3d}
+.gift3d .body{transform:translateY(8px)}
+.gift3d .lid{transform:translateY(-14px)}
+.gift3d i{position:absolute;display:block;backface-visibility:hidden}
+.gift3d .fz{width:var(--w);height:var(--h);left:calc(var(--w)/-2);top:calc(var(--h)/-2)}
+.gift3d .fs{width:var(--d);height:var(--h);left:calc(var(--d)/-2);top:calc(var(--h)/-2)}
+.gift3d .ft{width:var(--w);height:var(--d);left:calc(var(--w)/-2);top:calc(var(--d)/-2)}
+.gift3d .f-f{transform:translateZ(calc(var(--d)/2))}
+.gift3d .f-b{transform:rotateY(180deg) translateZ(calc(var(--d)/2))}
+.gift3d .f-r{transform:rotateY(90deg) translateZ(calc(var(--w)/2))}
+.gift3d .f-l{transform:rotateY(-90deg) translateZ(calc(var(--w)/2))}
+.gift3d .f-t{transform:rotateX(90deg) translateZ(calc(var(--h)/2))}
+.gift3d .body i{background:linear-gradient(90deg,transparent 40%,#EAF1FF 40%,#EAF1FF 60%,transparent 60%),linear-gradient(180deg,#4F8EF7,#2F6FE0)}
+.gift3d .body .f-r,.gift3d .body .f-l{background:linear-gradient(90deg,transparent 40%,#D3E2FF 40%,#D3E2FF 60%,transparent 60%),linear-gradient(180deg,#2D6BDB,#1E4FB5)}
+.gift3d .lid i{background:linear-gradient(90deg,transparent 38%,#F4F8FF 38%,#F4F8FF 62%,transparent 62%),linear-gradient(180deg,#6BA3FA,#3F7FEB)}
+.gift3d .lid .f-r,.gift3d .lid .f-l{background:linear-gradient(90deg,transparent 38%,#E2ECFF 38%,#E2ECFF 62%,transparent 62%),linear-gradient(180deg,#3F7FEB,#2A63CC)}
+.gift3d .lid .f-t{background:linear-gradient(90deg,transparent 38%,#F4F8FF 38%,#F4F8FF 62%,transparent 62%),linear-gradient(0deg,transparent 38%,#F4F8FF 38%,#F4F8FF 62%,transparent 62%),#7DB0FF}
+@keyframes gspin{from{transform:rotateX(-22deg) rotateY(0deg)}to{transform:rotateX(-22deg) rotateY(360deg)}}
+@keyframes gbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){.gift3d .rig{animation:none;transform:rotateX(-22deg) rotateY(-30deg)}.gift3d .bob{animation:none}}
 </style>
 </head>
 <body>
@@ -347,7 +371,7 @@ section.s{padding:0}
     <div class="slot reveal"><div class="t">13:00<small>~ 13:40</small></div><div class="c"><img class="ph" src="assets/sp_lee.jpg" alt="이성연 대표님"><div><p class="n">이성연 대표님</p><p class="r">에듀리치브레인 대표님<br>전) 학원 마케팅 전문 대행사 마케팅 다이어트 대표님</p><div class="lk"><a href="https://edurichbrain.ai.kr/" target="_blank" rel="noopener noreferrer">에듀리치브레인</a><a href="https://www.marketingdiet.net/" target="_blank" rel="noopener noreferrer">마케팅 다이어트</a></div></div></div></div>
     <div class="slot reveal"><div class="t">13:40<small>~ 13:50</small></div><div class="c"><div><p class="n">Q&amp;A와 이후 안내</p><p class="r">진행: 조경이 대표님</p></div></div></div>
     <div class="slot reveal"><div class="t">13:50<small>1F</small></div><div class="c"><div><p class="n">단체 사진</p><p class="r">세션이 모두 끝나면 1층에서 다 함께 사진을 찍어요.</p></div></div></div>
-    <div class="slot reveal"><div class="t">이후<small>~ 14:40</small></div><div class="c"><p class="n">스탬프 투어</p><p class="r" style="margin:0">출석, 퀴즈 미션, 리포트 생성까지 기업별 테이블을 돌며 학원에 입장하는 학생의 입장에서 기능들을 간단히 체험하고, 각 테이블별 스탬프를 받아보세요. 책자에 스탬프 세 개를 다 채우시는 분들을 위해 선물이 준비되어 있어요!</p><p class="r order">스탬프 투어는 꼭 아래 순서대로 진행해 주세요. 학생의 입장에서 흐름에 맞게 체험하실 수 있어요.</p><div class="mini seq"><span>1 TOSS</span><span>2 CRABIT</span><span>3 EDURICHBRAIN</span></div></div></div>
+    <div class="slot reveal"><div class="t">이후<small>~ 14:40</small></div><div class="c"><div><p class="n">스탬프 투어</p><p class="r" style="margin:0">출석, 퀴즈 미션, 리포트 생성까지 기업별 테이블을 돌며 학원에 입장하는 학생의 입장에서 기능들을 간단히 체험하고, 각 테이블별 스탬프를 받아보세요. 책자에 스탬프 세 개를 다 채우시는 분들을 위해 선물이 준비되어 있어요!</p><p class="r order">스탬프 투어는 꼭 아래 순서대로 진행해 주세요. 학생의 입장에서 흐름에 맞게 체험하실 수 있어요.</p><div class="mini seq"><span>1 TOSS</span><span>2 CRABIT</span><span>3 EDURICHBRAIN</span></div></div></div></div>
     <div class="slot reveal"><div class="t">이후<small>~ 14:40</small></div><div class="c"><div><p class="n">식사 및 네트워킹</p><p class="r">식사하시면서 다른 원장님들과 자유롭게 이야기를 나눠 보세요. 1층과 2층 어디서든 편하게 이용하실 수 있어요.</p></div></div></div>
   </div>
   <p class="note">시간은 예정이며 조금 달라질 수 있어요.</p>
@@ -382,6 +406,14 @@ section.s{padding:0}
 </div></section>
 
 <section class="view" id="v-gift" hidden data-title="특별 선물"><div class="sh-head"><span class="grab" aria-hidden="true"></span><div class="sh-in"><span class="ttl">특별 선물</span><a class="x" href="#home" aria-label="닫기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></a></div></div><div class="wrap vbody">
+  <div class="gift3d" aria-hidden="true"><div class="bob"><div class="rig">
+  <div class="part body" style="--w:40px;--h:32px;--d:40px">
+    <i class="fz f-f"></i><i class="fz f-b"></i><i class="fs f-r"></i><i class="fs f-l"></i>
+  </div>
+  <div class="part lid" style="--w:46px;--h:12px;--d:46px">
+    <i class="fz f-f"></i><i class="fz f-b"></i><i class="fs f-r"></i><i class="fs f-l"></i><i class="ft f-t"></i>
+  </div>
+</div></div></div>
   <p class="eb reveal">SPECIAL GIFT</p>
   <h2 class="h2 reveal">오신 분들께<br><em>특별 선물을 준비했어요</em></h2>
   <p class="lead reveal" style="margin-top:14px">조직원 AI 강의를 선물로 드려요. 원하시는 분은 아래에서 신청해 주세요.</p>
