@@ -28,7 +28,7 @@ img{display:block;max-width:100%}
 .stage .fb{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .hero .eyebrow{position:relative;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.34em;color:var(--blue-l);margin:0}
 .hero h1{position:relative;font-family:var(--serif);font-weight:500;font-size:clamp(46px,min(18vw,11.5svh),140px);line-height:.92;letter-spacing:-.035em;color:#F4F1EA;margin:14px 0 0}
-.hero h1 .it{font-style:italic}
+.hero h1 .it{font-style:normal}
 .hero .when{position:relative;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.22em;color:var(--sub);margin:clamp(14px,3svh,26px) 0 0}
 .menu-hint{position:relative;max-width:420px;margin:clamp(18px,3.2svh,28px) auto 0;font-size:16px;line-height:1.6;font-weight:500;color:var(--sub);word-break:keep-all}
 .menu{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(100%,480px);margin-top:16px}
@@ -267,6 +267,33 @@ section.s{padding:0}
 .mbtn.pri{background:linear-gradient(135deg,rgba(96,165,250,.82),rgba(37,99,235,.55))}
 .mbtn.pri:hover{background:linear-gradient(135deg,rgba(116,178,252,.9),rgba(37,99,235,.68))}
 .mbtn.giftbtn{background:linear-gradient(135deg,rgba(147,197,253,.34),rgba(59,130,246,.16))}
+/* 명단: 학원명과 이름 모두 큼직하게 */
+.grid{grid-template-columns:1fr}
+.p{padding:18px 20px;gap:16px}
+.p .av{width:52px;height:52px;font-size:19px}
+.p b{font-size:21px;line-height:1.3;letter-spacing:-.03em;color:#fff}
+.p span{font-size:21px;font-weight:600;line-height:1.3;margin-top:3px;color:#DCE6F6;letter-spacing:-.02em}
+.p span em{font-style:normal;font-size:.76em;font-weight:500;color:var(--sub);margin-left:.4em}
+/* 폼 영역: 스탬프 투어 카드와 같은 배경, 요소는 더 선명하게 */
+.view .panel{background:linear-gradient(160deg,rgba(37,99,235,.46),rgba(16,32,63,.78))}
+.view .who div{background:rgba(255,255,255,.12)}
+.view .who .o{color:#BBD7FF;font-size:13px}
+.view .who .tt{font-size:17px;color:#fff}
+.view .who .ds{color:#D2DDF0;font-size:14.5px}
+.view .panel .d{color:#D2DDF0}
+.view .field>label,.view .field>.lab{color:#EAF1FF;font-size:14px;font-weight:600;letter-spacing:.01em}
+.view .field .opt{color:#A9BCDD}
+.view .field input[type=text],.view .field input[type=tel],.view .field textarea,.view .dd-btn{background:rgba(255,255,255,.17);box-shadow:inset 0 0 0 1px rgba(191,219,254,.38);color:#fff}
+.view .field input:focus,.view .field textarea:focus,.view .dd.open .dd-btn,.view .dd-btn:focus-visible{background:rgba(255,255,255,.24);box-shadow:inset 0 0 0 1px rgba(191,219,254,.6);outline:2px solid var(--blue-l)}
+.view .field input::placeholder,.view .field textarea::placeholder,.view .dd-btn .ph{color:#C4D2EA}
+.view .chip span{background:rgba(255,255,255,.2);color:#fff;font-weight:600}
+.view .rcap{color:#B4C6E4}
+.view .consent{color:#EAF1FF}
+.view .cnote{color:#B4C6E4}
+/* 메뉴 버튼: 모두 남색빛 글래스 */
+.mbtn,.mbtn:hover,.mbtn.pri,.mbtn.pri:hover,.mbtn.giftbtn{background:linear-gradient(135deg,rgba(72,116,214,.52),rgba(14,30,66,.62))}
+.mbtn:hover,.mbtn.pri:hover{background:linear-gradient(135deg,rgba(92,138,232,.62),rgba(20,40,86,.7))}
+.mbtn .ic,.mbtn.pri .ic{color:#BBD7FF}
 </style>
 </head>
 <body>
@@ -439,29 +466,29 @@ section.s{padding:0}
 var FORM_ENDPOINT = '';
 // 참석자 명단: 학원명과 이름만 넣는다.
 var ATTENDEES = [
-  {"academy": "주식회사 캐슬에듀", "name": "김태관"},
-  {"academy": "SMC 학원", "name": "이성훈"},
-  {"academy": "5A교육", "name": "김명범"},
-  {"academy": "바른학원", "name": "이승헌"},
-  {"academy": "페르마학원", "name": "권기웅"},
-  {"academy": "HLS교육", "name": "홍세미"},
-  {"academy": "올가교육", "name": "김홍중"},
-  {"academy": "이재식국어", "name": "이재식"},
-  {"academy": "엠엔에스아카데미학원", "name": "오미진"},
-  {"academy": "올마이티캠퍼스", "name": "여호원"},
-  {"academy": "URL", "name": "정지웅"},
-  {"academy": "(주)리딩컴퍼니", "name": "김광운"},
-  {"academy": "이투스", "name": "곽용호"},
-  {"academy": "모티전", "name": "송미소"},
-  {"academy": "메쓰홀릭", "name": "강지훈"},
-  {"academy": "진학학원", "name": "이문열"},
-  {"academy": "SNT학원", "name": "이지영"},
-  {"academy": "M-Code", "name": "박순우"},
-  {"academy": "모티전", "name": "허영준"},
-  {"academy": "각인학원", "name": "이규태"},
-  {"academy": "유투엠", "name": "손유경"},
-  {"academy": "라임라잇수학학원", "name": "이주엽"},
-  {"academy": "토프러스어학원", "name": "김동현"}
+  {"academy": "주식회사 캐슬에듀", "name": "김태관", "title": "대표"},
+  {"academy": "SMC 학원", "name": "이성훈", "title": "대표"},
+  {"academy": "5A교육", "name": "김명범", "title": "대표"},
+  {"academy": "바른학원", "name": "이승헌", "title": "대표"},
+  {"academy": "페르마학원", "name": "권기웅", "title": "대표"},
+  {"academy": "HLS교육", "name": "홍세미", "title": "대표"},
+  {"academy": "올가교육", "name": "김홍중", "title": "대표"},
+  {"academy": "이재식국어", "name": "이재식", "title": "대표"},
+  {"academy": "엠엔에스아카데미학원", "name": "오미진", "title": "대표"},
+  {"academy": "올마이티캠퍼스", "name": "여호원", "title": "대표"},
+  {"academy": "URL", "name": "정지웅", "title": "대표"},
+  {"academy": "(주)리딩컴퍼니", "name": "김광운", "title": "대표"},
+  {"academy": "이투스", "name": "곽용호", "title": "대표"},
+  {"academy": "모티전", "name": "송미소", "title": "이사"},
+  {"academy": "메쓰홀릭", "name": "강지훈", "title": "대표"},
+  {"academy": "진학학원", "name": "이문열", "title": "대표"},
+  {"academy": "SNT학원", "name": "이지영", "title": "대표"},
+  {"academy": "M-Code", "name": "박순우", "title": "대표"},
+  {"academy": "모티전", "name": "허영준", "title": "대표"},
+  {"academy": "각인학원", "name": "이규태", "title": "대표"},
+  {"academy": "유투엠", "name": "손유경", "title": "대표"},
+  {"academy": "라임라잇수학학원", "name": "이주엽", "title": "대표"},
+  {"academy": "토프러스어학원", "name": "김동현", "title": "대표"}
 ];
 /* ============================== */
 (function(){
@@ -509,7 +536,7 @@ var ATTENDEES = [
   var grid=document.getElementById('grid'),emptyEl=document.getElementById('empty'),qEl=document.getElementById('q'),cnt=document.getElementById('count'),cnum=document.getElementById('cnum');
   var list=ATTENDEES.slice().sort(function(a,b){return a.academy.localeCompare(b.academy,'ko')});
   function esc(t){return String(t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
-  function draw(term){term=(term||'').trim().toLowerCase();var rows=list.filter(function(p){return !term||(p.academy+' '+p.name).toLowerCase().indexOf(term)>-1});grid.innerHTML=rows.map(function(p){var ch=(p.academy.replace(/^\(주\)|^주식회사\s*/,'')||p.name).trim().charAt(0);return '<div class="p"><div class="av" aria-hidden="true">'+esc(ch)+'</div><div><b>'+esc(p.academy)+'</b><span>'+esc(p.name)+' 님</span></div></div>'}).join('');emptyEl.hidden=!!rows.length}
+  function draw(term){term=(term||'').trim().toLowerCase();var rows=list.filter(function(p){return !term||(p.academy+' '+p.name).toLowerCase().indexOf(term)>-1});grid.innerHTML=rows.map(function(p){var ch=(p.academy.replace(/^\(주\)|^주식회사\s*/,'')||p.name).trim().charAt(0);return '<div class="p"><div class="av" aria-hidden="true">'+esc(ch)+'</div><div><b>'+esc(p.academy)+'</b><span>'+esc(p.name)+'<em>'+esc(p.title||'대표')+'님</em></span></div></div>'}).join('');emptyEl.hidden=!!rows.length}
   qEl.addEventListener('input',function(){draw(qEl.value)});
   cnt.hidden=false;cnum.textContent=list.length;draw('');
   route(true);
