@@ -292,32 +292,10 @@ section.s{padding:0}
 
 .mini span{white-space:nowrap}
 @media (max-width:380px){.mini span{font-size:12.5px;padding:7px 11px}.mini.seq span+span::before{margin-right:.4em}.mbtn{font-size:16px}.welcome-msg{font-size:20px}}
-/* 3D 선물박스 아이콘 */
+/* 선물상자 이미지 */
 #v-gift .vbody{position:relative}
-#v-gift .h2{padding-right:84px}
-.gift3d{position:absolute;top:8px;right:22px;width:76px;height:84px;perspective:420px;pointer-events:none}
-.gift3d .bob{position:absolute;inset:0;animation:gbob 2.6s ease-in-out infinite}
-.gift3d .rig{position:absolute;left:50%;top:54%;width:0;height:0;transform-style:preserve-3d;transform:rotateX(-22deg) rotateY(0deg);animation:gspin 8s linear infinite}
-.gift3d .part{position:absolute;left:0;top:0;transform-style:preserve-3d}
-.gift3d .body{transform:translateY(8px)}
-.gift3d .lid{transform:translateY(-14px)}
-.gift3d i{position:absolute;display:block;backface-visibility:hidden}
-.gift3d .fz{width:var(--w);height:var(--h);left:calc(var(--w)/-2);top:calc(var(--h)/-2)}
-.gift3d .fs{width:var(--d);height:var(--h);left:calc(var(--d)/-2);top:calc(var(--h)/-2)}
-.gift3d .ft{width:var(--w);height:var(--d);left:calc(var(--w)/-2);top:calc(var(--d)/-2)}
-.gift3d .f-f{transform:translateZ(calc(var(--d)/2))}
-.gift3d .f-b{transform:rotateY(180deg) translateZ(calc(var(--d)/2))}
-.gift3d .f-r{transform:rotateY(90deg) translateZ(calc(var(--w)/2))}
-.gift3d .f-l{transform:rotateY(-90deg) translateZ(calc(var(--w)/2))}
-.gift3d .f-t{transform:rotateX(90deg) translateZ(calc(var(--h)/2))}
-.gift3d .body i{background:linear-gradient(90deg,transparent 40%,#EAF1FF 40%,#EAF1FF 60%,transparent 60%),linear-gradient(180deg,#4F8EF7,#2F6FE0)}
-.gift3d .body .f-r,.gift3d .body .f-l{background:linear-gradient(90deg,transparent 40%,#D3E2FF 40%,#D3E2FF 60%,transparent 60%),linear-gradient(180deg,#2D6BDB,#1E4FB5)}
-.gift3d .lid i{background:linear-gradient(90deg,transparent 38%,#F4F8FF 38%,#F4F8FF 62%,transparent 62%),linear-gradient(180deg,#6BA3FA,#3F7FEB)}
-.gift3d .lid .f-r,.gift3d .lid .f-l{background:linear-gradient(90deg,transparent 38%,#E2ECFF 38%,#E2ECFF 62%,transparent 62%),linear-gradient(180deg,#3F7FEB,#2A63CC)}
-.gift3d .lid .f-t{background:linear-gradient(90deg,transparent 38%,#F4F8FF 38%,#F4F8FF 62%,transparent 62%),linear-gradient(0deg,transparent 38%,#F4F8FF 38%,#F4F8FF 62%,transparent 62%),#7DB0FF}
-@keyframes gspin{from{transform:rotateX(-22deg) rotateY(0deg)}to{transform:rotateX(-22deg) rotateY(360deg)}}
-@keyframes gbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-@media (prefers-reduced-motion:reduce){.gift3d .rig{animation:none;transform:rotateX(-22deg) rotateY(-30deg)}.gift3d .bob{animation:none}}
+#v-gift .h2{padding-right:88px}
+.gift-img{position:absolute;top:4px;right:22px;width:78px;height:78px;pointer-events:none}
 .tip ul{margin:0;padding-left:1.15em}
 .tip li{padding-left:.2em;line-height:1.75}
 .tip li+li{margin-top:10px}
@@ -413,14 +391,7 @@ section.s{padding:0}
 </div></section>
 
 <section class="view" id="v-gift" hidden data-title="특별 선물"><div class="sh-head"><span class="grab" aria-hidden="true"></span><div class="sh-in"><span class="ttl">특별 선물</span><a class="x" href="#home" aria-label="닫기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></a></div></div><div class="wrap vbody">
-  <div class="gift3d" aria-hidden="true"><div class="bob"><div class="rig">
-  <div class="part body" style="--w:40px;--h:32px;--d:40px">
-    <i class="fz f-f"></i><i class="fz f-b"></i><i class="fs f-r"></i><i class="fs f-l"></i>
-  </div>
-  <div class="part lid" style="--w:46px;--h:12px;--d:46px">
-    <i class="fz f-f"></i><i class="fz f-b"></i><i class="fs f-r"></i><i class="fs f-l"></i><i class="ft f-t"></i>
-  </div>
-</div></div></div>
+  <img class="gift-img" src="assets/gift-box.png" alt="" width="78" height="78">
   <p class="eb reveal">SPECIAL GIFT</p>
   <h2 class="h2 reveal">오신 분들께<br><em>특별 선물을 준비했어요</em></h2>
   <p class="lead reveal" style="margin-top:14px">조직원 AI 강의를 선물로 드려요. 원하시는 분은 아래에서 신청해 주세요.</p>
@@ -477,12 +448,10 @@ section.s{padding:0}
           </div><div class="rcap"><span>아쉬웠어요</span><span>정말 좋았어요</span></div></div>
         <div class="field"><label for="i-good">오늘 좋았던 점</label><textarea id="i-good" name="good" placeholder="기억에 남는 장면이나 도움이 된 내용을 적어 주세요"></textarea></div>
         <div class="field"><label for="i-bad">아쉬웠던 점</label><textarea id="i-bad" name="bad" placeholder="솔직하게 적어 주셔도 괜찮아요"></textarea></div>
-        <div class="field"><label for="i-topic">이 행사를 다시 한다면, 어떤 주제의 연사를 만나고 싶으세요</label><textarea id="i-topic" name="nextSpeaker" placeholder="예: 학원 마케팅, 학부모 상담, AI 활용 사례"></textarea></div>
-        <div class="field"><label for="i-content">그 연사에게 어떤 내용을 듣고 싶으세요</label><textarea id="i-content" name="nextContent" placeholder="궁금한 점이나 꼭 듣고 싶은 이야기를 적어 주세요"></textarea></div>
-        <label class="consent" style="margin-top:22px"><input type="checkbox" name="publicOk" value="yes"> 후기를 이름 없이 소개 자료에 써도 좋아요 <span style="color:var(--faint);margin-left:4px">선택</span></label>
         <label class="consent"><input type="checkbox" name="consent" data-req="1"> (필수) 개인정보 수집과 이용에 동의해요</label>
+        <label class="consent"><input type="checkbox" name="publicOk" value="yes"> 후기를 이름 없이 소개 자료에 써도 좋아요 <span style="color:var(--faint);margin-left:4px">선택</span></label>
         <p class="cnote">수집 항목: 학원명, 이름, 후기 내용<br>이용 목적: 후기 반영과 다음 행사 준비<br>보유 기간: 목적 달성 후 지체 없이 파기<br>동의를 거부할 수 있으나, 이 경우 후기를 남기실 수 없어요.</p>
-        <button type="submit" class="submit" data-label="후기 보내기">후기 보내기</button>
+        <button type="submit" class="submit" data-label="후기 남기기">후기 남기기</button>
       </form>
     </div>
     <div class="done"><div class="ck"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h3>잘 받았어요</h3><p class="d">남겨 주셔서 고맙습니다.<br>다음 행사에 꼭 반영할게요.</p></div>
