@@ -119,6 +119,10 @@ section{margin-bottom:44px}
 .stage-body .chip.pend{background:var(--chip-on-body)}
 .phase{font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--fg-muted);margin:0 0 12px -26px;padding-left:26px}
 .phase.next{margin-top:6px}
+.crew{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.crew-t{font-size:13px;font-weight:700;color:var(--fg-muted)}
+.crew-row{display:flex;gap:12px;align-items:flex-start;font-size:16px;line-height:1.6;color:var(--fg)}
+.crew-row b{flex:none;min-width:48px;font-weight:700}
 .stage-exp{font-size:16px;color:var(--fg);margin:0 0 10px;line-height:1.6}
 .stage-checks{display:flex;flex-wrap:wrap;gap:6px}
 
@@ -233,7 +237,7 @@ footer a{color:inherit}
           <p class="stage-exp">이름을 말하고 명찰과 책자를 받습니다. 장학카드, 키링과 같은 굿즈는 여기서 드리지 않아요.</p>
           <div class="stage-checks">
             <span class="chip ok">카드 미전달 확정</span>
-            <span class="chip pend">접수 담당자 미정</span>
+            <span class="chip ok">접수 지원 주현님</span>
           </div>
         </div>
       </div>
@@ -277,8 +281,9 @@ footer a{color:inherit}
       <div class="stage post">
         <div class="stage-head"><span class="stage-time">13:40~</span><span class="floor-chip">2층</span><span class="stage-name">② 크래빗, 퀴즈 미션</span></div>
         <div class="stage-body">
-          <p class="stage-exp">QR로 웹앱에 들어가 퀴즈를 풀고, 도장을 받은 뒤 장학카드 2장을 선물처럼 받습니다. 한 명당 3~5분 정도예요.</p>
+          <p class="stage-exp">QR로 웹앱에 들어가 퀴즈를 풀고, 도장을 받은 뒤 장학카드와 쿠키 간식을 선물처럼 받습니다. 한 명당 3~5분 정도예요.</p>
           <div class="stage-checks">
+            <span class="chip ok">부스 3명 확정</span>
             <span class="chip ok">카드 전달 방식 확정</span>
             <span class="chip pend">와이파이 10/6 실측 필요</span>
           </div>
@@ -286,8 +291,14 @@ footer a{color:inherit}
           <div class="substeps">
             <div class="substep"><span class="num"></span><p>QR 스탠드를 찍고 <b>이름, 학원명, 번호</b>를 입력한 뒤 동의해요.</p></div>
             <div class="substep"><span class="num"></span><p>퀴즈를 풀고 완료 화면을 스태프에게 보여줘요.</p></div>
-            <div class="substep"><span class="num"></span><p><b>장학카드 선물 수령.</b> 이름순 박스에서 꺼내 두 손으로, "미션 완료 보상입니다."</p></div>
+            <div class="substep"><span class="num"></span><p><b>도장을 받으신 분께 장학카드와 쿠키 간식을 드려요.</b> 이름순 박스에서 꺼내 두 손으로, "미션 완료 보상입니다."</p></div>
             <div class="substep"><span class="num"></span><p>원하면 옆자리에서 상담을 받고 ③으로 이동해요.</p></div>
+          </div>
+          <div class="crew">
+            <span class="crew-t">크래빗 부스 3명</span>
+            <div class="crew-row"><b>혜원님</b><span>도장 찍어 드리기</span></div>
+            <div class="crew-row"><b>예원님</b><span>QR을 찍고 미션을 진행하시면 된다고 안내하고, 도장 받으신 분께 장학카드와 쿠키 간식 전달</span></div>
+            <div class="crew-row"><b>주현님</b><span>행사 사진 촬영, 1층 접수 데스크 지원</span></div>
           </div>
         </div>
       </div>
@@ -312,7 +323,7 @@ footer a{color:inherit}
         <div class="stage-head"><span class="stage-time">13:40~14:40</span><span class="floor-chip">1층|2층</span><span class="stage-name">네트워킹</span></div>
         <div class="stage-body">
           <p class="stage-exp">부스 체험을 마치면 1층과 2층을 자유롭게 오가며 다른 원장님, 연사, 에듀테크 대표님들과 이야기해요. 음식과 부스는 2층에 계속 있습니다. 이번 행사의 가치는 "누가 왔는가"에 있어요.</p>
-          <div class="stage-checks"><span class="chip pend">크래빗 부스 컷 촬영 요청</span></div>
+          <div class="stage-checks"><span class="chip ok">행사 사진 주현님</span></div>
         </div>
       </div>
 
@@ -358,7 +369,6 @@ footer a{color:inherit}
         <tbody>
           <tr><td>입구 접수 데스크</td><td>1층 입구에 둘 수 있음</td><td><span class="chip pend">검토 중</span></td></tr>
           <tr><td>선물 수령 위치</td><td>2층 부스 끝 또는 1층 접수 데스크</td><td><span class="chip pend">미정</span></td></tr>
-          <tr><td>크래빗 현장 인원</td><td>부스 2명 + 김현지 대표님</td><td><span class="chip pend">미정</span></td></tr>
           <tr><td>참석자 명단 마감</td><td>로고 카드 리드타임 역산</td><td><span class="chip pend">미정</span></td></tr>
           <tr><td>현장 레이아웃 확정</td><td>10/6 현장 방문에서 확정</td><td><span class="chip pend">10/6 예정</span></td></tr>
         </tbody>
