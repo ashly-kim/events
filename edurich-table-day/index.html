@@ -260,6 +260,13 @@ section.s{padding:0}
 .view .chip span{background:rgba(255,255,255,.17)}
 .view .consent input{background:rgba(255,255,255,.24)}
 .view .dd-list{background:#1B2B4D}
+.welcome-msg{position:relative;margin:clamp(16px,3svh,26px) 0 0;font-size:clamp(21px,5.6vw,28px);font-weight:700;line-height:1.4;letter-spacing:-.03em;color:#fff;word-break:keep-all}
+/* 글래스 버튼 */
+.mbtn{background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.07));-webkit-backdrop-filter:blur(16px) saturate(1.5);backdrop-filter:blur(16px) saturate(1.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -1px 0 rgba(255,255,255,.06),0 8px 24px rgba(2,8,24,.28)}
+.mbtn:hover{background:linear-gradient(135deg,rgba(255,255,255,.3),rgba(255,255,255,.11))}
+.mbtn.pri{background:linear-gradient(135deg,rgba(96,165,250,.82),rgba(37,99,235,.55))}
+.mbtn.pri:hover{background:linear-gradient(135deg,rgba(116,178,252,.9),rgba(37,99,235,.68))}
+.mbtn.giftbtn{background:linear-gradient(135deg,rgba(147,197,253,.34),rgba(59,130,246,.16))}
 </style>
 </head>
 <body>
@@ -274,6 +281,7 @@ section.s{padding:0}
   <p class="eyebrow">WELCOME</p>
   <h1><span class="it">Edurich</span><br>Table.</h1>
   <p class="when">2026.10.08 THU | PLAYA LOUNGE, SEOUL</p>
+  <p class="welcome-msg">에듀리치테이블 행사에<br>오신 원장님을 환영합니다!</p>
   <p class="menu-hint">아래 버튼을 하나씩 눌러보며 오늘 행사에 대해 미리 파악해 보세요.</p>
   <nav class="menu" aria-label="메뉴">
     <a class="mbtn pri first" href="#welcome"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5"/><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/></svg><span>입장 안내</span></a>
@@ -325,7 +333,7 @@ section.s{padding:0}
   <div class="tables">
     <div class="tcard reveal"><span class="no">TABLE 1</span><div class="logo"><img src="assets/toss_logo.png" alt=""><b style="margin-left:10px;font-family:var(--en)">toss</b></div><h3>출석 자동화</h3><p>얼굴 하나로 1초 만에 등원이 기록되는 페이스패스를 체험해요.</p></div>
     <div class="tcard reveal" style="transition-delay:.08s"><span class="no">TABLE 2</span><div class="logo"><img src="assets/crabit-white.png" alt="Crabit"></div><h3>미션과 보상 자동화</h3><p>학원 규칙이 아이의 미션이 되고, 해낸 만큼 포인트가 쌓이는 흐름을 체험해요.</p></div>
-    <div class="tcard hl reveal" style="transition-delay:.16s"><span class="no">TABLE 3</span><div class="logo"><img src="assets/brain.webp" alt=""><b style="margin-left:8px">EduRich<span style="color:var(--blue-l)">Brain</span></b></div><h3>토탈 ERP와 마케팅 자동화</h3><p>원장님의 지도가 들어가는 자리에서, 글과 보고서가 만들어지는 과정을 봐요.</p></div>
+    <div class="tcard reveal" style="transition-delay:.16s"><span class="no">TABLE 3</span><div class="logo"><img src="assets/brain.webp" alt=""><b style="margin-left:8px">EduRich<span style="color:var(--blue-l)">Brain</span></b></div><h3>토탈 ERP와 마케팅 자동화</h3><p>원장님의 지도가 들어가는 자리에서, 글과 보고서가 만들어지는 과정을 봐요.</p></div>
   </div>
   <p class="stamp-note reveal"><i></i>테이블마다 스탬프를 하나씩 받아 가세요.</p>
 </div></section>
