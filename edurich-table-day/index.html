@@ -336,6 +336,20 @@ section.s{padding:0}
 .p .av{display:none}
 .p b{font-size:17px}
 .p span{font-size:16px}
+.rating.r10{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.rating.r10 .chip span{width:100%}
+.view .chip input:checked+span,.view .rating .chip input:checked+span{background:var(--blue)!important;color:#fff!important;font-weight:700}
+#v-people .grid{margin-top:24px}
+
+/* 필수|선택 표시 통일 */
+.tg{display:inline-block;font-size:11.5px;font-weight:700;line-height:1;padding:4px 7px;border-radius:6px;margin-left:6px;vertical-align:1px;letter-spacing:0}
+.tg.req{background:#E3EBFF;color:#2563EB}
+.tg.opt2{background:#ECEFF4;color:#5B6678}
+.field .hint{display:block;margin-top:4px;font-size:13px;font-weight:400;letter-spacing:0;color:#6B7280}
+/* 화면 전환 때 제목에 포커스 테두리가 보이지 않게 */
+.view h2[tabindex="-1"]:focus{outline:none}
+/* 모바일 2열 메뉴: 마지막 버튼(행사 후기)은 가운데 */
+@media (max-width:819px){.menu .mbtn:last-child:nth-child(even){grid-column:1/-1;justify-self:center;width:calc(50% - 5px)}}
 </style>
 </head>
 <body>
@@ -400,7 +414,7 @@ section.s{padding:0}
 
 <section class="view" id="v-stamp" hidden data-title="스탬프 투어"><div class="sh-head"><span class="grab" aria-hidden="true"></span><div class="sh-in"><span class="ttl">스탬프 투어</span><a class="x" href="#home" aria-label="닫기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></a></div></div><div class="wrap vbody">
   <p class="eb reveal">STAMP TOUR</p>
-  <h2 class="h2 reveal">테이블을 돌며 <em>스탬프</em>을 모아보세요</h2>
+  <h2 class="h2 reveal">테이블을 돌며 <em>스탬프</em>를 모아보세요</h2>
   <p class="lead reveal" style="margin-top:14px">출석, 퀴즈 미션, 리포트 생성까지 학원에 입장하는 학생이 되어 기능을 가볍게 체험해 보세요. 스탬프 세 개를 다 모으시면 선물이 있어요.</p>
   <div class="tables">
     <div class="tcard reveal"><span class="no">TABLE 1</span><div class="logo"><img class="mul" src="assets/toss-logo-full.png" alt="toss"></div><h3>출석 자동화</h3><p>얼굴 하나로 1초 만에 등원이 기록되는 페이스패스를 체험해요.</p></div>
@@ -416,12 +430,10 @@ section.s{padding:0}
     <h2 class="h2" style="margin-top:14px">오늘 함께하는 <em>분들</em><span class="badge-sample" id="sampleBadge" hidden>샘플</span></h2>
     <p class="count" id="count" hidden><b id="cnum">0</b>명</p>
   </div>
-  <p class="lead reveal" style="margin-top:14px">같은 자리에서 같은 고민을 하는 분들이에요. 인사 나눠 보세요.</p>
+  <p class="lead reveal" style="margin-top:14px">오늘 어떤 분들이 오시는지 미리 확인하실 수 있게 리스트를 준비했어요.</p>
   <div id="open">
-    <input class="search" id="q" type="search" placeholder="학원명이나 성함으로 찾기" aria-label="참석자 검색">
     <div class="grid" id="grid"></div>
     <div class="empty" id="empty" hidden>찾으시는 분이 없어요.</div>
-    <p class="pnote">이름 공개에 동의해 주신 분만 표시돼요. 수정이나 삭제는 이성연 대표님께 말씀해 주세요.</p>
   </div>
   
 </div></section>
@@ -443,14 +455,14 @@ section.s{padding:0}
       </div>
       <div class="notice" role="status" aria-live="polite"></div>
       <form class="f" novalidate data-form="lecture">
-        <div class="field"><label for="l-academy">학원명</label><input type="text" id="l-academy" name="academy" data-req="1" placeholder="에듀리치 수학학원" autocomplete="organization"><span class="msg">학원명을 입력해 주세요.</span></div>
-        <div class="field"><label for="l-name">담당자 이름</label><input type="text" id="l-name" name="name" data-req="1" placeholder="홍길동" autocomplete="name"><span class="msg">이름을 입력해 주세요.</span></div>
-        <div class="field"><label for="l-phone">휴대폰 번호</label><input type="tel" id="l-phone" class="phone" name="phone" data-req="1" placeholder="010-0000-0000" inputmode="numeric" autocomplete="tel"><span class="msg">휴대폰 번호를 확인해 주세요.</span></div>
-        <div class="field"><label for="l-staff">강의를 들을 선생님과 직원 수</label><select id="l-staff" name="staff" data-req="1"><option value="">선택해 주세요</option><option>5명 이하</option><option>6명에서 10명</option><option>11명에서 20명</option><option>21명 이상</option></select><span class="msg">인원을 선택해 주세요.</span></div>
-        <div class="field"><label for="l-when">희망 날짜 <span class="opt">요일만 선택해 주시면 시간대는 별도로 연락드려 조율할 예정입니다</span></label><select id="l-when" name="when" data-req="1"><option value="">선택해 주세요</option><option>10월 20일(화)</option><option>10월 21일(수)</option><option>10월 22일(목)</option><option>10월 27일(화)</option><option>10월 28일(수)</option><option>10월 29일(목)</option><option>11월 3일(화)</option><option>11월 4일(수)</option><option>11월 5일(목)</option><option>11월 10일(화)</option><option>11월 11일(수)</option><option>11월 12일(목)</option><option>11월 17일(화)</option><option>11월 18일(수)</option><option>11월 19일(목)</option><option>11월 24일(화)</option><option>11월 25일(수)</option><option>11월 26일(목)</option><option>12월 8일(화)</option><option>12월 9일(수)</option><option>12월 10일(목)</option><option>12월 15일(화)</option><option>12월 16일(수)</option><option>12월 17일(목)</option><option>12월 22일(화)</option><option>12월 23일(수)</option><option>12월 24일(목)</option><option>12월 29일(화)</option><option>12월 30일(수)</option><option>12월 31일(목)</option></select><span class="msg">희망 날짜를 선택해 주세요.</span></div>
-        <div class="field"><label for="l-topic">듣고 싶은 내용 <span class="opt">선택</span></label><select id="l-topic"><option value="">선택해 주세요</option><option>랜딩페이지와 사이트 바이브코딩</option><option>프롬프팅 기초</option><option>블로그와 카드뉴스 자동화</option><option value="그 외">그 외 (직접 입력)</option></select><input type="text" id="l-topic-etc" placeholder="듣고 싶은 주제를 적어 주세요" hidden style="margin-top:10px"><input type="hidden" name="topics" id="l-topics"></div>
-        <div class="field"><label for="l-memo">전하실 말씀 <span class="opt">선택</span></label><textarea id="l-memo" name="memo" placeholder="궁금한 점이나 바라시는 점을 적어 주세요"></textarea></div>
-        <label class="consent"><input type="checkbox" name="consent" data-req="1"> (필수) 개인정보 수집과 이용에 동의해요</label>
+        <div class="field"><label for="l-academy">학원명<span class="tg req">필수</span></label><input type="text" id="l-academy" name="academy" data-req="1" placeholder="에듀리치 수학학원" autocomplete="organization"><span class="msg">학원명을 입력해 주세요.</span></div>
+        <div class="field"><label for="l-name">담당자 이름<span class="tg req">필수</span></label><input type="text" id="l-name" name="name" data-req="1" placeholder="홍길동" autocomplete="name"><span class="msg">이름을 입력해 주세요.</span></div>
+        <div class="field"><label for="l-phone">휴대폰 번호<span class="tg req">필수</span></label><input type="tel" id="l-phone" class="phone" name="phone" data-req="1" placeholder="010-0000-0000" inputmode="numeric" autocomplete="tel"><span class="msg">휴대폰 번호를 확인해 주세요.</span></div>
+        <div class="field"><label for="l-staff">강의를 들을 선생님과 직원 수<span class="tg req">필수</span></label><select id="l-staff" name="staff" data-req="1"><option value="">선택해 주세요</option><option>5명 이하</option><option>6명에서 10명</option><option>11명에서 20명</option><option>21명 이상</option></select><span class="msg">인원을 선택해 주세요.</span></div>
+        <div class="field"><label for="l-when">희망 날짜<span class="tg req">필수</span><span class="hint">요일만 선택해 주시면 시간대는 별도로 연락드려 조율할 예정입니다</span></label><select id="l-when" name="when" data-req="1"><option value="">선택해 주세요</option><option>10월 20일(화)</option><option>10월 21일(수)</option><option>10월 22일(목)</option><option>10월 27일(화)</option><option>10월 28일(수)</option><option>10월 29일(목)</option><option>11월 3일(화)</option><option>11월 4일(수)</option><option>11월 5일(목)</option><option>11월 10일(화)</option><option>11월 11일(수)</option><option>11월 12일(목)</option><option>11월 17일(화)</option><option>11월 18일(수)</option><option>11월 19일(목)</option><option>11월 24일(화)</option><option>11월 25일(수)</option><option>11월 26일(목)</option><option>12월 8일(화)</option><option>12월 9일(수)</option><option>12월 10일(목)</option><option>12월 15일(화)</option><option>12월 16일(수)</option><option>12월 17일(목)</option><option>12월 22일(화)</option><option>12월 23일(수)</option><option>12월 24일(목)</option><option>12월 29일(화)</option><option>12월 30일(수)</option><option>12월 31일(목)</option></select><span class="msg">희망 날짜를 선택해 주세요.</span></div>
+        <div class="field"><span class="lab">듣고 싶은 내용<span class="tg opt2">선택</span><span class="hint">여러 개 선택할 수 있어요</span></span><div class="chips"><label class="chip"><input type="checkbox" name="topics" value="랜딩페이지와 사이트 바이브코딩"><span>랜딩페이지와 사이트 바이브코딩</span></label><label class="chip"><input type="checkbox" name="topics" value="프롬프팅 기초"><span>프롬프팅 기초</span></label><label class="chip"><input type="checkbox" name="topics" value="블로그와 카드뉴스 자동화"><span>블로그와 카드뉴스 자동화</span></label></div><input type="text" name="topicsEtc" placeholder="그 외에 듣고 싶은 주제가 있다면 적어 주세요" style="margin-top:12px"></div>
+        <div class="field"><label for="l-memo">전하실 말씀<span class="tg opt2">선택</span></label><textarea id="l-memo" name="memo" placeholder="궁금한 점이나 바라시는 점을 적어 주세요"></textarea></div>
+        <label class="consent"><input type="checkbox" name="consent" data-req="1"> <span>개인정보 수집과 이용에 동의해요<span class="tg req">필수</span></span></label>
         <p class="cnote">수집 항목: 학원명, 담당자 이름, 휴대폰 번호<br>이용 목적: 강의 일정 조율과 안내<br>보유 기간: 목적 달성 후 지체 없이 파기<br>동의를 거부할 수 있으나, 이 경우 선물 강의를 받으실 수 없어요.</p>
         <button type="submit" class="submit" data-label="선물 받기">선물 받기</button>
       </form>
@@ -469,17 +481,16 @@ section.s{padding:0}
     <div data-body>
       <div class="notice" role="status" aria-live="polite"></div>
       <form class="f" id="f-inq" novalidate data-form="review">
-        <div class="field"><label for="i-academy">학원명</label><input type="text" id="i-academy" name="academy" data-req="1" placeholder="에듀리치 수학학원" autocomplete="organization"><span class="msg">학원명을 입력해 주세요.</span></div>
-        <div class="field"><label for="i-name">이름</label><input type="text" id="i-name" name="name" data-req="1" placeholder="홍길동" autocomplete="name"><span class="msg">이름을 입력해 주세요.</span></div>
-        <div class="field"><span class="lab">오늘 행사는 어땠나요</span>
-          <div class="rating" role="radiogroup" aria-label="만족도">
-            <label class="chip"><input type="radio" name="rating" value="1"><span>1</span></label><label class="chip"><input type="radio" name="rating" value="2"><span>2</span></label><label class="chip"><input type="radio" name="rating" value="3"><span>3</span></label><label class="chip"><input type="radio" name="rating" value="4"><span>4</span></label><label class="chip"><input type="radio" name="rating" value="5"><span>5</span></label>
-          </div><div class="rcap"><span>아쉬웠어요</span><span>정말 좋았어요</span></div></div>
-        <div class="field"><label for="i-good">오늘 좋았던 점</label><textarea id="i-good" name="good" placeholder="기억에 남는 장면이나 도움이 된 내용을 적어 주세요"></textarea></div>
-        <div class="field"><label for="i-bad">아쉬웠던 점</label><textarea id="i-bad" name="bad" placeholder="솔직하게 적어 주셔도 괜찮아요"></textarea></div>
-        <label class="consent"><input type="checkbox" name="consent" data-req="1"> (필수) 개인정보 수집과 이용에 동의해요</label>
-        <label class="consent"><input type="checkbox" name="publicOk" value="yes"> 후기를 이름 없이 소개 자료에 써도 좋아요 <span style="color:var(--faint);margin-left:4px">선택</span></label>
-        <p class="cnote">수집 항목: 학원명, 이름<br>이용 목적: 후기 반영과 다음 행사 준비<br>보유 기간: 목적 달성 후 지체 없이 파기<br>동의를 거부할 수 있으나, 이 경우 후기를 남기실 수 없어요.</p>
+        <div class="field"><span class="lab">오늘 행사는 몇 점인가요<span class="tg req">필수</span><span class="hint">10점 만점으로 골라 주세요</span></span>
+          <div class="rating r10" role="radiogroup" aria-label="행사 점수"><label class="chip"><input type="radio" name="score" value="1" data-req="1"><span>1</span></label><label class="chip"><input type="radio" name="score" value="2"><span>2</span></label><label class="chip"><input type="radio" name="score" value="3"><span>3</span></label><label class="chip"><input type="radio" name="score" value="4"><span>4</span></label><label class="chip"><input type="radio" name="score" value="5"><span>5</span></label><label class="chip"><input type="radio" name="score" value="6"><span>6</span></label><label class="chip"><input type="radio" name="score" value="7"><span>7</span></label><label class="chip"><input type="radio" name="score" value="8"><span>8</span></label><label class="chip"><input type="radio" name="score" value="9"><span>9</span></label><label class="chip"><input type="radio" name="score" value="10"><span>10</span></label></div><div class="rcap"><span>아쉬웠어요</span><span>정말 좋았어요</span></div></div>
+        <div class="field"><span class="lab">이런 자리가 또 열린다면 참석하실 건가요<span class="tg req">필수</span></span>
+          <div class="chips"><label class="chip"><input type="radio" name="again" value="꼭 참석할게요" data-req="1"><span>꼭 참석할게요</span></label><label class="chip"><input type="radio" name="again" value="일정이 맞으면 참석할게요"><span>일정이 맞으면 참석할게요</span></label><label class="chip"><input type="radio" name="again" value="잘 모르겠어요"><span>잘 모르겠어요</span></label></div></div>
+        <div class="field"><span class="lab">다음엔 어떤 주제를 다뤘으면 하시나요<span class="tg opt2">선택</span><span class="hint">여러 개 선택할 수 있어요</span></span>
+          <div class="chips"><label class="chip"><input type="checkbox" name="nextTopics" value="AI 실무 활용 심화"><span>AI 실무 활용 심화</span></label><label class="chip"><input type="checkbox" name="nextTopics" value="학원 마케팅과 브랜딩"><span>학원 마케팅과 브랜딩</span></label><label class="chip"><input type="checkbox" name="nextTopics" value="학원 운영 자동화"><span>학원 운영 자동화</span></label><label class="chip"><input type="checkbox" name="nextTopics" value="입시와 교육 트렌드"><span>입시와 교육 트렌드</span></label><label class="chip"><input type="checkbox" name="nextTopics" value="학원 경영과 재무"><span>학원 경영과 재무</span></label></div>
+          <input type="text" name="nextTopicsEtc" placeholder="그 외에 다뤘으면 하는 주제를 적어 주세요" style="margin-top:12px"></div>
+        <div class="field"><span class="lab">어떤 연사분을 모시면 좋을까요<span class="tg opt2">선택</span><span class="hint">여러 개 선택할 수 있어요</span></span>
+          <div class="chips"><label class="chip"><input type="checkbox" name="speakers" value="투자 전문가"><span>투자 전문가</span></label><label class="chip"><input type="checkbox" name="speakers" value="AI 전문가"><span>AI 전문가</span></label><label class="chip"><input type="checkbox" name="speakers" value="학원 경영 전문가"><span>학원 경영 전문가</span></label><label class="chip"><input type="checkbox" name="speakers" value="입시 전문가"><span>입시 전문가</span></label><label class="chip"><input type="checkbox" name="speakers" value="세무와 노무 전문가"><span>세무와 노무 전문가</span></label></div>
+          <input type="text" name="speakersEtc" placeholder="예: 투자 전문가, AI 전문가처럼 적어 주세요" style="margin-top:12px"></div>
         <button type="submit" class="submit" data-label="후기 남기기">후기 남기기</button>
       </form>
     </div>
@@ -579,7 +590,7 @@ var ATTENDEES = [
   var list=ATTENDEES.slice().sort(function(a,b){return a.academy.localeCompare(b.academy,'ko')});
   function esc(t){return String(t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
   function draw(term){term=(term||'').trim().toLowerCase();var rows=list.filter(function(p){return !term||(p.academy+' '+p.name).toLowerCase().indexOf(term)>-1});grid.innerHTML=rows.map(function(p){var ch=(p.academy.replace(/^\(주\)|^주식회사\s*/,'')||p.name).trim().charAt(0);return '<div class="p"><div class="av" aria-hidden="true">'+esc(ch)+'</div><div><b>'+esc(p.academy)+'</b><span>'+esc(p.name)+'<em>'+esc(p.title||'대표')+'님</em></span></div></div>'}).join('');emptyEl.hidden=!!rows.length}
-  qEl.addEventListener('input',function(){draw(qEl.value)});
+  if(qEl)qEl.addEventListener('input',function(){draw(qEl.value)});
   cnt.hidden=false;cnum.textContent=list.length;draw('');
   route(true);
 
@@ -629,7 +640,7 @@ var ATTENDEES = [
       e.preventDefault();notice.classList.remove('show');var bad=null;
       form.querySelectorAll('[data-req]').forEach(function(el){
         var blk=el.closest('.blk');if(blk&&!blk.classList.contains('on')){setErr(el,false);return}
-        var req=el.getAttribute('data-req'),need=req==='1',v=el.type==='checkbox'?el.checked:el.value.trim(),ok=!need||!!v;
+        var req=el.getAttribute('data-req'),need=req==='1',v=el.type==='checkbox'?el.checked:(el.type==='radio'?!!form.querySelector('input[name="'+el.name+'"]:checked'):el.value.trim()),ok=!need||!!v;
         if(ok&&el.type==='tel'&&el.value.trim()&&el.value.replace(/\D/g,'').length<10)ok=false;
         setErr(el,!ok);if(!ok&&!bad)bad=el});
       if(bad){(bad.tagName==='SELECT'?bad.parentNode.querySelector('.dd-btn'):bad).focus();show('표시된 항목을 확인해 주세요.');return}
@@ -642,9 +653,6 @@ var ATTENDEES = [
     });
   });
 })();
-(function(){var sel=document.getElementById('l-topic'),etc=document.getElementById('l-topic-etc'),hid=document.getElementById('l-topics');if(!sel)return;
-function sync(){var v=sel.value;etc.hidden=v!=='그 외';hid.value=v==='그 외'?('그 외: '+etc.value.trim()):v}
-sel.addEventListener('change',function(){sync();if(!etc.hidden)etc.focus()});etc.addEventListener('input',sync);sync()})();
 </script>
 
 </body>
