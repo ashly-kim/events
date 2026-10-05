@@ -331,6 +331,11 @@ section.s{padding:0}
 .view .tcard .logo b{color:#16192A}
 .view .tcard .logo b span{color:#3B82F6!important}
 .tcard .logo b{gap:0}
+.view .consent input{background:#fff;box-shadow:inset 0 0 0 1.5px #AEB4C2}
+.view .consent input:checked{background:var(--blue);box-shadow:none}
+.p .av{display:none}
+.p b{font-size:17px}
+.p span{font-size:16px}
 </style>
 </head>
 <body>
@@ -442,14 +447,11 @@ section.s{padding:0}
         <div class="field"><label for="l-name">담당자 이름</label><input type="text" id="l-name" name="name" data-req="1" placeholder="홍길동" autocomplete="name"><span class="msg">이름을 입력해 주세요.</span></div>
         <div class="field"><label for="l-phone">휴대폰 번호</label><input type="tel" id="l-phone" class="phone" name="phone" data-req="1" placeholder="010-0000-0000" inputmode="numeric" autocomplete="tel"><span class="msg">휴대폰 번호를 확인해 주세요.</span></div>
         <div class="field"><label for="l-staff">강의를 들을 선생님과 직원 수</label><select id="l-staff" name="staff" data-req="1"><option value="">선택해 주세요</option><option>5명 이하</option><option>6명에서 10명</option><option>11명에서 20명</option><option>21명 이상</option></select><span class="msg">인원을 선택해 주세요.</span></div>
-        <div class="field"><label for="l-when">희망 날짜 <span class="opt">화, 수, 목요일 중 선택해요</span></label><select id="l-when" name="when" data-req="1"><option value="">선택해 주세요</option><option>10월 20일(화)</option><option>10월 21일(수)</option><option>10월 22일(목)</option><option>10월 27일(화)</option><option>10월 28일(수)</option><option>10월 29일(목)</option><option>11월 3일(화)</option><option>11월 4일(수)</option><option>11월 5일(목)</option><option>11월 10일(화)</option><option>11월 11일(수)</option><option>11월 12일(목)</option><option>11월 17일(화)</option><option>11월 18일(수)</option><option>11월 19일(목)</option><option>11월 24일(화)</option><option>11월 25일(수)</option><option>11월 26일(목)</option><option>12월 8일(화)</option><option>12월 9일(수)</option><option>12월 10일(목)</option><option>12월 15일(화)</option><option>12월 16일(수)</option><option>12월 17일(목)</option><option>12월 22일(화)</option><option>12월 23일(수)</option><option>12월 24일(목)</option><option>12월 29일(화)</option><option>12월 30일(수)</option><option>12월 31일(목)</option></select><span class="msg">희망 날짜를 선택해 주세요.</span></div>
-        <div class="field"><span class="lab">듣고 싶은 내용 <span class="opt">여러 개 선택할 수 있어요</span></span><div class="chips">
-          <label class="chip"><input type="checkbox" name="topics" value="바이브코딩"><span>랜딩페이지와 사이트 바이브코딩</span></label>
-          <label class="chip"><input type="checkbox" name="topics" value="프롬프팅 기초"><span>프롬프팅 기초</span></label>
-          <label class="chip"><input type="checkbox" name="topics" value="블로그와 카드뉴스 자동화"><span>블로그와 카드뉴스 자동화</span></label></div></div>
+        <div class="field"><label for="l-when">희망 날짜 <span class="opt">요일만 선택해 주시면 시간대는 별도로 연락드려 조율할 예정입니다</span></label><select id="l-when" name="when" data-req="1"><option value="">선택해 주세요</option><option>10월 20일(화)</option><option>10월 21일(수)</option><option>10월 22일(목)</option><option>10월 27일(화)</option><option>10월 28일(수)</option><option>10월 29일(목)</option><option>11월 3일(화)</option><option>11월 4일(수)</option><option>11월 5일(목)</option><option>11월 10일(화)</option><option>11월 11일(수)</option><option>11월 12일(목)</option><option>11월 17일(화)</option><option>11월 18일(수)</option><option>11월 19일(목)</option><option>11월 24일(화)</option><option>11월 25일(수)</option><option>11월 26일(목)</option><option>12월 8일(화)</option><option>12월 9일(수)</option><option>12월 10일(목)</option><option>12월 15일(화)</option><option>12월 16일(수)</option><option>12월 17일(목)</option><option>12월 22일(화)</option><option>12월 23일(수)</option><option>12월 24일(목)</option><option>12월 29일(화)</option><option>12월 30일(수)</option><option>12월 31일(목)</option></select><span class="msg">희망 날짜를 선택해 주세요.</span></div>
+        <div class="field"><label for="l-topic">듣고 싶은 내용 <span class="opt">선택</span></label><select id="l-topic"><option value="">선택해 주세요</option><option>랜딩페이지와 사이트 바이브코딩</option><option>프롬프팅 기초</option><option>블로그와 카드뉴스 자동화</option><option value="그 외">그 외 (직접 입력)</option></select><input type="text" id="l-topic-etc" placeholder="듣고 싶은 주제를 적어 주세요" hidden style="margin-top:10px"><input type="hidden" name="topics" id="l-topics"></div>
         <div class="field"><label for="l-memo">전하실 말씀 <span class="opt">선택</span></label><textarea id="l-memo" name="memo" placeholder="궁금한 점이나 바라시는 점을 적어 주세요"></textarea></div>
         <label class="consent"><input type="checkbox" name="consent" data-req="1"> (필수) 개인정보 수집과 이용에 동의해요</label>
-        <p class="cnote">수집 항목: 학원명, 담당자 이름, 휴대폰 번호, 인원, 희망 날짜, 전하신 말씀<br>이용 목적: 강의 일정 조율과 안내<br>보유 기간: 목적 달성 후 지체 없이 파기<br>동의를 거부할 수 있으나, 이 경우 선물 강의를 받으실 수 없어요.</p>
+        <p class="cnote">수집 항목: 학원명, 담당자 이름, 휴대폰 번호<br>이용 목적: 강의 일정 조율과 안내<br>보유 기간: 목적 달성 후 지체 없이 파기<br>동의를 거부할 수 있으나, 이 경우 선물 강의를 받으실 수 없어요.</p>
         <button type="submit" class="submit" data-label="선물 받기">선물 받기</button>
       </form>
     </div>
@@ -480,7 +482,7 @@ section.s{padding:0}
         <div class="field"><label for="i-bad">아쉬웠던 점</label><textarea id="i-bad" name="bad" placeholder="솔직하게 적어 주셔도 괜찮아요"></textarea></div>
         <label class="consent"><input type="checkbox" name="consent" data-req="1"> (필수) 개인정보 수집과 이용에 동의해요</label>
         <label class="consent"><input type="checkbox" name="publicOk" value="yes"> 후기를 이름 없이 소개 자료에 써도 좋아요 <span style="color:var(--faint);margin-left:4px">선택</span></label>
-        <p class="cnote">수집 항목: 학원명, 이름, 후기 내용<br>이용 목적: 후기 반영과 다음 행사 준비<br>보유 기간: 목적 달성 후 지체 없이 파기<br>동의를 거부할 수 있으나, 이 경우 후기를 남기실 수 없어요.</p>
+        <p class="cnote">수집 항목: 학원명, 이름<br>이용 목적: 후기 반영과 다음 행사 준비<br>보유 기간: 목적 달성 후 지체 없이 파기<br>동의를 거부할 수 있으나, 이 경우 후기를 남기실 수 없어요.</p>
         <button type="submit" class="submit" data-label="후기 남기기">후기 남기기</button>
       </form>
     </div>
@@ -505,7 +507,7 @@ var FORM_ENDPOINT = '';
 var ATTENDEES = [
   {"academy": "주식회사 캐슬에듀", "name": "김태관", "title": "대표"},
   {"academy": "SMC 학원", "name": "이성훈", "title": "대표"},
-  {"academy": "5A교육", "name": "김명범", "title": "대표"},
+  {"academy": "5A아카데미", "name": "김명범", "title": "대표"},
   {"academy": "바른학원", "name": "이승현", "title": "대표"},
   {"academy": "페르마학원", "name": "권기웅", "title": "대표"},
   {"academy": "HLS교육", "name": "홍세미", "title": "대표"},
@@ -515,9 +517,9 @@ var ATTENDEES = [
   {"academy": "올마이티캠퍼스", "name": "여호원", "title": "대표"},
   {"academy": "URL", "name": "정지웅", "title": "대표"},
   {"academy": "(주)리딩컴퍼니", "name": "김광운", "title": "대표"},
-  {"academy": "이투스", "name": "곽용호", "title": "대표"},
+  {"academy": "5A아카데미", "name": "곽용호", "title": "본부장"},
   {"academy": "모티전", "name": "송미소", "title": "이사"},
-  {"academy": "메쓰홀릭", "name": "강지훈", "title": "대표"},
+  {"academy": "매쓰홀릭", "name": "강지훈", "title": "대표"},
   {"academy": "진학학원", "name": "이문열", "title": "대표"},
   {"academy": "SNT학원", "name": "이지영", "title": "대표"},
   {"academy": "M-Code", "name": "박순우", "title": "대표"},
@@ -637,6 +639,9 @@ var ATTENDEES = [
     });
   });
 })();
+(function(){var sel=document.getElementById('l-topic'),etc=document.getElementById('l-topic-etc'),hid=document.getElementById('l-topics');if(!sel)return;
+function sync(){var v=sel.value;etc.hidden=v!=='그 외';hid.value=v==='그 외'?('그 외: '+etc.value.trim()):v}
+sel.addEventListener('change',function(){sync();if(!etc.hidden)etc.focus()});etc.addEventListener('input',sync);sync()})();
 </script>
 
 </body>
