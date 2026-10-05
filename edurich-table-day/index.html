@@ -66,15 +66,6 @@ body.sheet-open{overflow:hidden}
 body.home .foot{display:none}
 body.home{overflow-x:hidden}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-/* ---------- 참석자 잠금 ---------- */
-.lockbox{margin-top:30px;background:var(--card);border-radius:22px;padding:34px 26px 30px;text-align:center;color:var(--blue-l)}
-.lockbox .lk-t{font-size:20px;font-weight:700;letter-spacing:-.02em;color:#fff;margin:14px 0 0}
-.lockbox .lk-d{font-size:14.5px;line-height:1.75;color:var(--sub);margin:10px auto 0;max-width:420px}
-.lockbox form{display:flex;gap:8px;margin:22px auto 0;max-width:380px}
-.lockbox input{flex:1;min-width:0;min-height:52px;padding:0 20px;border:0;border-radius:99px;background:rgba(255,255,255,.08);color:#fff;font-family:var(--en);font-size:17px;font-weight:600;letter-spacing:.2em;text-align:center;text-transform:uppercase}
-.lockbox input::placeholder{color:var(--faint);letter-spacing:.04em;font-family:var(--sans);font-weight:400;text-transform:none}
-.lockbox input:focus{outline:2px solid var(--blue-l);outline-offset:2px}
-.lockbox .btn{min-height:52px;padding:0 24px}
 .code-err{font-size:13.5px;color:#FFB4BA;margin:14px 0 0}
 /* ---------- 섹션 공통 ---------- */
 section.s{padding:0}
@@ -300,6 +291,34 @@ section.s{padding:0}
 .tip li{padding-left:.2em;line-height:1.75}
 .tip li+li{margin-top:10px}
 .tip li::marker{color:var(--blue-l)}
+/* ---------- 시트 흰색 테마 ---------- */
+.view{background:#fff;color:#16192A;--txt:#16192A;--sub:#5B6072;--faint:#8B90A0;--card:#F5F7FA;--card2:#ECEFF4;--line:#E8E8E8;--blue-l:#2563EB}
+.view .sh-head{background:#fff}
+.view .grab{background:#D5D8DF}
+.view .sh-in .ttl{color:#16192A}
+.view .x{background:#F0F2F6;color:#16192A}
+.view .x:hover{background:#E4E7ED}
+.view .slot .t,.view .slot .c .order,.view .count b,.view .both-note b,.view .dd-list li[aria-selected=true]{color:#16192A}
+.view .mini span,.view .slot .c .lk a,.view .who div,.view .chip span,.view .consent input{background:#ECEFF4;color:#16192A}
+.view .slot .c .lk a:hover{background:#E1E5EC}
+.view .mat .go a.alt{background:#ECEFF4;color:#16192A}
+.view .step-no i{background:rgba(59,130,246,.14);color:#2563EB}
+.view .chip input:checked+span{background:var(--blue);color:#fff}
+.view{--faint:#737888}
+.view .tip b,.view .p b,.view .who .tt,.view .welcome-msg{color:#16192A}
+.view .p span{color:#3D4256}
+.view .who .o{color:#2563EB}
+.view .who .ds,.view .panel .d{color:#5B6072}
+.view .field>label,.view .field>.lab,.view .consent{color:#16192A}
+.view .field input[type=text],.view .field input[type=tel],.view .field textarea,.view .dd-btn{background:#fff;box-shadow:inset 0 0 0 1px #D5D9E2;color:#16192A}
+.view .field input::placeholder,.view .field textarea::placeholder,.view .dd-btn .ph{color:#8B90A0}
+.view .dd-list{background:#fff;border-color:#E8E8E8;box-shadow:0 18px 40px rgba(22,25,42,.14)}
+.view .dd-list li[aria-selected=true]{color:#2563EB}
+.view .field .msg{color:#D93445}
+.view .notice{background:#FDECEE;color:#C22F3F}
+.view .chip span{background:#ECEFF4;color:#16192A}
+.view .field .opt,.view .cnote,.view .rcap,.view .rcap span{color:#5B6072}
+.view .dd-btn .ph{color:#6B7080}
 </style>
 </head>
 <body>
