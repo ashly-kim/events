@@ -22,7 +22,7 @@ a{color:inherit}
 img{display:block;max-width:100%}
 .wrap{max-width:880px;margin:0 auto;padding:0 22px}
 /* ---------- 히어로 ---------- */
-.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 20px 26px;overflow:hidden;background:radial-gradient(ellipse 80% 55% at 50% 28%,rgba(37,99,235,.30),transparent 70%),radial-gradient(ellipse 60% 40% at 88% 100%,rgba(59,130,246,.16),transparent 70%),var(--bg)}
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 20px 26px;overflow:hidden;background:radial-gradient(ellipse 80% 55% at 50% 28%,rgba(37,99,235,.30),transparent 70%),var(--bg)}
 .hero .orb{position:absolute;left:50%;top:2%;width:min(125vw,820px);aspect-ratio:1;margin-left:calc(min(125vw,820px)/-2);border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.36) 0%,rgba(59,130,246,.1) 38%,transparent 66%);pointer-events:none}
 .stage{position:relative;width:min(64vw,360px,34svh);aspect-ratio:1;margin-bottom:2px}
 .stage .fb{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
@@ -319,6 +319,13 @@ section.s{padding:0}
 .view .chip span{background:#ECEFF4;color:#16192A}
 .view .field .opt,.view .cnote,.view .rcap,.view .rcap span{color:#5B6072}
 .view .dd-btn .ph{color:#6B7080}
+/* ---------- 메뉴 버튼 흰색 ---------- */
+.mbtn,.mbtn.pri,.mbtn.giftbtn{background:#fff;color:#16192A}
+.mbtn:hover,.mbtn.pri:hover{background:#F0F2F6}
+.mbtn .ic,.mbtn.pri .ic{color:#2563EB}
+.mbtn:focus-visible{outline-color:#fff}
+.mbtn,.mbtn.pri,.mbtn.giftbtn{background:rgba(255,255,255,.86)}
+.mbtn:hover,.mbtn.pri:hover{background:rgba(255,255,255,.94)}
 </style>
 </head>
 <body>
