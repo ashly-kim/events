@@ -81,36 +81,36 @@ section.s{padding:0}
 .tables{display:grid;gap:12px;margin-top:44px}
 @media (min-width:700px){.tables{grid-template-columns:repeat(3,1fr)}}
 .tcard{background:var(--card);border-radius:18px;padding:26px 24px 28px;position:relative;overflow:hidden}
-.tcard .no{font-family:var(--en);font-size:11px;font-weight:600;letter-spacing:.28em;color:var(--blue-l)}
+.tcard .no{font-family:var(--en);font-size:13px;font-weight:600;letter-spacing:.28em;color:var(--blue-l)}
 .tcard .logo{height:34px;margin-top:20px;display:flex;align-items:center}
 .tcard .logo img{height:30px;width:auto}
 .tcard .logo b{font-size:19px;letter-spacing:-.02em;font-weight:700;display:flex;align-items:center;gap:8px}
-.tcard h3{font-size:19px;font-weight:700;letter-spacing:-.02em;margin:18px 0 0}
-.tcard p{font-size:14.5px;line-height:1.7;color:var(--sub);margin:8px 0 0}
+.tcard h3{font-size:22px;font-weight:700;letter-spacing:-.02em;margin:18px 0 0}
+.tcard p{font-size:17.5px;line-height:1.72;color:var(--sub);margin:8px 0 0}
 .tcard.hl{background:linear-gradient(160deg,rgba(37,99,235,.42),rgba(16,32,63,.7))}
-.stamp-note{margin-top:18px;font-size:14px;color:var(--sub);display:flex;align-items:center;gap:10px}
+.stamp-note{margin-top:18px;font-size:16px;color:var(--sub);display:flex;align-items:center;gap:10px}
 .stamp-note i{width:9px;height:9px;border-radius:50%;background:var(--blue);flex-shrink:0}
 /* ---------- 타임테이블 ---------- */
 .tl{margin-top:44px;position:relative;padding-left:0}
-.slot{display:grid;grid-template-columns:96px 1fr;gap:18px;position:relative;padding-bottom:18px}
-@media (max-width:520px){.slot{grid-template-columns:70px 1fr;gap:14px}}
-.slot .t{font-family:var(--en);font-weight:600;font-size:15px;letter-spacing:.02em;color:#fff;padding-top:22px;line-height:1.5}
-.slot .t small{display:block;font-size:12px;color:var(--faint);font-weight:500}
+.slot{display:grid;grid-template-columns:116px 1fr;gap:18px;position:relative;padding-bottom:18px}
+@media (max-width:520px){.slot{grid-template-columns:86px 1fr;gap:12px}}
+.slot .t{font-family:var(--en);font-weight:600;font-size:20px;letter-spacing:.01em;color:#fff;padding-top:20px;line-height:1.4}
+.slot .t small{display:block;margin-top:2px;font-size:14.5px;color:var(--faint);font-weight:500}
 .slot .c{background:var(--card);border-radius:18px;padding:20px 20px;display:flex;gap:16px;align-items:center}
 .slot .c img.ph{width:64px;height:64px;border-radius:14px;object-fit:cover;flex-shrink:0}
-.slot .c .n{font-size:18px;font-weight:700;letter-spacing:-.02em;margin:0}
-.slot .c .n small{font-weight:500;font-size:13.5px;color:var(--sub);margin-left:6px}
-.slot .c .r{font-size:14px;line-height:1.65;color:var(--sub);margin:5px 0 0}
+.slot .c .n{font-size:21px;font-weight:700;letter-spacing:-.02em;margin:0}
+.slot .c .n small{font-weight:500;font-size:15px;color:var(--sub);margin-left:6px}
+.slot .c .r{font-size:16.5px;line-height:1.7;color:var(--sub);margin:5px 0 0}
 .slot.last .c{background:linear-gradient(160deg,rgba(37,99,235,.38),rgba(16,32,63,.7));flex-direction:column;align-items:flex-start;gap:6px}
-.slot.last .c .n{font-size:19px}
+.slot.last .c .n{font-size:22px}
 .mini{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.mini span{font-size:13.5px;font-weight:600;padding:8px 14px;border-radius:99px;background:rgba(255,255,255,.1)}
+.mini span{font-size:15px;font-weight:600;padding:8px 14px;border-radius:99px;background:rgba(255,255,255,.1)}
 .slot .c .lk{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.slot .c .lk a{font-size:13.5px;font-weight:600;padding:8px 14px;border-radius:99px;background:rgba(255,255,255,.1);color:#fff;text-decoration:none;transition:background .25s}
+.slot .c .lk a{font-size:15px;font-weight:600;padding:8px 14px;border-radius:99px;background:rgba(255,255,255,.1);color:#fff;text-decoration:none;transition:background .25s}
 .slot .c .lk a:hover{background:rgba(255,255,255,.18)}
 .mini.seq span+span::before{content:'\2192';margin-right:.55em;opacity:.55}
 .slot .c .order{margin-top:10px;color:#fff;font-weight:600}
-.note{font-size:13px;color:var(--faint);margin:6px 0 0}
+.note{font-size:14.5px;color:var(--faint);margin:6px 0 0}
 /* ---------- 자료 ---------- */
 .mats{display:grid;gap:12px;margin-top:40px}
 @media (min-width:700px){.mats{grid-template-columns:repeat(2,1fr)}}
@@ -216,16 +216,16 @@ section.s{padding:0}
 .step-no{display:inline-flex;align-items:center;gap:8px;font-family:var(--en);font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--blue-l);margin:0 0 14px}
 .step-no i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(59,130,246,.22);letter-spacing:0;font-size:12px;color:#fff}
 .gift{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;background:var(--blue);color:#fff;padding:5px 12px;border-radius:99px;letter-spacing:.02em;margin-left:8px;vertical-align:middle;position:relative;top:-2px}
-.both-note{margin:26px 0 0;display:flex;gap:12px;align-items:flex-start;background:rgba(59,130,246,.12);border-radius:14px;padding:16px 18px;font-size:14.5px;line-height:1.7;color:var(--txt)}
+.both-note{margin:26px 0 0;display:flex;gap:12px;align-items:flex-start;background:rgba(59,130,246,.12);border-radius:14px;padding:18px 20px;font-size:17px;line-height:1.72;color:var(--txt)}
 .both-note b{color:#fff;font-weight:700}
-.both-note i{flex-shrink:0;width:8px;height:8px;border-radius:50%;background:var(--blue-l);margin-top:9px}
+.both-note i{flex-shrink:0;width:8px;height:8px;border-radius:50%;background:var(--blue-l);margin-top:11px}
 /* ---------- 입장 안내 ---------- */
 .steps{display:grid;gap:12px;margin-top:40px}
 @media (min-width:700px){.steps{grid-template-columns:repeat(3,1fr)}}
 .step{background:var(--card);border-radius:18px;padding:24px 22px 26px}
 .step .fl{display:inline-flex;align-items:center;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.14em;padding:6px 12px;border-radius:99px;background:rgba(59,130,246,.22);color:var(--blue-l)}
-.step h3{font-size:19px;font-weight:700;letter-spacing:-.02em;margin:16px 0 0}
-.step p{font-size:14.5px;line-height:1.75;color:var(--sub);margin:8px 0 0}
+.step h3{font-size:22px;font-weight:700;letter-spacing:-.02em;margin:16px 0 0}
+.step p{font-size:17.5px;line-height:1.72;color:var(--sub);margin:8px 0 0}
 .step{position:relative}
 .step:not(:last-child)::after{content:"";position:absolute;z-index:2;width:28px;height:28px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 5l7 7-7 7'/%3E%3C/svg%3E") center/14px no-repeat;left:50%;bottom:-20px;transform:translateX(-50%) rotate(90deg)}
 @media (min-width:700px){.step:not(:last-child)::after{left:auto;bottom:auto;right:-20px;top:50%;transform:translateY(-50%)}}
@@ -334,8 +334,8 @@ section.s{padding:0}
 .view .consent input{background:#fff;box-shadow:inset 0 0 0 1.5px #AEB4C2}
 .view .consent input:checked{background:var(--blue);box-shadow:none}
 .p .av{display:none}
-.p b{font-size:17px}
-.p span{font-size:16px}
+.p b{font-size:22px}
+.p span{font-size:21px}
 .rating.r10{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 .rating.r10 .chip span{width:100%}
 .view .chip input:checked+span,.view .rating .chip input:checked+span{background:var(--blue)!important;color:#fff!important;font-weight:700}
@@ -354,6 +354,16 @@ section.s{padding:0}
 .view .field>label,.view .field>.lab{font-size:18px;line-height:1.45;letter-spacing:-.01em}
 .view .field .hint{font-size:14px;margin-top:5px}
 .view .field>label .tg,.view .field>.lab .tg{font-size:12px;vertical-align:2px}
+/* 참석자 명단 키우기 */
+.view .who{gap:12px}
+.view .who div{padding:18px 20px}
+.view .who .o{font-size:16px;letter-spacing:.01em}
+.view .who .tt{font-size:22px;margin-top:5px}
+.view .who .ds{font-size:16.5px;line-height:1.6}
+.view .count{font-size:15px}
+.view .count b{font-size:32px}
+.field input.etc{display:none!important}
+.field input.etc.on{display:block!important}
 </style>
 </head>
 <body>
@@ -410,8 +420,8 @@ section.s{padding:0}
     <div class="slot reveal"><div class="t">13:00<small>~ 13:40</small></div><div class="c"><img class="ph" src="assets/sp_lee.jpg" alt="이성연 대표님"><div><p class="n">이성연 대표님</p><p class="r">에듀리치브레인 대표님<br>전) 학원 마케팅 전문 대행사 마케팅 다이어트 대표님</p><div class="lk"><a href="https://edurichbrain.ai.kr/" target="_blank" rel="noopener noreferrer">에듀리치브레인</a><a href="https://www.marketingdiet.net/" target="_blank" rel="noopener noreferrer">마케팅 다이어트</a></div></div></div></div>
     <div class="slot reveal"><div class="t">13:40<small>~ 13:50</small></div><div class="c"><div><p class="n">Q&amp;A와 이후 안내</p><p class="r">진행: 조경이 대표님</p></div></div></div>
     <div class="slot reveal"><div class="t">13:50</div><div class="c"><div><p class="n">단체 사진</p><p class="r">세션이 모두 끝나면 1층에서 다 함께 사진을 찍어요.</p></div></div></div>
-    <div class="slot reveal"><div class="t">이후<small>~ 14:40</small></div><div class="c"><div><p class="n">스탬프 투어</p><p class="r" style="margin:0">출석, 퀴즈 미션, 리포트 생성까지 기업별 테이블을 돌며 학원에 입장하는 학생의 입장에서 기능들을 간단히 체험하고, 각 테이블별 스탬프를 받아보세요. 책자에 스탬프 세 개를 다 채우시는 분들을 위해 선물이 준비되어 있어요!</p><p class="r order">스탬프 투어는 꼭 아래 순서대로 진행해 주세요. 학생의 입장에서 흐름에 맞게 체험하실 수 있어요.</p><div class="mini seq"><span>1 TOSS</span><span>2 CRABIT</span><span>3 EDURICHBRAIN</span></div></div></div></div>
-    <div class="slot reveal"><div class="t">이후<small>~ 14:40</small></div><div class="c"><div><p class="n">식사 및 네트워킹</p><p class="r">식사하시면서 다른 원장님들과 자유롭게 이야기를 나눠 보세요. 1층과 2층 어디서든 편하게 이용하실 수 있어요.</p></div></div></div>
+    <div class="slot reveal"><div class="t">이후<small>~ 14:50</small></div><div class="c"><div><p class="n">스탬프 투어</p><p class="r" style="margin:0">출석, 퀴즈 미션, 리포트 생성까지 기업별 테이블을 돌며 학원에 입장하는 학생의 입장에서 기능들을 간단히 체험하고, 각 테이블별 스탬프를 받아보세요. 책자에 스탬프 세 개를 다 채우시는 분들을 위해 선물이 준비되어 있어요!</p><p class="r order">스탬프 투어는 꼭 아래 순서대로 진행해 주세요. 학생의 입장에서 흐름에 맞게 체험하실 수 있어요.</p><div class="mini seq"><span>1 TOSS</span><span>2 CRABIT</span><span>3 EDURICHBRAIN</span></div></div></div></div>
+    <div class="slot reveal"><div class="t"></div><div class="c"><div><p class="n">식사 및 네트워킹</p><p class="r">식사하시면서 다른 원장님들과 자유롭게 이야기를 나눠 보세요. 1층과 2층 어디서든 편하게 이용하실 수 있어요.</p></div></div></div>
   </div>
   <p class="note">시간은 예정이며 조금 달라질 수 있어요.</p>
 </div></section>
@@ -488,13 +498,13 @@ section.s{padding:0}
         <div class="field"><span class="lab">오늘 행사는 몇 점인가요<span class="tg req">필수</span><span class="hint">10점 만점으로 골라 주세요</span></span>
           <div class="rating r10" role="radiogroup" aria-label="행사 점수"><label class="chip"><input type="radio" name="score" value="1" data-req="1"><span>1</span></label><label class="chip"><input type="radio" name="score" value="2"><span>2</span></label><label class="chip"><input type="radio" name="score" value="3"><span>3</span></label><label class="chip"><input type="radio" name="score" value="4"><span>4</span></label><label class="chip"><input type="radio" name="score" value="5"><span>5</span></label><label class="chip"><input type="radio" name="score" value="6"><span>6</span></label><label class="chip"><input type="radio" name="score" value="7"><span>7</span></label><label class="chip"><input type="radio" name="score" value="8"><span>8</span></label><label class="chip"><input type="radio" name="score" value="9"><span>9</span></label><label class="chip"><input type="radio" name="score" value="10"><span>10</span></label></div><div class="rcap"><span>아쉬웠어요</span><span>정말 좋았어요</span></div></div>
         <div class="field"><span class="lab">이런 자리가 또 열린다면 참석하실 건가요<span class="tg req">필수</span></span>
-          <div class="chips"><label class="chip"><input type="radio" name="again" value="꼭 참석할게요" data-req="1"><span>꼭 참석할게요</span></label><label class="chip"><input type="radio" name="again" value="일정이 맞으면 참석할게요"><span>일정이 맞으면 참석할게요</span></label><label class="chip"><input type="radio" name="again" value="잘 모르겠어요"><span>잘 모르겠어요</span></label></div></div>
-        <div class="field"><span class="lab">다음엔 어떤 주제를 다뤘으면 하시나요<span class="tg opt2">선택</span><span class="hint">여러 개 선택할 수 있어요</span></span>
-          <div class="chips"><label class="chip"><input type="checkbox" name="nextTopics" value="AI 실무 활용 심화"><span>AI 실무 활용 심화</span></label><label class="chip"><input type="checkbox" name="nextTopics" value="학원 마케팅과 브랜딩"><span>학원 마케팅과 브랜딩</span></label><label class="chip"><input type="checkbox" name="nextTopics" value="학원 운영 자동화"><span>학원 운영 자동화</span></label><label class="chip"><input type="checkbox" name="nextTopics" value="입시와 교육 트렌드"><span>입시와 교육 트렌드</span></label><label class="chip"><input type="checkbox" name="nextTopics" value="학원 경영과 재무"><span>학원 경영과 재무</span></label></div>
-          <input type="text" name="nextTopicsEtc" placeholder="그 외에 다뤘으면 하는 주제를 적어 주세요" style="margin-top:12px"></div>
-        <div class="field"><span class="lab">어떤 연사분을 모시면 좋을까요<span class="tg opt2">선택</span><span class="hint">여러 개 선택할 수 있어요</span></span>
-          <div class="chips"><label class="chip"><input type="checkbox" name="speakers" value="투자 전문가"><span>투자 전문가</span></label><label class="chip"><input type="checkbox" name="speakers" value="AI 전문가"><span>AI 전문가</span></label><label class="chip"><input type="checkbox" name="speakers" value="학원 경영 전문가"><span>학원 경영 전문가</span></label><label class="chip"><input type="checkbox" name="speakers" value="입시 전문가"><span>입시 전문가</span></label><label class="chip"><input type="checkbox" name="speakers" value="세무와 노무 전문가"><span>세무와 노무 전문가</span></label></div>
-          <input type="text" name="speakersEtc" placeholder="예: 투자 전문가, AI 전문가처럼 적어 주세요" style="margin-top:12px"></div>
+          <div class="chips"><label class="chip"><input type="radio" name="again" value="꼭 참석할게요" data-req="1"><span>꼭 참석할게요</span></label><label class="chip"><input type="radio" name="again" value="잘 모르겠어요"><span>잘 모르겠어요</span></label><label class="chip"><input type="radio" name="again" value="별로 참석하고 싶지 않아요"><span>별로 참석하고 싶지 않아요</span></label></div></div>
+        <div class="field"><span class="lab">다음엔 어떤 주제를 다뤘으면 하시나요<span class="tg req">필수</span><span class="hint">여러 개 선택할 수 있어요</span></span>
+          <div class="chips"><label class="chip"><input type="checkbox" name="nextTopics" value="AI 실무 활용 심화" data-req="g"><span>AI 실무 활용 심화</span></label><label class="chip"><input type="checkbox" name="nextTopics" value="학원 마케팅과 브랜딩"><span>학원 마케팅과 브랜딩</span></label><label class="chip"><input type="checkbox" name="nextTopics" value="학원 운영 자동화"><span>학원 운영 자동화</span></label><label class="chip"><input type="checkbox" name="nextTopics" value="입시와 교육 트렌드"><span>입시와 교육 트렌드</span></label><label class="chip"><input type="checkbox" name="nextTopics" value="학원 경영과 재무"><span>학원 경영과 재무</span></label><label class="chip"><input type="checkbox" name="nextTopics" value="직접 입력"><span>직접 입력</span></label><label class="chip"><input type="checkbox" name="nextTopics" value="잘 모르겠어요"><span>잘 모르겠어요</span></label></div>
+          <input type="text" class="etc" name="nextTopicsEtc" data-req="e" data-for="nextTopics" placeholder="다뤘으면 하는 주제를 적어 주세요" style="margin-top:12px"></div>
+        <div class="field"><span class="lab">어떤 연사분을 모시면 좋을까요<span class="tg req">필수</span><span class="hint">여러 개 선택할 수 있어요</span></span>
+          <div class="chips"><label class="chip"><input type="checkbox" name="speakers" value="투자 전문가" data-req="g"><span>투자 전문가</span></label><label class="chip"><input type="checkbox" name="speakers" value="AI 전문가"><span>AI 전문가</span></label><label class="chip"><input type="checkbox" name="speakers" value="학원 경영 전문가"><span>학원 경영 전문가</span></label><label class="chip"><input type="checkbox" name="speakers" value="입시 전문가"><span>입시 전문가</span></label><label class="chip"><input type="checkbox" name="speakers" value="세무와 노무 전문가"><span>세무와 노무 전문가</span></label><label class="chip"><input type="checkbox" name="speakers" value="직접 입력"><span>직접 입력</span></label><label class="chip"><input type="checkbox" name="speakers" value="잘 모르겠어요"><span>잘 모르겠어요</span></label></div>
+          <input type="text" class="etc" name="speakersEtc" data-req="e" data-for="speakers" placeholder="모시고 싶은 연사분을 적어 주세요" style="margin-top:12px"></div>
         <button type="submit" class="submit" data-label="후기 남기기">후기 남기기</button>
       </form>
     </div>
@@ -644,7 +654,7 @@ var ATTENDEES = [
       e.preventDefault();notice.classList.remove('show');var bad=null;
       form.querySelectorAll('[data-req]').forEach(function(el){
         var blk=el.closest('.blk');if(blk&&!blk.classList.contains('on')){setErr(el,false);return}
-        var req=el.getAttribute('data-req'),need=req==='1',v=el.type==='checkbox'?el.checked:(el.type==='radio'?!!form.querySelector('input[name="'+el.name+'"]:checked'):el.value.trim()),ok=!need||!!v;
+        var req=el.getAttribute('data-req'),need=req==='1'||req==='g',v=el.type==='checkbox'?(req==='g'?!!form.querySelector('input[name="'+el.name+'"]:checked'):el.checked):(el.type==='radio'?!!form.querySelector('input[name="'+el.name+'"]:checked'):el.value.trim());if(req==='e'){need=!!form.querySelector('input[name="'+el.getAttribute('data-for')+'"][value="직접 입력"]:checked')}var ok=!need||!!v;
         if(ok&&el.type==='tel'&&el.value.trim()&&el.value.replace(/\D/g,'').length<10)ok=false;
         setErr(el,!ok);if(!ok&&!bad)bad=el});
       if(bad){(bad.tagName==='SELECT'?bad.parentNode.querySelector('.dd-btn'):bad).focus();show('표시된 항목을 확인해 주세요.');return}
@@ -655,6 +665,20 @@ var ATTENDEES = [
       var btn=form.querySelector('.submit');btn.disabled=true;btn.textContent='보내는 중';
       fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)}).then(function(r){if(!r.ok)throw 0;finish()}).catch(function(){btn.disabled=false;btn.textContent=btn.getAttribute('data-label');show('전송에 실패했어요. 잠시 후 다시 시도해 주세요.')});
     });
+  });
+
+  /* 후기: 직접 입력을 눌러야 입력창이 나오고, 잘 모르겠어요는 단독 선택 */
+  ['nextTopics','speakers'].forEach(function(nm){
+    var boxes=document.querySelectorAll('input[name="'+nm+'"]'),etc=document.querySelector('input[name="'+nm+'Etc"]');
+    if(!boxes.length||!etc)return;
+    boxes.forEach(function(b){b.addEventListener('change',function(){
+      if(b.checked&&b.value==='잘 모르겠어요'){boxes.forEach(function(o){if(o!==b)o.checked=false})}
+      else if(b.checked){boxes.forEach(function(o){if(o.value==='잘 모르겠어요')o.checked=false})}
+      var other=document.querySelector('input[name="'+nm+'"][value="직접 입력"]');
+      etc.classList.toggle('on',!!(other&&other.checked));
+      if(!(other&&other.checked)){etc.value='';setErr(etc,false)}
+      else etc.focus();
+    })});
   });
 })();
 </script>
