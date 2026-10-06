@@ -656,7 +656,7 @@ var ATTENDEES = [
         var blk=el.closest('.blk');if(blk&&!blk.classList.contains('on')){setErr(el,false);return}
         var req=el.getAttribute('data-req'),need=req==='1'||req==='g',v=el.type==='checkbox'?(req==='g'?!!form.querySelector('input[name="'+el.name+'"]:checked'):el.checked):(el.type==='radio'?!!form.querySelector('input[name="'+el.name+'"]:checked'):el.value.trim());if(req==='e'){need=!!form.querySelector('input[name="'+el.getAttribute('data-for')+'"][value="직접 입력"]:checked')}var ok=!need||!!v;
         if(ok&&el.type==='tel'&&el.value.trim()&&el.value.replace(/\D/g,'').length<10)ok=false;
-        setErr(el,!ok);if(!ok&&!bad)bad=el});
+        if(req==='e'&&ok)return;setErr(el,!ok);if(!ok&&!bad)bad=el});
       if(bad){(bad.tagName==='SELECT'?bad.parentNode.querySelector('.dd-btn'):bad).focus();show('표시된 항목을 확인해 주세요.');return}
       var data={};new FormData(form).forEach(function(v,k){data[k]=data[k]!==undefined?[].concat(data[k],v):v});
       data._form=form.getAttribute('data-form');data._page=document.title;data._at=new Date().toISOString();
