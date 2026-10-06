@@ -12815,7 +12815,25 @@ function EntryScreen({
       padding: '10px 22px 18px',
       background: '#fff'
     }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: 'center',
+      marginBottom: 10
+    }
   }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => onSubmit('데모', '010-0000-0000', false, ''),
+    style: {
+      background: 'none',
+      border: 'none',
+      cursor: 'pointer',
+      fontFamily: FONTS.primary,
+      fontSize: 12,
+      fontWeight: 500,
+      color: COLORS.fgMuted,
+      textDecoration: 'underline',
+      padding: '4px 8px'
+    }
+  }, "\uB370\uBAA8\uB97C \uC704\uD574 \uC2A4\uD0B5")), /*#__PURE__*/React.createElement("button", {
     disabled: !ready,
     onClick: () => onSubmit(name.trim(), phone, false, ''),
     style: {
@@ -13001,7 +13019,7 @@ function SplashScreen({
   onDone
 }) {
   useEffect(() => {
-    const t = setTimeout(onDone, 2700);
+    const t = setTimeout(onDone, 3400);
     return () => clearTimeout(t);
   }, []);
   return /*#__PURE__*/React.createElement("div", {
@@ -13047,13 +13065,39 @@ function SplashScreen({
     style: {
       position: 'absolute',
       left: '50%',
-      top: '50%',
+      top: '42%',
       width: 132,
       height: 'auto',
       transformOrigin: 'center',
       animation: 'splashRabbit .7s cubic-bezier(.22,1,.36,1) 1.45s both'
     }
-  }));
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: '50%',
+      top: '56%',
+      textAlign: 'center',
+      whiteSpace: 'nowrap',
+      fontFamily: FONTS.primary,
+      color: '#fff',
+      animation: 'splashTag .55s cubic-bezier(.22,1,.36,1) 2.05s both'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 14,
+      fontWeight: 500,
+      opacity: .92,
+      letterSpacing: '-0.01em'
+    }
+  }, "\uB9E4\uC77C\uC758 \uB178\uB825\uC774 \uC7A5\uD559\uAE08\uC774 \uB418\uB294"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 28,
+      fontWeight: 700,
+      letterSpacing: '-0.03em',
+      lineHeight: 1.25,
+      marginTop: 6
+    }
+  }, "\uB0B4 \uC190\uC548\uC758 \uC7A5\uD559\uCE74\uB4DC")));
 }
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
